@@ -19,7 +19,7 @@ module.exports = {
     {
       files: ['*.html'],
       rules: {
-        'max-len': 'off'
+        'max-len': 'off',
       },
     },
     {
