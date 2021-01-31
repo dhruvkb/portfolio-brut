@@ -1,0 +1,22 @@
+/*! @import */
+@import "tailwind/base.css";
+@import "base/jetbrains_mono.css";
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+
+  @supports (font-variation-settings: normal) {
+    html {
+      @apply font-sans-variable;
+      font-feature-settings: "zero", "ss01", "ss02";
+    }
+  }
+}
+
+@layer base {
+  ::selection {
+    @apply bg-yellow text-black;
+  }
+}
