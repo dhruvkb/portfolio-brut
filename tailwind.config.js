@@ -52,7 +52,7 @@ module.exports = {
       transparent: 'transparent',
       white: colours.white,
       black: colours.black,
-      grey: colours.gray['800'],
+      grey: colours.gray,
       yellow: colours.yellow['500'],
       solarized: {
         ...solarizedColours.base,
