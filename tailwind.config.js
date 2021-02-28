@@ -49,14 +49,13 @@ module.exports = {
       ),
     },
     colors: {
-      transparent: 'transparent',
+      tx: 'transparent',
+      curr: 'currentColor',
       white: colours.white,
       black: colours.black,
-      grey: colours.gray,
-      yellow: colours.yellow['500'],
-      solarized: {
-        ...solarizedColours.base,
+      sol: {
         ...solarizedColours.accent,
+        ...solarizedColours.base,
       },
     },
     fontFamily: {
