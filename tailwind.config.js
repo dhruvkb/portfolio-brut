@@ -33,7 +33,7 @@ const solarizedColours = {
 module.exports = {
   purge: [
     './public/index.html',
-    './src/**/*.{vue,js}',
+    './src/**/*.{vue,js,css}',
   ],
   darkMode: false,
   theme: {
