@@ -1,4 +1,5 @@
 const colours = require('tailwindcss/colors')
+const screenSizes = require('./src/constants/screen_sizes')
 
 const macSystemSansSerif = [
   'system-ui',
@@ -42,11 +43,10 @@ module.exports = {
       },
     },
     screens: {
-      mp: '0', // mobile phone
-      tp: '600px', // tablet (portrait)
-      tl: '900px', // tablet (landscape)
-      dr: '1200px', // desktop (regular)
-      dl: '1800px', // desktop (large)
+      ...Object.fromEntries(
+        Object.entries(screenSizes.screenSizes)
+          .map(([k, v]) => [k, v === 0 ? `${v}` : `${v}px`]),
+      ),
     },
     colors: {
       transparent: 'transparent',
