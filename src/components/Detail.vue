@@ -10,9 +10,8 @@
   }
 </script>
 
-<style scoped lang="css">
-  .circle {
-    width: calc(min(50vw, 100vh) - 64px);
-    height: calc(min(50vw, 100vh) - 64px);
+<style>
+  .detail ::selection {
+    @apply text-sol-1 bg-sol-02;
   }
 </style>

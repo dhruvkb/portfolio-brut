@@ -14,9 +14,3 @@
     }
   }
 }
-
-@layer base {
-  ::selection {
-    @apply bg-yellow text-black;
-  }
-}

@@ -19,6 +19,8 @@
   }
 </script>
 
-<style scoped>
-
+<style>
+  .landing ::selection {
+    @apply text-sol-01 bg-sol-2;
+  }
 </style>
