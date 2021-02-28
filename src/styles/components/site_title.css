@@ -1,0 +1,7 @@
+/*! @import */
+
+@layer components {
+  .site-title {
+    @apply text-tx bg-gradient-to-r from-sol-r to-sol-m bg-clip-text;
+  }
+}
