@@ -1,5 +1,5 @@
 import { reactive } from 'vue'
-import { debounce } from 'lodash'
+import debounce from 'lodash/debounce'
 import { screenSizes } from '@/constants/screen_sizes'
 
 export const breakpoint = reactive({})
