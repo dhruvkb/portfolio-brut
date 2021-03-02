@@ -11,10 +11,6 @@
         v-else
         class="pl-4">Thanks for visiting!
       </span>
-      <br/>
-      <span>
-        {{ breakpoint }}
-      </span>
     </p>
     <a
       class="font-semibold text-xs uppercase hover:underline"
