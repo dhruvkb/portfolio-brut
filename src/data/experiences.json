@@ -1,0 +1,176 @@
+[
+  {
+    "org": {
+      "name": "BrowserStack",
+      "url": "https://browserstack.com"
+    },
+    "roles": [
+      {
+        "period": {
+          "start": [
+            "Feb",
+            "2020"
+          ]
+        },
+        "type": "Full-timer",
+        "role": "Software engineer",
+        "isActive": true
+      }
+    ]
+  },
+  {
+    "org": {
+      "name": "Creative Commons",
+      "url": "https://opensource.creativecommons.org"
+    },
+    "roles": [
+      {
+        "period": {
+          "start": [
+            "Sep",
+            "2019"
+          ]
+        },
+        "type": "FOSS",
+        "role": "Project maintainer",
+        "isActive": true
+      },
+      {
+        "period": {
+          "start": [
+            "July",
+            "2020"
+          ],
+          "end": [
+            "Dec",
+            "2020"
+          ]
+        },
+        "type": "Contractor",
+        "role": "FOSS community coordinator"
+      },
+      {
+        "period": {
+          "start": [
+            "Sep",
+            "2020"
+          ],
+          "end": [
+            "Dec",
+            "2020"
+          ]
+        },
+        "type": "FOSS",
+        "role": "GSoD mentor"
+      },
+      {
+        "period": {
+          "start": [
+            "Dec",
+            "2019"
+          ],
+          "end": [
+            "Aug",
+            "2020"
+          ]
+        },
+        "type": "FOSS",
+        "role": "Outreachy mentor"
+      },
+      {
+        "period": {
+          "start": [
+            "May",
+            "2019"
+          ],
+          "end": [
+            "Aug",
+            "2019"
+          ]
+        },
+        "type": "Intern",
+        "role": "GSoC engineer"
+      }
+    ]
+  },
+  {
+    "org": {
+      "name": "IMG, IIT Roorkee",
+      "url": "https://img.channeli.in"
+    },
+    "roles": [
+      {
+        "period": {
+          "start": [
+            "Jan",
+            "2016"
+          ],
+          "end": [
+            "April",
+            "2019"
+          ]
+        },
+        "type": "Part-timer",
+        "role": "Chief technology coordinator"
+      }
+    ]
+  },
+  {
+    "org": {
+      "name": "FamPay",
+      "url": "https://fampay.in"
+    },
+    "roles": [
+      {
+        "period": {
+          "start": [
+            "Nov",
+            "2019"
+          ],
+          "end": [
+            "Dec",
+            "2019"
+          ]
+        },
+        "type": "Part-timer",
+        "role": "Software engineer"
+      }
+    ]
+  },
+  {
+    "org": {
+      "name": "HackerEarth",
+      "url": "https://hackerearth.com"
+    },
+    "roles": [
+      {
+        "period": {
+          "start": [
+            "May",
+            "2018"
+          ],
+          "end": [
+            "July",
+            "2018"
+          ]
+        },
+        "type": "Intern",
+        "role": "Infrastructure engineer"
+      },
+      {
+        "period": {
+          "start": [
+            "May",
+            "2017"
+          ],
+          "end": [
+            "July",
+            "2017"
+          ]
+        },
+        "type": "Intern",
+        "role": "Software engineer"
+      }
+    ]
+  }
+]
