@@ -1,6 +1,6 @@
 <template>
-  <div class="detail flex flex-col items-center justify-center bg-black min-h-full p-4 border-g tp:border-l tp:border-grey">
-    <div class="circle bg-white rounded-full opacity-10"></div>
+  <div class="detail flex flex-col items-center justify-center text-sol-0 bg-sol-03 min-h-full">
+    <span class="text-center">🚧<br>Work in progress!</span>
   </div>
 </template>
 
