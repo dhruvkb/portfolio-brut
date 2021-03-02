@@ -1,5 +1,5 @@
 <template>
-  <div class="pane overflow-y-scroll">
+  <div class="pane overflow-y-scroll h-full">
     <slot/>
   </div>
 </template>

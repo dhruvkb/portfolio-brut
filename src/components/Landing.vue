@@ -1,20 +1,22 @@
 <template>
-  <div class="landing flex flex-col text-white bg-black min-h-full">
+  <div class="landing flex flex-col text-sol-00 bg-sol-3 min-h-full">
     <Intro/>
-    <div class="flex-grow"/>
+    <Experience class="flex-grow"/>
     <Footer/>
   </div>
 </template>
 
 <script>
   import Intro from '@/components/landing/Intro.vue'
+  import Experience from '@/components/landing/Experience.vue'
   import Footer from '@/components/landing/Footer.vue'
 
   export default {
     name: 'Landing',
     components: {
-      Footer,
       Intro,
+      Experience,
+      Footer,
     },
   }
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <div id="app-root" class="h-screen tp:grid tp:grid-cols-2">
+  <div id="app-root" class="h-screen sx:grid sx:grid-cols-2">
     <Pane>
       <Landing/>
     </Pane>
-    <Pane>
+    <Pane class="hidden sx:block">
       <Detail/>
     </Pane>
   </div>
@@ -18,6 +18,8 @@
   import Landing from '@/components/Landing.vue'
   import Detail from '@/components/Detail.vue'
 
+  import { setBreakpoint } from '@/plugins/responsive'
+
   export default {
     name: 'App',
     components: {
@@ -25,5 +27,16 @@
       Landing,
       Detail,
     },
+    created() {
+      setBreakpoint()
+    },
   }
 </script>
+
+<style lang="css">
+  @screen mx {
+    #app-root {
+      grid-template-columns: 640px 1fr;
+    }
+  }
+</style>
