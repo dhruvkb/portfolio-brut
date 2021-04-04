@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Omniport",
+    "url": "",
+    "stories": [
+      {
+        "title": "Infrastructure",
+        "url": "",
+        "technologies": [
+          "Docker",
+          "Bash"
+        ]
+      },
+      {
+        "title": "Backend",
+        "url": "",
+        "technologies": [
+          "Python (Django, DRF)"
+        ]
+      },
+      {
+        "title": "Documentation",
+        "url": "",
+        "technologies": [
+          "restructuredText (Sphinx)"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Portfolio",
+    "url": "",
+    "stories": [
+      {
+        "title": "Personal website",
+        "url": "",
+        "technologies": [
+          "JS (Vue, Tailwind)",
+          "TS"
+        ]
+      },
+      {
+        "title": "Résumé",
+        "url": "",
+        "technologies": [
+          "LaTeX"
+        ]
+      }
+    ]
+  }
+]

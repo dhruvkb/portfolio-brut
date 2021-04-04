@@ -10,7 +10,7 @@
   }
 </script>
 
-<style>
+<style scoped lang="css">
   .detail ::selection {
     @apply text-sol-1 bg-sol-02;
   }
