@@ -21,8 +21,10 @@ export const setBreakpoint = () => {
   breakpoint.name = getBreakpoint(window.innerWidth)
 }
 
-window.addEventListener(
-  'resize',
-  debounce(setBreakpoint, 100),
-  false,
-)
+export const addListener = () => {
+  window.addEventListener(
+    'resize',
+    debounce(setBreakpoint, 100),
+    false,
+  )
+}

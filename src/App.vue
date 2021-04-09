@@ -18,7 +18,7 @@
   import Landing from '@/components/Landing.vue'
   import Detail from '@/components/Detail.vue'
 
-  import { setBreakpoint } from '@/plugins/responsive'
+  import { setBreakpoint, addListener } from '@/plugins/responsive'
 
   export default {
     name: 'App',
@@ -29,6 +29,7 @@
     },
     created() {
       setBreakpoint()
+      addListener()
     },
   }
 </script>
