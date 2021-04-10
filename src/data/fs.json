@@ -1,0 +1,80 @@
+{
+  "name": "~",
+  "type": "folder",
+  "isRoot": true,
+  "children": [
+    {
+      "name": "experience",
+      "type": "folder",
+      "children": [
+        {
+          "name": "browserstack",
+          "type": "folder",
+          "children": [
+            {
+              "name": "software_engineer",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "creative_commons",
+          "type": "folder",
+          "children": [
+            {
+              "name": "project_maintainer",
+              "type": "file"
+            },
+            {
+              "name": "foss_community_coordinator",
+              "type": "file"
+            },
+            {
+              "name": "gsod_mentor",
+              "type": "file"
+            },
+            {
+              "name": "outreachy_mentor",
+              "type": "file"
+            },
+            {
+              "name": "gsoc_engineer",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "fampay",
+          "type": "folder",
+          "children": [
+            {
+              "name": "software_engineer",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "hackerearth",
+          "type": "folder",
+          "children": [
+            {
+              "name": "infrastructure_engineer",
+              "type": "file"
+            },
+            {
+              "name": "software_engineer",
+              "type": "file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "type": "folder",
+      "children": [
+
+      ]
+    }
+  ]
+}
