@@ -39,8 +39,15 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      spacing: {
+        ch: '1ch',
+        ln: '2ex',
+      },
       cursor: {
         help: 'help',
+      },
+      fontSize: {
+        mono: ['0.875rem', '1.2'],
       },
     },
     screens: {
