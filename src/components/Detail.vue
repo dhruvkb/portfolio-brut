@@ -1,12 +1,17 @@
 <template>
-  <div class="detail flex flex-col items-center justify-center text-sol-0 bg-sol-03 min-h-full">
-    <span class="text-center">🚧<br>Work in progress!</span>
+  <div class="detail flex flex-col text-sol-0 bg-sol-03 min-h-full">
+    <Terminal class="flex-grow"/>
   </div>
 </template>
 
 <script>
+  import Terminal from '@/components/detail/Terminal.vue'
+
   export default {
     name: 'Detail',
+    components: {
+      Terminal,
+    },
   }
 </script>
 
