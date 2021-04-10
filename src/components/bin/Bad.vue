@@ -1,6 +1,6 @@
 <template>
   <div class="bad">
-    Command <strong>{{ args.cmdName }}</strong> does not exist in the CLI. Try
+    Command <strong>{{ args.bin }}</strong> does not exist in the CLI. Try
     <Executable bin="help"/>.
   </div>
 </template>
@@ -16,7 +16,7 @@
     argSpec: {
       kwArgs: [
         {
-          name: 'cmdName',
+          name: 'bin',
           type: String,
         },
       ],
