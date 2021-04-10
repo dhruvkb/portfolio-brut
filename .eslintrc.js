@@ -30,6 +30,17 @@ module.exports = {
       },
     },
     {
+      files: ['*.js'],
+      rules: {
+        'no-param-reassign': ['error',
+          {
+            props: true,
+            ignorePropertyModificationsFor: ['state'],
+          },
+        ],
+      },
+    },
+    {
       files: ['*.vue', '*.js'],
       rules: {
         semi: ['warn', 'never'],
