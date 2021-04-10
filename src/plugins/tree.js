@@ -29,6 +29,33 @@ export class Tree {
   }
 
   /**
+   * Determine whether this node represents a file system folder.
+   *
+   * @return {boolean} whether this node represents a file system folder
+   */
+  get isFolder() {
+    return this.isType(nodeType.FOLDER)
+  }
+
+  /**
+   * Determine whether this node represents a file system file.
+   *
+   * @return {boolean} whether this node represents a file system file
+   */
+  get isFile() {
+    return this.isType(nodeType.FILE)
+  }
+
+  /**
+   * Determine whether this node is the root of the file system.
+   *
+   * @return {boolean} whether this node is the root of the file system
+   */
+  get isRoot() {
+    return this.parent === this
+  }
+
+  /**
    * Check if the given name is either the primary name of the current node or
    * one of its aliases.
    *
@@ -72,33 +99,6 @@ export class Tree {
    */
   setParent(node) {
     this.parent = node
-  }
-
-  /**
-   * Determine whether this node represents a file system folder.
-   *
-   * @return {boolean} whether this node represents a file system folder
-   */
-  get isFolder() {
-    return this.isType(nodeType.FOLDER)
-  }
-
-  /**
-   * Determine whether this node represents a file system file.
-   *
-   * @return {boolean} whether this node represents a file system file
-   */
-  get isFile() {
-    return this.isType(nodeType.FILE)
-  }
-
-  /**
-   * Determine whether this node is the root of the file system.
-   *
-   * @return {boolean} whether this node is the root of the file system
-   */
-  get isRoot() {
-    return this.parent === this
   }
 
   /**
