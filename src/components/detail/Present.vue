@@ -9,9 +9,6 @@
           @keyup.enter="executeCommand">
       </label>
     </template>
-    <template v-else>
-      Processing...
-    </template>
   </div>
 </template>
 
