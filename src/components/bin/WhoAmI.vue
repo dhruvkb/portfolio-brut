@@ -18,6 +18,7 @@
           name: 'groot',
           aliases: ['g'],
           type: Boolean,
+          description: 'whether to run the command in Groot mode',
         },
       ],
     },
