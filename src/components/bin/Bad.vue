@@ -12,7 +12,6 @@
 
   export default {
     name: 'Bad',
-    description: 'Point out commands that do not exists and redirect to help',
     argSpec: {
       kwArgs: [
         {
