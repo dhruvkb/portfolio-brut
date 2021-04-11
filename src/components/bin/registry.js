@@ -1,10 +1,14 @@
 import Bad from '@/components/bin/Bad.vue'
+import Help from '@/components/bin/Help.vue'
 import Intro from '@/components/bin/Intro.vue'
+import Manual from '@/components/bin/Manual.vue'
 import WhoAmI from '@/components/bin/WhoAmI.vue'
 
 export const components = {
   Bad,
+  Help,
   Intro,
+  Manual,
   WhoAmI,
 }
 
