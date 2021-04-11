@@ -2,10 +2,15 @@
   <span class="executable">
     <button @click="executeCommand">
       <span class="text-sol-g">{{ bin }}</span>
-      <span
-        v-for="(arg, index) in argv"
-        :key="index"
-        class="text-sol-b">&nbsp;{{ arg }}</span>
+      <!-- @slot Replacement for argument vector goes here -->
+      <slot>
+        <span
+          v-for="(arg, index) in argv"
+          :key="index"
+          class="text-sol-b ml-ch">
+          {{ arg }}
+        </span>
+      </slot>
     </button>
   </span>
 </template>
