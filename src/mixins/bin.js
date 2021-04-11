@@ -52,4 +52,14 @@ export default {
       return args
     },
   },
+  methods: {
+    ...mapMutations('terminal', [
+      'setIsReady',
+    ]),
+  },
+  mounted() {
+    this.setIsReady({
+      isReady: true,
+    })
+  },
 }
