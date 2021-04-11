@@ -41,6 +41,7 @@ module.exports = {
     extend: {
       spacing: {
         ch: '1ch',
+        indent: '2ch',
         ln: '2ex',
       },
       cursor: {
