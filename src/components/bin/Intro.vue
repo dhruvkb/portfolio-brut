@@ -10,9 +10,14 @@
 </template>
 
 <script>
+  import bin from '@/mixins/bin'
+
   export default {
     name: 'Intro',
     command: 'intro',
     description: 'Take a moment and enjoy some ASCII art',
+    mixins: [
+      bin,
+    ],
   }
 </script>
