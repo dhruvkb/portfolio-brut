@@ -1,4 +1,5 @@
-import arg from 'arg'
+import argLib from 'arg'
+import { mapMutations } from 'vuex'
 
 export default {
   props: {
@@ -14,20 +15,20 @@ export default {
 
       // Generate 'arg' compliant argument specification
       const spec = {}
-      kwArgs.forEach((kwArg) => {
+      kwArgs.forEach((arg) => {
         // Types
-        spec[`--${kwArg.name}`] = kwArg.type
+        spec[`--${arg.name}`] = arg.type
 
         // Aliases
-        if (kwArg.aliases) {
-          kwArg.aliases.forEach((alias) => {
-            spec[`-${alias}`] = `--${kwArg.name}`
+        if (arg.aliases) {
+          arg.aliases.forEach((alias) => {
+            spec[`-${alias}`] = `--${arg.name}`
           })
         }
       })
 
       // Run argument parsing
-      const processedArgs = arg(
+      const processedArgs = argLib(
         spec,
         {
           argv: this.argv,
@@ -37,14 +38,14 @@ export default {
 
       // Convert back to portfolio argument specification
       const args = {}
-      kwArgs.forEach((kwArg) => {
-        args[kwArg.name] = processedArgs[`--${kwArg.name}`]
+      kwArgs.forEach((arg) => {
+        args[arg.name] = processedArgs[`--${arg.name}`]
       })
-      posArgs.forEach((posArg) => {
-        if (posArg.catchAll) {
-          args[posArg.name] = processedArgs._
+      posArgs.forEach((arg) => {
+        if (arg.catchAll) {
+          args[arg.name] = processedArgs._
         } else {
-          args[posArg.name] = processedArgs._.shift() || posArg.default
+          args[arg.name] = processedArgs._.shift() || arg.default
         }
       })
 
