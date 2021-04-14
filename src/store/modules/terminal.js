@@ -72,6 +72,11 @@ const moduleMutations = {
   pushInteraction(state, payload) {
     state.interactionHistory.push(payload.interaction)
   },
+  hideInteractions(state) {
+    state.interactionHistory.forEach((interaction) => {
+      interaction.hide()
+    })
+  },
 }
 
 const moduleActions = {

@@ -1,7 +1,7 @@
 <template>
   <div class="past">
     <div
-      v-for="(interaction, index) in interactionHistory"
+      v-for="(interaction, index) in visibleInteractions"
       :key="index"
       class="interaction mb-ln">
       <Prompt :wd="interaction.context.wd"/>
@@ -31,6 +31,10 @@
       ...mapState('terminal', [
         'interactionHistory',
       ]),
+      visibleInteractions() {
+        return this.interactionHistory
+          .filter(interaction => interaction.isVisible)
+      },
     },
   }
 </script>
