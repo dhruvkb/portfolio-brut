@@ -20,9 +20,7 @@
       <li
         v-for="(arg, index) in allArgs(binary)"
         :key="index">
-        <pre class="inline text-sol-b">{{ argRepr(arg).padStart(16) }}</pre>
-        --
-        {{ arg.description }}
+        <span class="text-sol-b">{{ alignedArg(arg) }}</span> -- {{ arg.description }}
       </li>
     </ul>
   </div>
@@ -56,6 +54,11 @@
     components: {
       Executable,
     },
+    data() {
+      return {
+        space: '\xa0',
+      }
+    },
     computed: {
       binary() {
         return bins[this.args.bin]
@@ -66,7 +69,9 @@
     },
     methods: {
       allArgs,
-      argRepr,
+      alignedArg(arg) {
+        return argRepr(arg).padStart(16, this.space)
+      },
     },
   }
 </script>
