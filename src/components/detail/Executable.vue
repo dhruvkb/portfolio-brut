@@ -1,5 +1,7 @@
 <template>
-  <span class="executable">
+  <span
+    class="executable"
+    :title="title">
     <button @click="executeCommand">
       <span class="text-sol-g">{{ bin }}</span>
       <!-- @slot Replacement for argument vector goes here -->
@@ -33,6 +35,9 @@
     computed: {
       command() {
         return [this.bin, ...this.argv].join(' ')
+      },
+      title() {
+        return `Execute '${this.command}'.`
       },
     },
     methods: {
