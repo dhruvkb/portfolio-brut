@@ -1,14 +1,16 @@
 <template>
   <div class="present">
-    <template v-if="isReady">
-      <label>
-        <Prompt/>
-        <input
-          v-model="command"
-          type="text"
-          @keyup.enter="executeCommand">
-      </label>
-    </template>
+    <label
+      v-show="isReady"
+      class="flex items-center gap-x-ch">
+      <Prompt/>
+      <input
+        v-model="command"
+        class="flex-grow bg-tx border-none outline-none"
+        type="text"
+        @keyup.enter="executeCommand"
+        ref="inputField">
+    </label>
   </div>
 </template>
 
@@ -32,9 +34,25 @@
         'isReady',
       ]),
     },
+    watch: {
+      isReady(finalValue) {
+        if (finalValue && this.$refs.inputField) {
+          this.$nextTick(() => {
+            this.$refs.inputField.focus()
+            this.$refs.inputField.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest',
+            })
+          })
+        }
+      },
+    },
     methods: {
       executeCommand() {
         this.exec({ rawInput: this.command })
+
+        this.command = '' // Clear field
       },
       ...mapActions('terminal', [
         'exec',
