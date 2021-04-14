@@ -33,12 +33,12 @@
       ]),
     },
     methods: {
-      ...mapActions('terminal', [
-        'exec',
-      ]),
       executeCommand() {
         this.exec({ rawInput: this.command })
       },
+      ...mapActions('terminal', [
+        'exec',
+      ]),
     },
   }
 </script>

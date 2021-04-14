@@ -27,9 +27,6 @@
       },
     },
     computed: {
-      ...mapGetters('terminal', [
-        'absolutePathTo',
-      ]),
       command() {
         const bin = this.node.isFolder ? 'cd' : 'cat'
         const argv = [this.absolutePathTo(this.node)]
@@ -38,14 +35,17 @@
       title() {
         return `Navigate to '${this.node.name}'.`
       },
+      ...mapGetters('terminal', [
+        'absolutePathTo',
+      ]),
     },
     methods: {
-      ...mapActions('terminal', [
-        'exec',
-      ]),
       navigateToNode() {
         this.exec({ rawInput: this.command })
       },
+      ...mapActions('terminal', [
+        'exec',
+      ]),
     },
   }
 </script>

@@ -15,13 +15,12 @@
       },
     },
     computed: {
-      ...mapState('terminal', [
-        'currentNode',
-      ]),
-
       directory() {
         return this.wd ?? this.currentNode.name
       },
+      ...mapState('terminal', [
+        'currentNode',
+      ]),
     },
   }
 </script>
