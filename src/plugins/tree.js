@@ -25,7 +25,7 @@ export class Tree {
     this.aliases = aliases
 
     this.parent = null
-    this.children = new Set()
+    this.children = []
   }
 
   /**
@@ -67,7 +67,7 @@ export class Tree {
     return this.name.toLowerCase() === name
       || this.aliases
         .map(x => x.toLowerCase())
-        .include(name)
+        .includes(name)
   }
 
   /**
@@ -87,7 +87,7 @@ export class Tree {
    * @param {Tree} node - the node to add as a child of the current node
    */
   appendChild(node) {
-    this.children.add(node)
+    this.children.push(node)
   }
 
   /**
