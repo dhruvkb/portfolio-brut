@@ -1,13 +1,67 @@
 import { parse } from '@/plugins/tree'
 import Interaction from '@/plugins/terminal'
 
-const getters = {}
+const moduleState = {
+  isFirstRun: true,
+  tree: null,
+  currentNode: null,
+  interactionHistory: [],
+  isReady: true,
+}
 
-const mutations = {
+const getters = {
+  nodeNamed: state => (nodeName) => {
+    let nodeInQuestion = null
+    state.tree.traverse((node) => {
+      if (node.hasName(nodeName)) {
+        nodeInQuestion = node
+        return false // stops further traversal
+      }
+      return true // continues further traversal
+    })
+
+    return nodeInQuestion
+  },
+  nodeLocatedAt: state => (path) => {
+    let nodeInQuestion = state.currentNode
+    const pathEntities = path.split('/')
+
+    for (let i = 0; i < pathEntities.length; i += 1) {
+      const entity = pathEntities[i]
+
+      if (entity === '~' || entity === '') {
+        nodeInQuestion = state.tree
+      } else if (entity === '.') {
+        // Do nothing as . refers to current directory
+      } else if (entity === '..') {
+        nodeInQuestion = nodeInQuestion.parent
+      } else {
+        nodeInQuestion = nodeInQuestion.children
+          .find(child => child.hasName(entity))
+        if (!nodeInQuestion) {
+          return null
+        }
+      }
+    }
+
+    return nodeInQuestion
+  },
+  absolutePathTo: (state, g) => (node) => {
+    if (node.name === '~') {
+      return '~'
+    }
+    return `${g.absolutePathTo(node.parent)}/${node.name}`
+  },
+}
+
+const moduleMutations = {
   setTree(state, payload) {
     const rootNode = parse(payload.fs)
     state.tree = rootNode
     state.currentNode = rootNode
+  },
+  setCurrentNode(state, payload) {
+    state.currentNode = payload.currentNode
   },
   setIsReady(state, payload) {
     state.isReady = payload.isReady
@@ -20,7 +74,7 @@ const mutations = {
   },
 }
 
-const actions = {
+const moduleActions = {
   exec({
     state,
     commit,
@@ -40,14 +94,8 @@ const actions = {
 
 export default {
   namespaced: true,
-  state: {
-    isFirstRun: true,
-    tree: null,
-    currentNode: null,
-    interactionHistory: [],
-    isReady: true,
-  },
+  state: moduleState,
   getters,
-  mutations,
-  actions,
+  mutations: moduleMutations,
+  actions: moduleActions,
 }
