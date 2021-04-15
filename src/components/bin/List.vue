@@ -26,6 +26,8 @@
 
   import Navigable from '@/components/detail/Navigable.vue'
 
+  import { nodeType } from '@/plugins/tree'
+
   import bin from '@/mixins/bin'
 
   export default {
@@ -46,6 +48,7 @@
           name: 'dirname',
           description: 'the directory of which to list contents',
           default: '.',
+          nodeType: nodeType.FOLDER,
         },
       ],
     },

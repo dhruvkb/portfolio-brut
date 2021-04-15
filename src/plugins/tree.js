@@ -1,4 +1,4 @@
-const nodeType = Object.freeze({
+export const nodeType = Object.freeze({
   FOLDER: 'folder',
   FILE: 'file',
 })

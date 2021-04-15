@@ -9,6 +9,8 @@
 <script>
   import { mapGetters, mapMutations } from 'vuex'
 
+  import { nodeType } from '@/plugins/tree'
+
   import bin from '@/mixins/bin'
 
   export default {
@@ -21,6 +23,7 @@
           name: 'dirname',
           description: 'the directory to switch to',
           default: '~',
+          nodeType: nodeType.FOLDER,
         },
       ],
     },
