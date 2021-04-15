@@ -15,7 +15,7 @@
   export default {
     name: 'Intro',
     command: 'intro',
-    description: 'Take a moment and enjoy some ASCII art',
+    description: 'Take a moment and enjoy some ASCII art.',
     mixins: [
       bin,
     ],

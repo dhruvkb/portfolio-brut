@@ -31,7 +31,7 @@
   export default {
     name: 'List',
     command: 'ls',
-    description: 'List the contents of the given directory',
+    description: 'List the contents of the given directory.',
     argSpec: {
       kwArgs: [
         {

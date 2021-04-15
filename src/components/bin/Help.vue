@@ -30,7 +30,7 @@
   export default {
     name: 'Help',
     command: 'help',
-    description: 'Get help about the terminal',
+    description: 'Get help about the terminal.',
     mixins: [
       bin,
     ],

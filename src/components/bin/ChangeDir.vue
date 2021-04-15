@@ -14,7 +14,7 @@
   export default {
     name: 'ChangeDir',
     command: 'cd',
-    description: 'Switch to given directory as the working directory',
+    description: 'Switch to given directory as the working directory.',
     argSpec: {
       posArgs: [
         {

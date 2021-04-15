@@ -39,7 +39,7 @@
   export default {
     name: 'Manual',
     command: 'man',
-    description: 'Get information about any command',
+    description: 'Get information about any command.',
     argSpec: {
       posArgs: [
         {

@@ -12,7 +12,7 @@
   export default {
     name: 'WorkDir',
     command: 'pwd',
-    description: 'Show the present working directory',
+    description: 'Show the present working directory.',
     mixins: [
       bin,
     ],

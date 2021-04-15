@@ -6,7 +6,7 @@
   export default {
     name: 'Clear',
     command: 'clear',
-    description: 'Clear the screen by hiding all previous interactions',
+    description: 'Clear the screen by hiding all previous interactions.',
     mixins: [
       bin,
     ],

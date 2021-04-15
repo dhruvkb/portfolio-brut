@@ -23,7 +23,7 @@
   export default {
     name: 'Tree',
     command: 'tree',
-    description: 'List contents of directory recursively like a tree',
+    description: 'List contents of directory recursively like a tree.',
     argSpec: {
       posArgs: [
         {

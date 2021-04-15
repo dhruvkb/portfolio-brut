@@ -11,7 +11,7 @@
   export default {
     name: 'WhoAmI',
     command: 'whoami',
-    description: 'Display the name of the current active user',
+    description: 'Display the name of the current active user.',
     argSpec: {
       kwArgs: [
         {
