@@ -8,7 +8,7 @@ module.exports = {
     '@vue/airbnb',
   ],
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
   },
   rules: {
     // TODO: Restore severity to 'error'
