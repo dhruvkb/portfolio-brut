@@ -3,6 +3,15 @@ export const nodeType = Object.freeze({
   FILE: 'file',
 })
 
+export const extensionLang = Object.freeze({
+  java: 'java',
+  js: 'javascript',
+  md: 'markdown',
+  py: 'python',
+  rb: 'ruby',
+  yml: 'yaml',
+})
+
 /**
  * A class that implements one node in a file-system tree. Each node may either
  * be a file or a folder and may have children if it is a folder.
@@ -53,6 +62,22 @@ export class Tree {
    */
   get isRoot() {
     return this.parent === this
+  }
+
+  /**
+   * Get the language of the file based on the extension.
+   *
+   * @return {string} the language of the file based on the extension
+   */
+  get lang() {
+    if (this.isFolder) {
+      return null
+    }
+
+    const [extension] = this.name
+      .split('.')
+      .slice(1)
+    return extensionLang[extension]
   }
 
   /**

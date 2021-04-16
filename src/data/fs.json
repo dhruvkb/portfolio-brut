@@ -12,7 +12,7 @@
           "type": "folder",
           "children": [
             {
-              "name": "software_engineer",
+              "name": "software_engineer.rb",
               "type": "file"
             }
           ]
@@ -22,23 +22,23 @@
           "type": "folder",
           "children": [
             {
-              "name": "project_maintainer",
+              "name": "project_maintainer.js",
               "type": "file"
             },
             {
-              "name": "foss_community_coordinator",
+              "name": "foss_community_coordinator.md",
               "type": "file"
             },
             {
-              "name": "gsod_mentor",
+              "name": "gsod_mentor.md",
               "type": "file"
             },
             {
-              "name": "outreachy_mentor",
+              "name": "outreachy_mentor.md",
               "type": "file"
             },
             {
-              "name": "gsoc_engineer",
+              "name": "gsoc_engineer.js",
               "type": "file"
             }
           ]
@@ -48,7 +48,17 @@
           "type": "folder",
           "children": [
             {
-              "name": "software_engineer",
+              "name": "software_engineer.py",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "img",
+          "type": "folder",
+          "children": [
+            {
+              "name": "chief_technology_coordinator.md",
               "type": "file"
             }
           ]
@@ -58,11 +68,14 @@
           "type": "folder",
           "children": [
             {
-              "name": "infrastructure_engineer",
+              "name": "infrastructure_engineer.yml",
               "type": "file"
             },
             {
-              "name": "software_engineer",
+              "name": "SoftwareEngineer.java",
+              "aliases": [
+                "software_engineer.java"
+              ],
               "type": "file"
             }
           ]
