@@ -35,6 +35,11 @@
 </script>
 
 <style lang="css">
+  @screen sx {
+    #app-root {
+      grid-template-columns: 480px 1fr;
+    }
+  }
   @screen mx {
     #app-root {
       grid-template-columns: 640px 1fr;
