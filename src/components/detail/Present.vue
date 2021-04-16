@@ -6,9 +6,14 @@
       <Prompt/>
       <input
         v-model="command"
-        class="flex-grow bg-tx border-none outline-none"
+        class="flex-grow bg-tx h-ln border-none outline-none"
         type="text"
-        @keyup.enter="executeCommand"
+
+        @keydown.enter.exact="executeCommand"
+        @keydown.tab.exact.prevent="autocompleteCommand"
+        @keydown.arrow-up.exact.prevent="traverseHistoryUp"
+        @keydown.arrow-down.exact.prevent="traverseHistoryDown"
+
         ref="inputField">
     </label>
   </div>
@@ -27,10 +32,15 @@
     data() {
       return {
         command: '',
+        traversal: {
+          index: 0,
+          backup: '',
+        },
       }
     },
     computed: {
       ...mapState('terminal', [
+        'interactionHistory',
         'isReady',
       ]),
     },
@@ -53,6 +63,34 @@
         this.exec({ rawInput: this.command })
 
         this.command = '' // Clear field
+      },
+      traverseHistoryUp() {
+        if (this.traversal.index === this.interactionHistory.length) {
+          return
+        }
+
+        if (this.traversal.index === 0) {
+          this.traversal.backup = this.command
+        }
+        this.traversal.index += 1
+        const index = this.interactionHistory.length - this.traversal.index
+        this.command = this.interactionHistory[index].rawInput
+      },
+      traverseHistoryDown() {
+        if (this.traversal.index === 0) {
+          return
+        }
+
+        this.traversal.index -= 1
+        if (this.traversal.index === 0) {
+          this.command = this.traversal.backup
+        } else {
+          const index = this.interactionHistory.length - this.traversal.index
+          this.command = this.interactionHistory[index].rawInput
+        }
+      },
+      autocompleteCommand() {
+        console.log(`Autocompleting ${this.command}`) // TODO
       },
       ...mapActions('terminal', [
         'exec',
