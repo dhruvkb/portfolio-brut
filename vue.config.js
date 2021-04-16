@@ -15,4 +15,15 @@ module.exports = {
     }
     return {}
   },
+
+  chainWebpack: (config) => {
+    config.module
+      .rule('html')
+      .test(/\.fs\.html$/)
+      .use('file-loader')
+      .loader('file-loader')
+      .options({
+        name: 'fs/[name].[hash:8].[ext]',
+      })
+  },
 }

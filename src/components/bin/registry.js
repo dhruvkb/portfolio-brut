@@ -1,6 +1,7 @@
 import Bad from '@/components/bin/Bad.vue'
 import ChangeDir from '@/components/bin/ChangeDir.vue'
 import Clear from '@/components/bin/Clear.vue'
+import Concatenate from '@/components/bin/Concatenate.vue'
 import Help from '@/components/bin/Help.vue'
 import Intro from '@/components/bin/Intro.vue'
 import List from '@/components/bin/List.vue'
@@ -13,6 +14,7 @@ export const components = {
   Bad,
   ChangeDir,
   Clear,
+  Concatenate,
   Help,
   Intro,
   List,
