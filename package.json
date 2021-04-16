@@ -10,6 +10,7 @@
   "dependencies": {
     "arg": "^5.0.0",
     "core-js": "^3.6.5",
+    "highlight.js": "^10.7.2",
     "lodash": "^4.17.21",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0",
     "vue": "^3.0.0",
