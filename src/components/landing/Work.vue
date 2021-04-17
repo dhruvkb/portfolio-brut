@@ -1,5 +1,5 @@
 <template>
-  <table class="epics table-fixed w-full text-sol-00 hover:text-sol-1">
+  <table class="work table-fixed w-full text-sol-00 hover:text-sol-1">
     <thead class="border-b border-sol-1">
       <tr class="text-xs uppercase">
         <th
@@ -13,7 +13,7 @@
     </thead>
     <tbody class="text-lg border-b border-sol-1">
       <tr
-        v-for="(story, storyIndex) in stories"
+        v-for="(project, storyIndex) in projects"
         :key="storyIndex"
         class="hover:text-sol-01 hover:bg-sol-2 transition-colors duration-250 outline-none"
         role="button"
@@ -22,7 +22,7 @@
           v-for="(column, index) in columns"
           :key="index"
           class="py-1 px-2 s:first:pl-2 s:last:pr-2 m:first:pl-4 m:last:pr-2 l:first:pl-8 l:last:pr-8 sx:first:pl-2 sx:last:pr-2 mx:first:pl-4 mx:last:pr-4">
-          {{ story[column.fieldName] }}
+          {{ project[column.fieldName] }}
         </td>
       </tr>
     </tbody>
@@ -32,15 +32,16 @@
 <script>
   import { breakpoint } from '@/plugins/responsive'
 
-  import epics from '@/data/epics.json'
+  import { Project } from '@/models/project'
+
+  import epics from '@/data/work.json'
 
   export default {
-    name: 'Epics',
+    name: 'Work',
     data() {
       return {
         breakpoint,
-        activeIndicator: '*',
-        rangeIndicator: '–',
+        rangeIndicator: '\u2013',
       }
     },
     computed: {
@@ -54,7 +55,7 @@
           displayName: 'Project',
         }
         const technologies = {
-          fieldName: 'technologies',
+          fieldName: 'technologiesText',
           displayName: 'Tech',
         }
 
@@ -74,20 +75,8 @@
         }
         return columns
       },
-      stories() {
-        const stories = []
-        epics.forEach((epic) => {
-          epic.stories.forEach((story) => {
-            let { technologies } = story
-            technologies = technologies.join(', ')
-            stories.push({
-              ...story,
-              technologies,
-              epicName: epic.title,
-            })
-          })
-        })
-        return stories
+      projects() {
+        return Project.parse(epics)
       },
     },
   }
@@ -95,52 +84,52 @@
 
 <style scoped lang="css">
   @screen s {
-    .epics {
-      --epics-epicName-width: 40%;
-      --epics-title-width: 60%;
+    .work {
+      --work-epicName-width: 40%;
+      --work-title-width: 60%;
     }
   }
 
   @screen m {
-    .epics {
-      --epics-epicName-width: 20%;
-      --epics-title-width: 30%;
-      --epics-technologies-width: 50%;
+    .work {
+      --work-epicName-width: 20%;
+      --work-title-width: 30%;
+      --work-technologies-width: 50%;
     }
   }
 
   @screen l {
-    .epics {
-      --epics-epicName-width: 27.5%;
-      --epics-title-width: 22.5%;
-      --epics-technologies-width: 50%;
+    .work {
+      --work-epicName-width: 27.5%;
+      --work-title-width: 22.5%;
+      --work-technologies-width: 50%;
     }
   }
 
   @screen sx {
-    .epics {
-      --epics-epicName-width: 40%;
-      --epics-title-width: 60%;
+    .work {
+      --work-epicName-width: 40%;
+      --work-title-width: 60%;
     }
   }
 
   @screen mx {
-    .epics {
-      --epics-epicName-width: 20%;
-      --epics-title-width: 30%;
-      --epics-technologies-width: 50%;
+    .work {
+      --work-epicName-width: 20%;
+      --work-title-width: 30%;
+      --work-technologies-width: 50%;
     }
   }
 
-  .epics th[data-col="epicName"] {
-    width: var(--epics-epicName-width, inherit);
+  .work th[data-col="epicName"] {
+    width: var(--work-epicName-width, inherit);
   }
 
-  .epics th[data-col="title"] {
-    width: var(--epics-title-width, inherit);
+  .work th[data-col="title"] {
+    width: var(--work-title-width, inherit);
   }
 
-  .epics th[data-col="technologies"] {
-    width: var(--epics-technologies-width, inherit);
+  .work th[data-col="technologies"] {
+    width: var(--work-technologies-width, inherit);
   }
 </style>

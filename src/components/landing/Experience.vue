@@ -40,15 +40,16 @@
 <script>
   import { breakpoint } from '@/plugins/responsive'
 
-  import experiences from '@/data/experiences.json'
+  import { Role } from '@/models/role'
+
+  import orgs from '@/data/experience.json'
 
   export default {
     name: 'Experience',
     data() {
       return {
         breakpoint,
-        activeIndicator: '*',
-        rangeIndicator: '–',
+        rangeIndicator: '\u2013',
       }
     },
     computed: {
@@ -62,7 +63,7 @@
           displayName: 'Type',
         }
         const role = {
-          fieldName: 'role',
+          fieldName: 'title',
           displayName: 'Role',
         }
         const isActive = {
@@ -70,7 +71,7 @@
           displayName: '',
         }
         const period = {
-          fieldName: 'period',
+          fieldName: 'periodText',
           displayName: 'Period',
         }
 
@@ -91,34 +92,7 @@
         return columns
       },
       roles() {
-        const roles = []
-        experiences.forEach((experience) => {
-          experience.roles.forEach((role) => {
-            const { period } = role
-            const isActive = period.end === undefined
-            const parts = []
-            if (isActive) {
-              parts.push(...period.start, this.rangeIndicator)
-            } else {
-              const [startMonth, startYear] = period.start
-              const [endMonth, endYear] = period.end
-              if (startYear === endYear) {
-                parts.push(startMonth)
-              } else {
-                parts.push(startMonth, startYear)
-              }
-              parts.push(this.rangeIndicator, endMonth, endYear)
-            }
-
-            roles.push({
-              ...role,
-              isActive,
-              period: parts.join(' '),
-              orgName: experience.org.name,
-            })
-          })
-        })
-        return roles
+        return Role.parse(orgs)
       },
     },
   }
@@ -128,7 +102,7 @@
   @screen s {
     .experience {
       --experience-orgName-width: 40%;
-      --experience-role-width: 55%;
+      --experience-title-width: 55%;
       --experience-isActive-width: 5%;
     }
   }
@@ -137,7 +111,7 @@
     .experience {
       --experience-orgName-width: 33.33%;
       --experience-type-width: 16.67%;
-      --experience-role-width: 45%;
+      --experience-title-width: 45%;
       --experience-isActive-width: 5%;
     }
   }
@@ -146,7 +120,7 @@
     .experience {
       --experience-orgName-width: 27.5%;
       --experience-type-width: 15%;
-      --experience-role-width: 35%;
+      --experience-title-width: 35%;
       --experience-period-width: 22.5%;
     }
   }
@@ -154,7 +128,7 @@
   @screen sx {
     .experience {
       --experience-orgName-width: 40%;
-      --experience-role-width: 60%;
+      --experience-title-width: 60%;
     }
   }
 
@@ -162,7 +136,7 @@
     .experience {
       --experience-orgName-width: 33.33%;
       --experience-type-width: 16.67%;
-      --experience-role-width: 45%;
+      --experience-title-width: 45%;
       --experience-isActive-width: 5%;
     }
   }
@@ -175,8 +149,8 @@
     width: var(--experience-type-width, inherit);
   }
 
-  .experience th[data-col="role"] {
-    width: var(--experience-role-width, inherit);
+  .experience th[data-col="title"] {
+    width: var(--experience-title-width, inherit);
   }
 
   .experience th[data-col="isActive"] {

@@ -1,7 +1,7 @@
 <template>
   <div class="resume my-8">
     <Experience class="mb-4"/>
-    <Epics class="mb-4"/>
+    <Work class="mb-4"/>
     <a
       class="pane-element font-semibold text-sol-00 text-xs uppercase hover:underline"
       href="https://dhruvkb.github.io/resume/"
@@ -14,13 +14,13 @@
 
 <script>
   import Experience from '@/components/landing/Experience.vue'
-  import Epics from '@/components/landing/Epics.vue'
+  import Work from '@/components/landing/Work.vue'
 
   export default {
     name: 'Resume',
     components: {
       Experience,
-      Epics,
+      Work,
     },
   }
 </script>
