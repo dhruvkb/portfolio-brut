@@ -59,12 +59,18 @@
         }
 
         let columns
-        if (['s', 'sx'].includes(breakpoint.name)) {
-          columns = [epicName, title]
-        } else if (['m', 'mx'].includes(breakpoint.name)) {
-          columns = [epicName, title, technologies]
-        } else if (breakpoint.name === 'l') {
-          columns = [epicName, title, technologies]
+        switch (breakpoint.name) {
+          case 's':
+          case 'sx':
+            columns = [epicName, title]
+            break
+          case 'm':
+          case 'mx':
+            columns = [epicName, title, technologies]
+            break
+          default:
+            columns = [epicName, title, technologies]
+            break
         }
         return columns
       },
@@ -105,9 +111,9 @@
 
   @screen l {
     .epics {
-      --epics-epicName-width: 20%;
+      --epics-epicName-width: 27.5%;
       --epics-title-width: 22.5%;
-      --epics-technologies-width: 57.5%;
+      --epics-technologies-width: 50%;
     }
   }
 

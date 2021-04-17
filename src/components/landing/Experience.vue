@@ -75,12 +75,18 @@
         }
 
         let columns
-        if (['s', 'sx'].includes(breakpoint.name)) {
-          columns = [orgName, role]
-        } else if (['m', 'mx'].includes(breakpoint.name)) {
-          columns = [orgName, type, role, isActive]
-        } else if (breakpoint.name === 'l') {
-          columns = [orgName, type, role, period]
+        switch (breakpoint.name) {
+          case 's':
+          case 'sx':
+            columns = [orgName, role, isActive]
+            break
+          case 'm':
+          case 'mx':
+            columns = [orgName, type, role, isActive]
+            break
+          default:
+            columns = [orgName, type, role, period]
+            break
         }
         return columns
       },
@@ -122,7 +128,8 @@
   @screen s {
     .experience {
       --experience-orgName-width: 40%;
-      --experience-role-width: 60%;
+      --experience-role-width: 55%;
+      --experience-isActive-width: 5%;
     }
   }
 
