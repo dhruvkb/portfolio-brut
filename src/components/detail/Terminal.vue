@@ -36,7 +36,9 @@
       ]),
     },
     beforeCreate() {
-      this.$store.registerModule('terminal', terminalModule)
+      if (!this.$store.hasModule('terminal')) {
+        this.$store.registerModule('terminal', terminalModule)
+      }
     },
     created() {
       this.setTree({ fs })
@@ -47,7 +49,9 @@
       }
     },
     beforeUnmount() {
-      this.$store.unregisterModule('terminal')
+      if (this.$store.hasModule('terminal')) {
+        this.$store.unregisterModule('terminal')
+      }
     },
   }
 </script>
