@@ -40,11 +40,12 @@
         this.$store.registerModule('terminal', terminalModule)
       }
     },
-    created() {
+    async created() {
       this.setTree({ fs })
       if (this.isFirstRun) {
         // Run initial commands
-        this.exec({ rawInput: 'intro' })
+        await this.exec({ rawInput: 'intro' })
+        await this.exec({ rawInput: 'help' })
         this.setIsFirstRun({ isFirstRun: false })
       }
     },

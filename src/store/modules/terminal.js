@@ -90,6 +90,11 @@ const moduleActions = {
     }
     const { rawInput } = payload
 
+    if (!state.isReady) {
+      console.log(`Command ${rawInput} rejected as terminal is busy!`)
+      return
+    }
+
     commit('setIsReady', { isReady: false })
     const interaction = new Interaction(context, rawInput)
     commit('pushInteraction', { interaction })
