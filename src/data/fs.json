@@ -8,6 +8,19 @@
       "type": "folder",
       "children": [
         {
+          "name": "automattic",
+          "aliases": [
+            "a8c"
+          ],
+          "type": "folder",
+          "children": [
+            {
+              "name": "code_wrangler.js",
+              "type": "file"
+            }
+          ]
+        },
+        {
           "name": "browserstack",
           "aliases": [
             "bs"

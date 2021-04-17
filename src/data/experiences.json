@@ -1,6 +1,27 @@
 [
   {
     "org": {
+      "name": "Automattic",
+      "url": "https://automattic.com",
+      "node": "automattic"
+    },
+    "roles": [
+      {
+        "period": {
+          "start": [
+            "Apr",
+            "21"
+          ]
+        },
+        "type": "Full-timer",
+        "role": "Code wrangler",
+        "node": "code_wrangler.js",
+        "isActive": true
+      }
+    ]
+  },
+  {
+    "org": {
       "name": "BrowserStack",
       "url": "https://browserstack.com",
       "node": "browserstack"
