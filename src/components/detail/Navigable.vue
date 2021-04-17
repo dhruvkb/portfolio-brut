@@ -16,7 +16,7 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
 
-  import { Tree } from '@/plugins/tree'
+  import { Tree } from '@/models/tree'
 
   export default {
     name: 'Navigable',

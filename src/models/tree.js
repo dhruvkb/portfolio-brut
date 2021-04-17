@@ -141,10 +141,11 @@ export class Tree {
       return shouldContinue
     }
 
-    Array.from(this.children.values()).every((child) => {
-      shouldContinue = child.traverse(func)
-      return shouldContinue
-    })
+    Array.from(this.children.values())
+      .every((child) => {
+        shouldContinue = child.traverse(func)
+        return shouldContinue
+      })
     return shouldContinue
   }
 
@@ -157,23 +158,23 @@ export class Tree {
   isType(type) {
     return this.type === type
   }
-}
 
-export const parse = (pojo) => {
-  const node = new Tree(
-    pojo.type,
-    pojo.name,
-    pojo.aliases,
-  )
-  if (pojo.children && pojo.children instanceof Array) {
-    pojo.children.forEach((childPojo) => {
-      const child = parse(childPojo)
-      node.appendChild(child)
-      child.setParent(node)
-    })
+  static parse(pojo) {
+    const node = new Tree(
+      pojo.type,
+      pojo.name,
+      pojo.aliases,
+    )
+    if (pojo.children && pojo.children instanceof Array) {
+      pojo.children.forEach((childPojo) => {
+        const child = Tree.parse(childPojo)
+        node.appendChild(child)
+        child.setParent(node)
+      })
+    }
+    if (pojo.isRoot) {
+      node.makeRoot()
+    }
+    return node
   }
-  if (pojo.isRoot) {
-    node.makeRoot()
-  }
-  return node
 }

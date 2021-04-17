@@ -1,5 +1,5 @@
-import { parse } from '@/plugins/tree'
-import Interaction from '@/plugins/terminal'
+import { Tree } from '@/models/tree'
+import { Interaction } from '@/models/interaction'
 
 const moduleState = {
   isFirstRun: true,
@@ -56,7 +56,7 @@ const getters = {
 
 const moduleMutations = {
   setTree(state, payload) {
-    const rootNode = parse(payload.fs)
+    const rootNode = Tree.parse(payload.fs)
     state.tree = rootNode
     state.currentNode = rootNode
   },

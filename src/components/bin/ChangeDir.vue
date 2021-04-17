@@ -9,7 +9,7 @@
 <script>
   import { mapGetters, mapMutations } from 'vuex'
 
-  import { nodeType } from '@/plugins/tree'
+  import { nodeType } from '@/models/tree'
 
   import bin from '@/mixins/bin'
 

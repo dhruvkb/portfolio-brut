@@ -18,7 +18,7 @@
 
   import Navigable from '@/components/detail/Navigable.vue'
 
-  import { nodeType } from '@/plugins/tree'
+  import { nodeType } from '@/models/tree'
 
   import bin from '@/mixins/bin'
 

@@ -5,7 +5,7 @@ import { bins } from '@/components/bin/registry'
  * of the context, an input and the output generated based on the input and the
  * context.
  */
-export default class Interaction {
+export class Interaction {
   /**
    * Create a new object of class Interaction.
    *
