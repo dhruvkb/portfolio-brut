@@ -1,0 +1,46 @@
+<pre><code class="language-python"><details open><summary># Classes</summary>
+class Org:
+    def __init__(self, name, url, location, description):
+        self.name = name; self.url = url; self.location = location
+        self.description = description
+
+    def display(self):
+        print(f'{self.name} ({self.url}) - {self.location}')
+        print(self.description)
+
+
+class Role:
+    def __init__(self, org, title, period, achievements):
+        self.org = org
+        self.title = title; self.period = period
+        self.achievements = achievements
+
+    def display(self):
+        org.display()
+        print('')
+        print(f'{self.title}: {self.period}')
+        print("\n".join(map(lambda ach: f'• {ach}', self.achievements)))
+
+</details>
+fampay = Org(
+    'FamPay',
+    <a class="hover:underline" href="https://fampay.in">'https://fampay.in'</a>,
+    'Bengaluru, India',
+    (
+        'FamPay allows parents to send money to their teenage kids, who can '
+        'then spend the money securely via UPI, P2P or through a debit card.'
+    )
+)
+software_engineer = Role(
+    family,
+    'Software engineer',
+    'November &ndash; December 2019',
+    [
+        'Wrote the core transaction API of the platform.',
+        'Integrated with Cashfree payment gateway.',
+        'Developed the transactional SMS delivery system.',
+        'Developed the support engine of the platform.',
+    ]
+)
+software_engineer.display()
+</code></pre>

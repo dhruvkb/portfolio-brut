@@ -1,0 +1,47 @@
+<pre><code class="language-ruby"><details open><summary># Classes</summary>
+class Org
+  def initialize(name, url, location, description)
+    @name, @url, @location, @description = name, url, location, description
+  end
+
+  def display
+    puts "#{@name} (#{@url}) - #{@location}"
+    puts @description
+  end
+end
+
+class Role
+  def initialize(org, title, period, achievements)
+    @org, @title, @period, @achievements = org, title, period, achievements
+  end
+
+  def display
+    @org.display; puts
+
+    puts "#{@title} - #{@period}"
+    puts @achievements.map{ |ach| "• #{ach}" }.join("\n")
+  end
+end</details>
+org = Org.new(
+  'BrowserStack',
+  <a class="hover:underline" href="https://browserstack.com">'https://browserstack.com'</a>,
+  'Mumbai, India',
+  <<~DESC
+    BrowserStack is the world's leading software testing platform providing
+    access to 2,000+ real mobile devices and browsers on a cloud infrastructure.
+  DESC
+)
+role = Role.new(
+  org,
+  'Software engineer',
+  'Feb 2020 &ndash; March 2021',
+  [
+    'Identified & fixed issues tantamount to a GDPR breach.',
+    'Built audit logs to prevent, detect & alert for breaches.',
+    'Integrated all email providers with the Central Email System.',
+    'Created system to track & visualise email engagement.',
+    'Set up systems to improve email deliverability & reputation.',
+  ]
+)
+role.display
+</code></pre>

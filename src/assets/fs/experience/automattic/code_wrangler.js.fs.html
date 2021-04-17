@@ -1,0 +1,45 @@
+<pre><code class="language-javascript"><details open><summary>// Classes</summary>
+class Org {
+  constructor(name, url, location, description) {
+    this.name = name; this.url = url; this.location = location;
+    this.description = description;
+  }
+
+  display() {
+    console.log(`${this.name} (${this.url}) - ${this.location}`);
+    console.log(this.description);
+  }
+}
+
+class Role {
+  constructor(org, title, period, achievements) {
+    this.org = org;
+    this.title = title; this.period = period;
+    this.achievements = achievements;
+  }
+
+  display() {
+    this.org.display();
+    console.log('');
+    console.log(`${this.title}: ${this.period}`);
+    console.log(this.achievements.map(ach => `• ${ach}`).join('\n'));
+  }
+}</details>
+org = new Org(
+  'Automattic',
+  <a class="hover:underline" href="https://automattic.com/">'https://automattic.com/'</a>,
+  'Remote',
+  `Automattic is the company behind WordPress.com, WooCommerce, Jetpack, \
+Simplenote, Longreads, VaultPress, Akismet, Gravatar, Crowdsignal, Cloudup, \
+Tumblr, and more.`
+);
+role = new Role(
+  org,
+  'Code wrangler',
+  'April 2021 &ndash; Present',
+  [
+    '🚧'
+  ]
+);
+role.display();
+</code></pre>

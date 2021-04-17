@@ -1,0 +1,60 @@
+<pre><code class="language-java"><details open><summary>// Classes</summary>
+class Org {
+  private String name, url, location, description;
+
+  public Org(String name, String url, String location, String description) {
+    this.name = name; this.url = url; this.location = location;
+    this.description = description;
+  }
+
+  public void display() {
+    System.out.println(String.format("%s (%s) - %s", name, url, location));
+    System.out.println(description);
+  }
+}
+
+class Role {
+  private Org org;
+  private String title, period;
+  private String[] achievements;
+
+  public Role(Org org, String title, String period, String[] achievements) {
+    this.org = org;
+    this.title = title; this.period = period;
+    this.achievements = achievements;
+  }
+
+  public void display() {
+    org.display(); System.out.println('');
+
+    System.out.println(String.format("%s: %s", title, period));
+    for (String ach: achievements) { System.out.println("• " + ach); }
+  }
+}</details>
+public class Main {
+  public static void main(String[] args) {
+    Org hackerEarth = new Org(
+      "HackerEarth",
+      "https://hackerearth.com",
+      "Bengaluru, India",
+      "HackerEarth provides enterprise software solutions that help "
+      + "organisations with their technical recruitment needs."
+    );
+
+    Role softwareEngineer = new Role(
+      hackerEarth,
+      "Software Engineer",
+      "May &ndash; July 2017",
+      new String[]{
+        "Wrote a code-evaluation engine to evaluate Java projects.",
+        "Wrote tooling to automatically build and execute projects.",
+        "Wrapped Ant in an async message-based Python evaluator.",
+        "Developed the scaffolding architecture using RabbitMQ.",
+        "Added provider-agnostic database connectivity using JDBC.",
+        "Installed security policies such as memory and I/O limits.",
+      }
+    );
+    softwareEngineer.display();
+  }
+}
+</code></pre>
