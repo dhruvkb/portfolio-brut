@@ -36,11 +36,7 @@
               "type": "file"
             },
             {
-              "name": "gsod_mentor.md",
-              "type": "file"
-            },
-            {
-              "name": "outreachy_mentor.md",
+              "name": "foss_internship_mentor.md",
               "type": "file"
             },
             {

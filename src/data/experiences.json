@@ -52,30 +52,16 @@
       {
         "period": {
           "start": [
-            "Sep",
-            "20"
-          ],
-          "end": [
-            "Dec",
-            "20"
-          ]
-        },
-        "type": "FOSS",
-        "role": "GSoD mentor"
-      },
-      {
-        "period": {
-          "start": [
             "Dec",
             "19"
           ],
           "end": [
-            "Aug",
+            "Dec",
             "20"
           ]
         },
         "type": "FOSS",
-        "role": "Outreachy mentor"
+        "role": "FOSS internship mentor"
       },
       {
         "period": {
