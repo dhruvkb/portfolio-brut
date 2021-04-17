@@ -32,12 +32,14 @@ module.exports = {
     {
       files: ['*.js'],
       rules: {
-        'no-param-reassign': ['error',
+        'no-param-reassign': [
+          'error',
           {
             props: true,
             ignorePropertyModificationsFor: ['state'],
           },
         ],
+        'import/prefer-default-export': 'off',
       },
     },
     {
