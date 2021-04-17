@@ -2,7 +2,8 @@
   {
     "org": {
       "name": "BrowserStack",
-      "url": "https://browserstack.com"
+      "url": "https://browserstack.com",
+      "node": "browserstack"
     },
     "roles": [
       {
@@ -18,14 +19,15 @@
         },
         "type": "Full-timer",
         "role": "Software engineer",
-        "isActive": true
+        "node": "software_engineer.rb"
       }
     ]
   },
   {
     "org": {
       "name": "Creative Commons",
-      "url": "https://opensource.creativecommons.org"
+      "url": "https://opensource.creativecommons.org",
+      "node": "creative_commons"
     },
     "roles": [
       {
@@ -41,7 +43,7 @@
         },
         "type": "FOSS",
         "role": "Project maintainer",
-        "isActive": true
+        "node": "project_maintainer.js"
       },
       {
         "period": {
@@ -55,7 +57,8 @@
           ]
         },
         "type": "Contractor",
-        "role": "FOSS community coordinator"
+        "role": "FOSS community coordinator",
+        "node": "foss_community_coordinator.md"
       },
       {
         "period": {
@@ -69,7 +72,8 @@
           ]
         },
         "type": "FOSS",
-        "role": "FOSS internship mentor"
+        "role": "FOSS internship mentor",
+        "node": "foss_internship_mentor.md"
       },
       {
         "period": {
@@ -83,7 +87,8 @@
           ]
         },
         "type": "Intern",
-        "role": "GSoC engineer"
+        "role": "GSoC engineer",
+        "node": "gsoc_engineer.js"
       }
     ]
   },
@@ -105,7 +110,8 @@
           ]
         },
         "type": "Part-timer",
-        "role": "Chief technology coordinator"
+        "role": "Chief technology coordinator",
+        "node": "chief_technology_coordinator.md"
       }
     ]
   },
@@ -127,7 +133,8 @@
           ]
         },
         "type": "Part-timer",
-        "role": "Software engineer"
+        "role": "Software engineer",
+        "node": "software_engineer.py"
       }
     ]
   },
@@ -149,7 +156,8 @@
           ]
         },
         "type": "Intern",
-        "role": "Infrastructure engineer"
+        "role": "Infrastructure engineer",
+        "node": "infrastructure_engineer.yaml"
       },
       {
         "period": {
@@ -163,7 +171,8 @@
           ]
         },
         "type": "Intern",
-        "role": "Software engineer"
+        "role": "Software engineer",
+        "node": "SoftwareEngineer.java"
       }
     ]
   }
