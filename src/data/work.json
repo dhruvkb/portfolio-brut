@@ -1,8 +1,7 @@
 [
   {
-    "title": "Omniport",
-    "url": "",
-    "stories": [
+    "name": "Omniport",
+    "projects": [
       {
         "title": "Infrastructure",
         "url": "",
@@ -28,9 +27,8 @@
     ]
   },
   {
-    "title": "Portfolio",
-    "url": "",
-    "stories": [
+    "name": "Portfolio",
+    "projects": [
       {
         "title": "Personal website",
         "url": "",
