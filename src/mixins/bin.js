@@ -7,6 +7,11 @@ export default {
       type: Array,
     },
   },
+  data() {
+    return {
+      markReadyOnMount: true,
+    }
+  },
   computed: {
     args() {
       const { argSpec } = this.$options
@@ -58,8 +63,10 @@ export default {
     ]),
   },
   mounted() {
-    this.setIsReady({
-      isReady: true,
-    })
+    if (this.markReadyOnMount) {
+      this.setIsReady({
+        isReady: true,
+      })
+    }
   },
 }

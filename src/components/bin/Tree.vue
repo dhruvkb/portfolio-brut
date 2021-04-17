@@ -8,9 +8,10 @@
         v-for="(child, index) in node.children"
         :key="index"
         :argv="[absolutePathTo(child)]"
-        allow-files>
-      <slot/>
-      {{ childShape }}
+        allow-files
+        is-subtree>
+        <slot/>
+        {{ childShape }}
       </Tree>
     </template>
     <template v-else>
@@ -53,6 +54,10 @@
         type: Boolean,
         default: false,
       },
+      isSubtree: {
+        type: Boolean,
+        default: false,
+      },
     },
     data() {
       return {
@@ -61,6 +66,7 @@
         bend: '└',
         dash: '─',
         space: '\xa0',
+        markReadyOnMount: !this.isSubtree,
       }
     },
     computed: {
