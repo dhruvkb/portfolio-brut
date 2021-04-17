@@ -18,14 +18,14 @@ export const extensionLang = Object.freeze({
  */
 export class Tree {
   /**
-   * Create a new object of class Node.
+   * Create a new object of class Tree.
    *
    * @constructor
-   * @constructs {Node}
+   * @constructs {Tree}
    *
    * @param {string} type - whether the node represents a file or a folder
-   * @param {string} name - the name of the Node
-   * @param {Array} aliases - the list of alternative names of the Node
+   * @param {string} name - the name of the node
+   * @param {Array} aliases - the list of alternative names of the node
    */
   constructor(type, name, aliases = []) {
     this.type = type
@@ -85,7 +85,7 @@ export class Tree {
    * one of its aliases.
    *
    * @param {string} givenName - the name which is to be checked for a match
-   * @returns {boolean} whether the given name is one of the Node's valid names
+   * @returns {boolean} whether the given name is one of the node's valid names
    */
   hasName(givenName) {
     const name = givenName.toLowerCase()
@@ -107,7 +107,7 @@ export class Tree {
   /**
    * Add the given node to the as a child of the current node. To update the
    * reference to the parent node in the child object, use the function
-   * {@link Node#setParent}.
+   * {@link Tree#setParent}.
    *
    * @param {Tree} node - the node to add as a child of the current node
    */
@@ -118,7 +118,7 @@ export class Tree {
   /**
    * Set the given node as the parent of the current node. To add the current
    * node to the set containing its siblings, use the function
-   * {@link Node#appendChild}.
+   * {@link Tree#appendChild}.
    *
    * @param {Tree} node - the node to set as a parent of the current node
    */
