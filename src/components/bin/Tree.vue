@@ -1,15 +1,21 @@
 <template>
   <div class="tree">
-    <slot/>
-    {{ shape }}
-    <Navigable :node="node"/>
-    <Tree
-      v-for="(child, index) in node.children"
-      :key="index"
-      :argv="[absolutePathTo(child)]">
+    <template v-if="isFound">
+      <slot/>
+      {{ shape }}
+      <Navigable :node="node"/>
+      <Tree
+        v-for="(child, index) in node.children"
+        :key="index"
+        :argv="[absolutePathTo(child)]"
+        allow-files>
       <slot/>
       {{ childShape }}
-    </Tree>
+      </Tree>
+    </template>
+    <template v-else>
+      <strong>{{ args.dirname }}</strong> is not a valid directory.
+    </template>
   </div>
 </template>
 
@@ -42,6 +48,12 @@
     components: {
       Navigable,
     },
+    props: {
+      allowFiles: {
+        type: Boolean,
+        default: false,
+      },
+    },
     data() {
       return {
         pipe: '│',
@@ -56,7 +68,7 @@
         return this.nodeLocatedAt(this.args.dirname.replace(/\/$/, ''))
       },
       isFound() {
-        return this.node && this.node.isFolder
+        return this.node && (this.allowFiles || this.node.isFolder)
       },
       isRoot() {
         return !this.$slots.default
