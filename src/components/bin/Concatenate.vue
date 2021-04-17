@@ -79,9 +79,9 @@
         this.$nextTick(async () => {
           const languageModule = await import(
             /*
-            webpackInclude: /(java|javascript|markdown|python|ruby|yaml)/,
-            webpackChunkName: "lang-[request]"
-            */
+             webpackInclude: /(java|javascript|markdown|python|ruby|yaml)/,
+             webpackChunkName: "lang-[request]"
+             */
             `highlight.js/lib/languages/${this.lang}.js`
             )
           hljs.registerLanguage(this.lang, languageModule.default)
