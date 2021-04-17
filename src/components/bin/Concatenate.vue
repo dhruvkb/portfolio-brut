@@ -88,17 +88,24 @@
           hljs.highlightAll()
         })
       },
+      setReady(isReady) {
+        this.setIsReady({
+          isReady,
+        })
+      },
     },
     created() {
       this.node = this.file
     },
     async mounted() {
+      this.setReady(false)
       const fileModule = await import(
         /* webpackChunkName: "fs-[request]" */
         `@/assets/fs/${this.path}.fs.html`
         )
       await this.fetchContent(fileModule.default)
       this.highlightContent()
+      this.setReady(true)
     },
   }
 </script>
