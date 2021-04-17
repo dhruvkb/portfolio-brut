@@ -9,6 +9,9 @@
       "children": [
         {
           "name": "browserstack",
+          "aliases": [
+            "bs"
+          ],
           "type": "folder",
           "children": [
             {
@@ -19,6 +22,9 @@
         },
         {
           "name": "creative_commons",
+          "aliases": [
+            "cc"
+          ],
           "type": "folder",
           "children": [
             {
@@ -65,6 +71,9 @@
         },
         {
           "name": "hackerearth",
+          "aliases": [
+            "he"
+          ],
           "type": "folder",
           "children": [
             {
