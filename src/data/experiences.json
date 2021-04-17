@@ -10,6 +10,10 @@
           "start": [
             "Feb",
             "20"
+          ],
+          "end": [
+            "Mar",
+            "21"
           ]
         },
         "type": "Full-timer",
@@ -29,6 +33,10 @@
           "start": [
             "Sep",
             "19"
+          ],
+          "end": [
+            "Dec",
+            "20"
           ]
         },
         "type": "FOSS",
