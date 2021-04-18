@@ -4,7 +4,7 @@
     :title="title">
     <button
       :class="node.isFolder ? 'text-sol-v' : 'text-sol-m'"
-      @click="navigateToNode">
+      @click="handleClick">
       <!-- @slot Alternative name to display for the node goes here -->
       <slot>
         {{ node.name }}
@@ -42,6 +42,9 @@
     methods: {
       navigateToNode() {
         this.exec({ rawInput: this.command })
+      },
+      handleClick() {
+        this.navigateToNode()
       },
       ...mapActions('terminal', [
         'exec',

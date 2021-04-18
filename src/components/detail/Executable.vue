@@ -2,7 +2,7 @@
   <span
     class="executable"
     :title="title">
-    <button @click="executeCommand">
+    <button @click="handleClick">
       <span class="text-sol-g">{{ bin }}</span>
       <!-- @slot Replacement for argument vector goes here -->
       <slot>
@@ -43,6 +43,9 @@
     methods: {
       executeCommand() {
         this.exec({ rawInput: this.command })
+      },
+      handleClick() {
+        this.executeCommand()
       },
       ...mapActions('terminal', [
         'exec',
