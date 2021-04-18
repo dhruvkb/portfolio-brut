@@ -30,7 +30,7 @@
     "name": "Portfolio",
     "projects": [
       {
-        "title": "Personal website",
+        "title": "Website",
         "url": "",
         "technologies": [
           "JS (Vue, Tailwind)",
