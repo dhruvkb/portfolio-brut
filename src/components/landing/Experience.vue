@@ -1,5 +1,5 @@
 <template>
-  <div class="experience border-b border-sol-1 text-sol-00 hover:text-sol-1">
+  <div class="experience text-sol-00 hover:text-sol-1 s:border-b s:border-sol-1">
     <div class="experiences grid font-semibold text-xs uppercase text-sol-1 border-b border-sol-1">
       <div
         v-for="(column, columnIndex) in columns"
@@ -11,13 +11,14 @@
     <div
       v-for="(role, roleIndex) in roles"
       :key="roleIndex"
-      class="experiences grid text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors"
+      class="experiences grid text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors z:border-b s:border-none border-sol-1"
       role="button"
       tabindex="0">
       <div
         v-for="(column, columnIndex) in columns"
         :key="columnIndex"
-        class="resume-cell">
+        class="resume-cell"
+        :style="{ gridArea: column.fieldName }">
         <template v-if="column.fieldName === 'isActive'">
           <div
             class="inline-block align-middle h-2.5 w-2.5 border border-curr rounded-full"
@@ -57,7 +58,7 @@
           fieldName: 'type',
           displayName: 'Type',
         }
-        const role = {
+        const title = {
           fieldName: 'title',
           displayName: 'Role',
         }
@@ -65,7 +66,7 @@
           fieldName: 'isActive',
           displayName: '',
         }
-        const period = {
+        const periodText = {
           fieldName: 'periodText',
           displayName: 'Period',
         }
@@ -74,14 +75,17 @@
         switch (breakpoint.name) {
           case 's':
           case 'sx':
-            columns = [orgName, role]
+            columns = [orgName, title]
             break
           case 'm':
           case 'mx':
-            columns = [orgName, type, role, isActive]
+            columns = [orgName, type, title, isActive]
             break
-          default:
-            columns = [orgName, type, role, period]
+          case 'l':
+            columns = [orgName, type, title, periodText]
+            break
+          default: // z
+            columns = [orgName, type, title]
             break
         }
         return columns
@@ -95,20 +99,30 @@
 
 <style scoped lang="css">
   .experiences {
+    @screen z {
+      --experiences-cols: 60% 40%;
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas: "orgName type" "title title";
+    }
     @screen s {
       --experiences-cols: 40% 60%;
+      grid-template-areas: "orgName title";
     }
     @screen m {
       --experiences-cols: 33.33% 16.67% 45% 5%;
+      grid-template-areas: "orgName type title isActive";
     }
     @screen l {
       --experiences-cols: 27.5% 15% 35% 22.5%;
+      grid-template-areas: "orgName type title periodText";
     }
     @screen sx {
       --experiences-cols: 40% 60%;
+      grid-template-areas: "orgName title";
     }
     @screen mx {
       --experiences-cols: 33.33% 16.67% 45% 5%;
+      grid-template-areas: "orgName type title isActive";
     }
 
     grid-template-columns: var(--experiences-cols);
