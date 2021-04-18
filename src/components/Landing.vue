@@ -22,7 +22,18 @@
 </script>
 
 <style scoped lang="css">
-  .landing ::selection {
-    @apply text-sol-01 bg-sol-2;
+  .landing {
+    padding-left: env(safe-area-inset-left);
+
+    @screen s {
+      padding-right: env(safe-area-inset-right);
+    }
+    @screen sx {
+      padding-right: 0;
+    }
+
+    & ::selection {
+      @apply text-sol-01 bg-sol-2;
+    }
   }
 </style>

@@ -16,7 +16,13 @@
 </script>
 
 <style scoped lang="css">
-  .detail ::selection {
-    @apply text-sol-1 bg-sol-02;
+  .detail {
+    @screen sx {
+      padding-right: env(safe-area-inset-right);
+    }
+
+    & ::selection {
+      @apply text-sol-1 bg-sol-02;
+    }
   }
 </style>
