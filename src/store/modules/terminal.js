@@ -7,6 +7,7 @@ const moduleState = {
   currentNode: null,
   interactionHistory: [],
   isReady: true,
+  commandInput: '',
 }
 
 const getters = {
@@ -68,6 +69,9 @@ const moduleMutations = {
   },
   setIsFirstRun(state, payload) {
     state.isFirstRun = payload.isFirstRun
+  },
+  setCommandInput(state, payload) {
+    state.commandInput = payload.commandInput
   },
   pushInteraction(state, payload) {
     state.interactionHistory.push(payload.interaction)

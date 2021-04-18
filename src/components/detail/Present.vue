@@ -5,7 +5,7 @@
       class="flex items-center gap-x-ch">
       <Prompt/>
       <input
-        v-model="command"
+        v-model="rawInput"
         class="flex-grow bg-tx h-ln border-none outline-none"
         type="text"
 
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import { mapActions, mapState } from 'vuex'
+  import { mapActions, mapMutations, mapState } from 'vuex'
 
   import Prompt from '@/components/detail/Prompt.vue'
 
@@ -31,7 +31,6 @@
     },
     data() {
       return {
-        command: '',
         traversal: {
           index: 0,
           backup: '',
@@ -39,9 +38,18 @@
       }
     },
     computed: {
+      rawInput: {
+        get() {
+          return this.commandInput
+        },
+        set(value) {
+          this.setCommandInput({ commandInput: value })
+        },
+      },
       ...mapState('terminal', [
         'interactionHistory',
         'isReady',
+        'commandInput',
       ]),
     },
     watch: {
@@ -60,9 +68,9 @@
     },
     methods: {
       executeCommand() {
-        this.exec({ rawInput: this.command })
+        this.exec({ rawInput: this.rawInput })
 
-        this.command = '' // Clear field
+        this.rawInput = '' // Clear field
       },
       traverseHistoryUp() {
         if (this.traversal.index === this.interactionHistory.length) {
@@ -92,6 +100,9 @@
       autocompleteCommand() {
         console.log(`Autocompleting ${this.command}`) // TODO
       },
+      ...mapMutations('terminal', [
+        'setCommandInput',
+      ]),
       ...mapActions('terminal', [
         'exec',
       ]),
