@@ -1,0 +1,11 @@
+/*! @import */
+
+@layer components {
+  .pane-element {
+    @apply mx-2 m:mx-4 l:mx-8 sx:mx-2 mx:mx-4;
+  }
+
+  .resume-cell {
+    @apply py-1 px-2 s:first:pl-2 s:last:pr-2 m:first:pl-4 m:last:pr-2 l:first:pl-8 l:last:pr-8 sx:first:pl-2 sx:last:pr-2 mx:first:pl-4 mx:last:pr-4;
+  }
+}

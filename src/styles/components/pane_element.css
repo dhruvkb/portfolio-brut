@@ -1,7 +1,0 @@
-/*! @import */
-
-@layer components {
-  .pane-element {
-    @apply mx-2 m:mx-4 l:mx-8 sx:mx-2 mx:mx-4;
-  }
-}
