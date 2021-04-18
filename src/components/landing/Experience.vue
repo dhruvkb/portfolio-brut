@@ -13,7 +13,8 @@
       :key="roleIndex"
       class="experiences grid text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors z:border-b s:border-none border-sol-1"
       role="button"
-      tabindex="0">
+      tabindex="0"
+      @click="handleClick(role)">
       <div
         v-for="([column,], columnIndex) in columns"
         :key="columnIndex"
@@ -77,6 +78,18 @@
       },
       roles() {
         return Role.parse(orgs)
+      },
+    },
+    methods: {
+      populateInput(role) {
+        if (this.$store.hasModule('terminal')) {
+          this.$store.commit('terminal/setCommandInput', {
+            commandInput: `cat ~${role.nodePath}`,
+          })
+        }
+      },
+      handleClick(role) {
+        this.populateInput(role)
       },
     },
   }
