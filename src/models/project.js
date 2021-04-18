@@ -20,10 +20,12 @@ export class Project {
       title,
       url,
       technologies,
+      node,
     } = project
     this.title = title
     this.url = url
     this.technologies = technologies
+    this.node = node
   }
 
   /**
@@ -42,6 +44,15 @@ export class Project {
    */
   get epicName() {
     return this.epic.name
+  }
+
+  /**
+   * Get the path to the node from the work/ directory.
+   *
+   * @returns {string} the path to the node from the work/ directory
+   */
+  get nodePath() {
+    return ['/work', this.epic.node, this.node].join('/')
   }
 
   static parse(epics) {

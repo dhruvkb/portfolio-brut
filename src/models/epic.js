@@ -12,7 +12,11 @@ export class Epic {
    * @param {Object} epic - a plain object containing the epic attributes
    */
   constructor(epic) {
-    const { name } = epic
+    const {
+      name,
+      node,
+    } = epic
     this.name = name
+    this.node = node
   }
 }
