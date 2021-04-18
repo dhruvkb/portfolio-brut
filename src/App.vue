@@ -37,7 +37,7 @@
 <style lang="css">
   #app-root {
     @screen sx {
-        grid-template-columns: 480px 1fr;
+      grid-template-columns: 480px 1fr;
     }
     @screen mx {
       grid-template-columns: 640px 1fr;
