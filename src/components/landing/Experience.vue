@@ -41,7 +41,7 @@
   import orgs from '@/data/experience.json'
 
   export default {
-    name: 'Experiences',
+    name: 'Experience',
     data() {
       return {
         breakpoint,
