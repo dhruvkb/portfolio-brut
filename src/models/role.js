@@ -64,10 +64,20 @@ export class Role {
 
   /**
    * The name of the parent organisation of the role.
+   *
    * @returns {String} the name of the parent organisation of the role
    */
   get orgName() {
     return this.org.name
+  }
+
+  /**
+   * Get the path to the node from the experience/ directory.
+   *
+   * @returns {string} the path to the node from the experience/ directory
+   */
+  get nodePath() {
+    return ['/experience', this.org.node, this.node].join('/')
   }
 
   static parse(orgs) {
