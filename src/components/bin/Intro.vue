@@ -1,5 +1,6 @@
 <template>
-  <pre class="intro inline-block font-bold site-title">
+  <RouterLink to="/">
+    <pre class="intro inline-block font-bold site-title">
   __   __                                __       __
  /\ \ /\ \                              /\ \     /\ \
  \_\ \\ \ \___    _ __   __  __   __  __\ \ \/'\ \ \ \____
@@ -7,6 +8,7 @@
 /\ \L\ \\ \ \ \ \\ \ \/ \ \ \_\ \\ \ \_/ |\ \ \\`\ \ \ \L\ \
 \ \___,_\\ \_\ \_\\ \_\  \ \____/ \ \___/  \ \_\ \_\\ \_,__/
  \/__,_ / \/_/\/_/ \/_/   \/___/   \/__/    \/_/\/_/ \/___/</pre>
+  </RouterLink>
 </template>
 
 <script>

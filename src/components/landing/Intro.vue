@@ -2,7 +2,9 @@
   <div class="intro pane-element my-8">
     <p class="text-xl leading-snug mb-4">
       This is the portfolio of
-      <strong class="site-title">Dhruv Bhanushali</strong>,
+      <RouterLink to="/">
+        <strong class="site-title">Dhruv Bhanushali</strong>
+      </RouterLink>,
       a software engineer and open-source maintainer who also wears many other
       hats.
     </p>
