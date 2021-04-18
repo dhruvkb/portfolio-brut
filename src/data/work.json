@@ -1,6 +1,7 @@
 [
   {
     "name": "Omniport",
+    "node": "omniport",
     "projects": [
       {
         "title": "Infrastructure",
@@ -8,26 +9,30 @@
         "technologies": [
           "Docker",
           "Bash"
-        ]
+        ],
+        "node": "infrastructure.yml"
       },
       {
         "title": "Backend",
         "url": "",
         "technologies": [
           "Python (Django, DRF)"
-        ]
+        ],
+        "node": "backend.py"
       },
       {
         "title": "Documentation",
         "url": "",
         "technologies": [
           "restructuredText (Sphinx)"
-        ]
+        ],
+        "node": "documentation.rst"
       }
     ]
   },
   {
     "name": "Portfolio",
+    "node": "portfolio",
     "projects": [
       {
         "title": "Website",
@@ -35,14 +40,16 @@
         "technologies": [
           "JS (Vue, Tailwind)",
           "TS"
-        ]
+        ],
+        "node": "website.vue"
       },
       {
         "title": "Résumé",
         "url": "",
         "technologies": [
           "LaTeX"
-        ]
+        ],
+        "node": "resume.tex"
       }
     ]
   }
