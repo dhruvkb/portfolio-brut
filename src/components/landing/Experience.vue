@@ -79,7 +79,7 @@
         switch (breakpoint.name) {
           case 's':
           case 'sx':
-            columns = [orgName, role, isActive]
+            columns = [orgName, role]
             break
           case 'm':
           case 'mx':
@@ -102,8 +102,7 @@
   @screen s {
     .experience {
       --experience-orgName-width: 40%;
-      --experience-title-width: 55%;
-      --experience-isActive-width: 5%;
+      --experience-title-width: 60%;
     }
   }
 
