@@ -1,7 +1,7 @@
 <template>
   <div class="change-dir">
-    <span v-if="!isFound">
-      <strong>{{ args.dirname }}</strong> is not a valid directory.
+    <span v-if="!isNodeFound">
+      <strong>{{ args.dirpath }}</strong> is not a valid directory.
     </span>
   </div>
 </template>
@@ -12,6 +12,7 @@
   import { nodeType } from '@/models/tree'
 
   import bin from '@/mixins/bin'
+  import path from '@/mixins/path'
 
   export default {
     name: 'ChangeDir',
@@ -20,8 +21,8 @@
     argSpec: {
       posArgs: [
         {
-          name: 'dirname',
-          description: 'the directory to switch to',
+          name: 'dirpath',
+          description: 'the path or name of the directory to switch to',
           default: '~',
           nodeType: nodeType.FOLDER,
         },
@@ -29,14 +30,9 @@
     },
     mixins: [
       bin,
+      path('dirpath'),
     ],
     computed: {
-      dir() {
-        return this.nodeLocatedAt(this.args.dirname.replace(/\/$/, ''))
-      },
-      isFound() {
-        return this.node && this.node.isFolder
-      },
       ...mapGetters('terminal', [
         'nodeLocatedAt',
       ]),
@@ -47,9 +43,7 @@
       ]),
     },
     created() {
-      this.node = this.dir
-
-      if (this.isFound) {
+      if (this.isNodeFound) {
         this.setCurrentNode({
           currentNode: this.node,
         })

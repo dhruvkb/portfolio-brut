@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <ul v-if="isFound" class="children-list">
+    <ul v-if="isNodeFound" class="children-list">
       <template v-if="args.all">
         <li>
           <Navigable :node="node">.</Navigable>
@@ -16,7 +16,7 @@
       </li>
     </ul>
     <template v-else>
-      <strong>{{ args.dirname }}</strong> is not a valid directory.
+      <strong>{{ args.dirpath }}</strong> is not a valid directory.
     </template>
   </div>
 </template>
@@ -29,6 +29,7 @@
   import { nodeType } from '@/models/tree'
 
   import bin from '@/mixins/bin'
+  import path from '@/mixins/path'
 
   export default {
     name: 'List',
@@ -45,8 +46,8 @@
       ],
       posArgs: [
         {
-          name: 'dirname',
-          description: 'the directory of which to list contents',
+          name: 'dirpath',
+          description: 'the path or name of the directory whose contents to list',
           default: '.',
           nodeType: nodeType.FOLDER,
         },
@@ -54,23 +55,15 @@
     },
     mixins: [
       bin,
+      path('dirpath'),
     ],
     components: {
       Navigable,
     },
     computed: {
-      dir() {
-        return this.nodeLocatedAt(this.args.dirname.replace(/\/$/, ''))
-      },
-      isFound() {
-        return this.node && this.node.isFolder
-      },
       ...mapGetters('terminal', [
         'nodeLocatedAt',
       ]),
-    },
-    created() {
-      this.node = this.dir
     },
   }
 </script>

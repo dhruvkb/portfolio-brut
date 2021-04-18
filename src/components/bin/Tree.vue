@@ -1,6 +1,6 @@
 <template>
   <div class="tree">
-    <template v-if="isFound">
+    <template v-if="isNodeFound">
       <slot/>
       {{ shape }}
       <Navigable :node="node"/>
@@ -15,7 +15,7 @@
       </Tree>
     </template>
     <template v-else>
-      <strong>{{ args.dirname }}</strong> is not a valid directory.
+      <strong>{{ args.dirpath }}</strong> is not a valid directory.
     </template>
   </div>
 </template>
@@ -28,6 +28,7 @@
   import { nodeType } from '@/models/tree'
 
   import bin from '@/mixins/bin'
+  import path from '@/mixins/path'
 
   export default {
     name: 'Tree',
@@ -36,7 +37,7 @@
     argSpec: {
       posArgs: [
         {
-          name: 'dirname',
+          name: 'dirpath',
           description: 'the directory of which to list contents',
           default: '.',
           nodeType: nodeType.FOLDER,
@@ -45,6 +46,7 @@
     },
     mixins: [
       bin,
+      path('dirpath'),
     ],
     components: {
       Navigable,
@@ -70,10 +72,8 @@
       }
     },
     computed: {
-      dir() {
-        return this.nodeLocatedAt(this.args.dirname.replace(/\/$/, ''))
-      },
-      isFound() {
+      // Overrides `isNodeFound` from mixin
+      isNodeFound() {
         return this.node && (this.allowFiles || this.node.isFolder)
       },
       isRoot() {
@@ -105,9 +105,6 @@
         'nodeLocatedAt',
         'absolutePathTo',
       ]),
-    },
-    created() {
-      this.node = this.dir
     },
   }
 </script>

@@ -1,11 +1,11 @@
 <template>
   <div class="concatenate">
     <div
-      v-if="isFound"
+      v-if="isValid"
       v-html="content"
       ref="code"/>
     <template v-else>
-      <strong>{{ args.filename }}</strong> is not a valid file.
+      <strong>{{ args.filepath }}</strong> is not a valid file.
     </template>
   </div>
 </template>
@@ -18,6 +18,7 @@
   import { nodeType } from '@/models/tree'
 
   import bin from '@/mixins/bin'
+  import path from '@/mixins/path'
 
   export default {
     name: 'Concatenate',
@@ -26,8 +27,8 @@
     argSpec: {
       posArgs: [
         {
-          name: 'filename',
-          description: 'the file whose contents to display',
+          name: 'filepath',
+          description: 'the path or name of the file whose contents to display',
           default: 'vanity',
           nodeType: nodeType.FILE,
         },
@@ -35,6 +36,7 @@
     },
     mixins: [
       bin,
+      path('filepath'),
     ],
     data() {
       return {
@@ -43,22 +45,15 @@
       }
     },
     computed: {
-      file() {
-        return this.nodeLocatedAt(this.args.filename.replace(/\/$/, ''))
-      },
-      isFound() {
-        return this.args.filename === 'vanity'
-          || (this.node && this.node.isFile)
+      isValid() {
+        return this.args.filepath === 'vanity' || this.isNodeFound
       },
       lang() {
-        if (this.args.filename === 'vanity') {
-          return 'markdown'
-        }
-        return this.node.lang
+        return this.node?.lang ?? 'markdown'
       },
       path() {
         let filePath
-        if (this.args.filename === 'vanity') {
+        if (this.args.filepath === 'vanity') {
           filePath = ['vanity']
         } else {
           const { parent } = this.node
@@ -89,9 +84,6 @@
           hljs.highlightAll()
         })
       },
-    },
-    created() {
-      this.node = this.file
     },
     async mounted() {
       const fileModule = await import(
