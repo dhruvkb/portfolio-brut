@@ -13,7 +13,8 @@
       :key="projectIndex"
       class="works grid text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors z:border-b s:border-none border-sol-1 outline-none"
       role="button"
-      tabindex="0">
+      tabindex="0"
+      @click="handleClick(project)">
       <div
         v-for="([column,], columnIndex) in columns"
         :key="columnIndex"
@@ -64,6 +65,18 @@
       },
       projects() {
         return Project.parse(epics)
+      },
+    },
+    methods: {
+      populateInput(project) {
+        if (this.$store.hasModule('terminal')) {
+          this.$store.commit('terminal/setCommandInput', {
+            commandInput: `cat ~${project.nodePath}`,
+          })
+        }
+      },
+      handleClick(project) {
+        this.populateInput(project)
       },
     },
   }
