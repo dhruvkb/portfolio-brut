@@ -35,13 +35,11 @@
 </script>
 
 <style lang="css">
-  @screen sx {
-    #app-root {
-      grid-template-columns: 480px 1fr;
+  #app-root {
+    @screen sx {
+        grid-template-columns: 480px 1fr;
     }
-  }
-  @screen mx {
-    #app-root {
+    @screen mx {
       grid-template-columns: 640px 1fr;
     }
   }
