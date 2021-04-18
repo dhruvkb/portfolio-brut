@@ -2,10 +2,10 @@
   <div class="work text-sol-00 hover:text-sol-1 s:border-b s:border-sol-1">
     <div class="works grid font-semibold text-xs uppercase text-sol-1 border-b border-sol-1">
       <div
-        v-for="(column, columnIndex) in columns"
+        v-for="([,column], columnIndex) in columns"
         :key="columnIndex"
         class="resume-cell">
-        {{ column.displayName }}
+        {{ column }}
       </div>
     </div>
     <div
@@ -15,11 +15,11 @@
       role="button"
       tabindex="0">
       <div
-        v-for="(column, columnIndex) in columns"
+        v-for="([column,], columnIndex) in columns"
         :key="columnIndex"
         class="resume-cell"
-        :style="{ gridArea: column.fieldName }">
-        {{ project[column.fieldName] }}
+        :style="{ gridArea: column }">
+        {{ project[column] }}
       </div>
     </div>
   </div>
@@ -42,18 +42,9 @@
     },
     computed: {
       columns() {
-        const epicName = {
-          fieldName: 'epicName',
-          displayName: 'Epic',
-        }
-        const title = {
-          fieldName: 'title',
-          displayName: 'Project',
-        }
-        const technologiesText = {
-          fieldName: 'technologiesText',
-          displayName: 'Tech',
-        }
+        const epicName = ['epicName', 'Epic']
+        const title = ['title', 'Project']
+        const technologiesText = ['technologiesText', 'Tech']
 
         let columns
         switch (breakpoint.name) {

@@ -2,10 +2,10 @@
   <div class="experience text-sol-00 hover:text-sol-1 s:border-b s:border-sol-1">
     <div class="experiences grid font-semibold text-xs uppercase text-sol-1 border-b border-sol-1">
       <div
-        v-for="(column, columnIndex) in columns"
+        v-for="([,column], columnIndex) in columns"
         :key="columnIndex"
         class="resume-cell">
-        {{ column.displayName }}
+        {{ column }}
       </div>
     </div>
     <div
@@ -15,18 +15,18 @@
       role="button"
       tabindex="0">
       <div
-        v-for="(column, columnIndex) in columns"
+        v-for="([column,], columnIndex) in columns"
         :key="columnIndex"
         class="resume-cell"
-        :style="{ gridArea: column.fieldName }">
-        <template v-if="column.fieldName === 'isActive'">
+        :style="{ gridArea: column }">
+        <template v-if="column === 'isActive'">
           <div
             class="inline-block align-middle h-2.5 w-2.5 border border-curr rounded-full"
             :class="[{ 'bg-curr': role.isActive }]"
             :title="role.isActive ? 'Current' : 'Completed'"/>
         </template>
         <template v-else>
-          {{ role[column.fieldName] }}
+          {{ role[column] }}
         </template>
       </div>
     </div>
@@ -50,26 +50,11 @@
     },
     computed: {
       columns() {
-        const orgName = {
-          fieldName: 'orgName',
-          displayName: 'Org',
-        }
-        const type = {
-          fieldName: 'type',
-          displayName: 'Type',
-        }
-        const title = {
-          fieldName: 'title',
-          displayName: 'Role',
-        }
-        const isActive = {
-          fieldName: 'isActive',
-          displayName: '',
-        }
-        const periodText = {
-          fieldName: 'periodText',
-          displayName: 'Period',
-        }
+        const orgName = ['orgName', 'Org']
+        const type = ['type', 'Type']
+        const title = ['title', 'Role']
+        const isActive = ['isActive', '']
+        const periodText = ['periodText', 'Period']
 
         let columns
         switch (breakpoint.name) {
