@@ -104,7 +104,38 @@
       "name": "work",
       "type": "folder",
       "children": [
-
+        {
+          "name": "omniport",
+          "type": "folder",
+          "children": [
+            {
+              "name": "infrastructure.yml",
+              "type": "file"
+            },
+            {
+              "name": "backend.py",
+              "type": "file"
+            },
+            {
+              "name": "documentation.rst",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "portfolio",
+          "type": "folder",
+          "children": [
+            {
+              "name": "website.vue",
+              "type": "file"
+            },
+            {
+              "name": "resume.tex",
+              "type": "file"
+            }
+          ]
+        }
       ]
     }
   ]
