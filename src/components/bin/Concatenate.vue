@@ -105,5 +105,6 @@
 <style lang="css">
   .hljs {
     padding: 0;
+    overflow-x: unset; /* patch for slight vertical scroll */
   }
 </style>
