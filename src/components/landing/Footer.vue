@@ -16,7 +16,7 @@
       class="font-semibold text-xs uppercase hover:underline"
       href="https://github.com/dhruvkb/portfolio-brut"
       target="_blank">
-      source code <span class="text-sol-r">&#x2197;</span>
+      source code <span class="text-sol-r">&UpperRightArrow;</span>
     </a>
   </footer>
 </template>

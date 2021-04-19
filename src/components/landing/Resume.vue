@@ -7,7 +7,7 @@
       href="https://dhruvkb.github.io/resume/"
       target="_blank">
       Resume
-      <span class="text-sol-r">&#x2197;</span>
+      <span class="text-sol-r">&UpperRightArrow;</span>
     </a>
   </div>
 </template>
