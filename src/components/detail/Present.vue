@@ -40,6 +40,9 @@
     computed: {
       rawInput: {
         get() {
+          if (this.$refs.inputField) {
+            this.$refs.inputField.focus()
+          }
           return this.commandInput
         },
         set(value) {
