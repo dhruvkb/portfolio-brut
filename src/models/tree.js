@@ -67,17 +67,21 @@ export class Tree {
   /**
    * Get the language of the file based on the extension.
    *
-   * @return {string} the language of the file based on the extension
+   * @return {Array} the language of the file based on the extension
    */
-  get lang() {
+  get languages() {
     if (this.isFolder) {
-      return null
+      return []
     }
 
     const [extension] = this.name
       .split('.')
       .slice(1)
-    return extensionLang[extension]
+    const language = extensionLang[extension]
+    if (Array.isArray(language)) {
+      return language
+    }
+    return [language]
   }
 
   /**

@@ -48,8 +48,8 @@
       isValid() {
         return this.args.filepath === 'vanity' || this.isNodeFound
       },
-      lang() {
-        return this.node?.lang ?? 'markdown'
+      languages() {
+        return this.node?.languages ?? ['markdown']
       },
       path() {
         let filePath
@@ -73,14 +73,16 @@
       },
       highlightContent() {
         this.$nextTick(async () => {
-          const languageModule = await import(
+          const languageModules = await Promise.all(this.languages.map(lang => import(
             /*
              webpackInclude: /(java|javascript|markdown|python|ruby|yaml)/,
              webpackChunkName: "lang-[request]"
              */
-            `highlight.js/lib/languages/${this.lang}.js`
-            )
-          hljs.registerLanguage(this.lang, languageModule.default)
+            `highlight.js/lib/languages/${lang}.js`
+            )))
+          for (let i = 0; i < languageModules.length; i += 1) {
+            hljs.registerLanguage(this.languages[i], languageModules[i].default)
+          }
           hljs.highlightAll()
         })
       },
