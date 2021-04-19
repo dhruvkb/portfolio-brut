@@ -105,6 +105,16 @@
       "type": "folder",
       "children": [
         {
+          "name": "vocabulary",
+          "type": "folder",
+          "children": [
+            {
+              "name": "vocabulary.vue",
+              "type": "file"
+            }
+          ]
+        },
+        {
           "name": "omniport",
           "type": "folder",
           "children": [

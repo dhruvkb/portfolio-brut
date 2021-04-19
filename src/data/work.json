@@ -1,5 +1,19 @@
 [
   {
+    "name": "Vocabulary",
+    "node": "vocabulary",
+    "projects": [
+      {
+        "title": "",
+        "url": "",
+        "technologies": [
+          "JS (Vue)"
+        ],
+        "node": "vocabulary.vue"
+      }
+    ]
+  },
+  {
     "name": "Omniport",
     "node": "omniport",
     "projects": [
