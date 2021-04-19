@@ -10,7 +10,7 @@ const moduleState = () => ({
   commandInput: '',
 })
 
-const getters = {
+const moduleGetters = {
   nodeNamed: state => (nodeName) => {
     let nodeInQuestion = null
     state.tree.traverse((node) => {
@@ -109,7 +109,7 @@ const moduleActions = {
 export default {
   namespaced: true,
   state: moduleState,
-  getters,
+  getters: moduleGetters,
   mutations: moduleMutations,
   actions: moduleActions,
 }
