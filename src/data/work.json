@@ -39,7 +39,7 @@
         "url": "",
         "technologies": [
           "JS (Vue, Tailwind)",
-          "TS"
+          "TS (Lambda)"
         ],
         "node": "website.vue"
       },
