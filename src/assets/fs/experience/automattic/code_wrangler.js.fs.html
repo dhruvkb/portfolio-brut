@@ -15,14 +15,15 @@ class Role {
   constructor(org, title, period, achievements) {
     this.org = org;
     this.title = title; this.period = period;
-    this.achievements = achievements;
+    this.achievements = achievements.map(ach => `• ${ach}`).join('\n');
   }
 
   display() {
     this.org.display();
     console.log('');
-    console.log(`${this.title}: ${this.period}`);
-    console.log(this.achievements.map(ach => `• ${ach}`).join('\n'));
+    console.log(this.title)
+    console.log(`Period: ${this.period}`);
+    console.log(`Achievements:\n${this.achievements}`);
   }
 }</details>
 org = new Org(
