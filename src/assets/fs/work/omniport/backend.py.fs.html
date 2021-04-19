@@ -1,0 +1,56 @@
+<pre><code class="language-python"><details open><summary># Classes</summary>
+class Epic:
+    def __init__(self, name, description):
+        self.name = name; self.description = description
+
+    def display(self):
+        print(self.name)
+        print(self.description)
+
+
+class Project:
+    def __init__(self, epic, title, source, docs, stack, features):
+        self.epic = epic
+        self.title = title; self.source = source; self.docs = docs
+        self.stack = '\n'.join(
+            map(lambda tech: f'• {tech[0]} ({", ".join(tech[1])})', stack)
+        )
+        self.features = '\n'.join(
+            map(lambda feat: f'• {feat}', features)
+        )
+
+    def display(self):
+        self.epic.display()
+        print('')
+        print(self.title)
+        print(f'Source code: {self.source}\nDocumentation: {self.docs}')
+        print(f'Tech stack:\n{self.stack}\nFeatures:\n{self.features}')
+
+</details>
+omniport = Epic(
+    name='Omniport',
+    description=(
+        'Omniport is an end-to-end platform and app ecosystem for institutes '
+        'to deploy their web portal, by and for the students.'
+    )
+)
+backend = Project(
+    epic=omniport,
+    title='Backend',
+    source='<a class="hover:underline" href="https://github.com/IMGIITRoorkee/omniport-backend">https://github.com/IMGIITRoorkee/omniport-backend</a>',
+    docs='<a class="hover:underline" href="https://omniport.rtfd.io">https://omniport.rtfd.io</a>',
+    stack=[
+      ('Python', ['Django', 'DRF']),
+    ],
+    features=[
+        'Planned it to be unopinionated to suit any institute\'s needs.',
+        'Developed Omniport to be generic but customisable.',
+        'Developed extension capability with plug-and-play apps.',
+        'Developed latest features such as HTTP/2 and WebSockets.',
+        'Added OAuth2 provider functionality for 3rd-party auth.',
+        'Launched as a mobile responsive, progressive web app.',
+        'Composed the Django backend, all core apps and services.',
+    ]
+)
+backend.display()
+</code></pre>

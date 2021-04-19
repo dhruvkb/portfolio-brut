@@ -9,6 +9,7 @@ export const extensionLang = Object.freeze({
   md: 'markdown',
   py: 'python',
   rb: 'ruby',
+  rst: 'markdown', // TODO: Use a proper language parser
   tex: 'latex',
   vue: ['xml', 'javascript'],
   yml: 'yaml',
