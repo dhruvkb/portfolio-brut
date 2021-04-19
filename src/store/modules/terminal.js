@@ -1,14 +1,14 @@
 import { Tree } from '@/models/tree'
 import { Interaction } from '@/models/interaction'
 
-const moduleState = {
+const moduleState = () => ({
   isFirstRun: true,
   tree: null,
   currentNode: null,
   interactionHistory: [],
   isReady: true,
   commandInput: '',
-}
+})
 
 const getters = {
   nodeNamed: state => (nodeName) => {
