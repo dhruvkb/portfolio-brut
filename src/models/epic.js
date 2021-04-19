@@ -18,5 +18,16 @@ export class Epic {
     } = epic
     this.name = name
     this.node = node
+
+    this.projects = []
+  }
+
+  /**
+   * Store the given project as a child of this epic.
+   *
+   * @param {Project} project - the project to register as a child of this epic
+   */
+  addProject(project) {
+    this.projects.push(project)
   }
 }

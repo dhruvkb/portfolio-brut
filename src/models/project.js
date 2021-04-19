@@ -15,6 +15,7 @@ export class Project {
    */
   constructor(epic, project) {
     this.epic = epic
+    epic.addProject(this)
 
     const {
       title,

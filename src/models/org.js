@@ -20,5 +20,16 @@ export class Org {
     this.name = name
     this.url = url
     this.node = node
+
+    this.roles = []
+  }
+
+  /**
+   * Store the given role as a child of this org.
+   *
+   * @param {Role} role - the role to register as a child of this org
+   */
+  addRole(role) {
+    this.roles.push(role)
   }
 }
