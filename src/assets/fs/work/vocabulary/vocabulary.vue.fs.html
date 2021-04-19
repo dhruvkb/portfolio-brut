@@ -1,0 +1,56 @@
+<pre><code class="language-html"><details open><summary>&lt;!--template--&gt;</summary>&lt;template&gt;
+  &lt;div class="epic"&gt;
+    &lt;h1&gt;{{ epic.name }}&lt;/h1&gt;
+    &lt;p&gt;{{ epic.description }}&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="project"&gt;
+    &lt;h2&gt;{{ project.name }}&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a :href="project.repo"&gt;Source code&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a :href="project.docs"&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;Tech stack&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li v-for="(tech, index) in project.techStack" :key="index"&gt;
+        {{ tech.language }} ({{ tech.frameworks.join(', ') }})
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;Features&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li v-for="(feature, index) in project.features" :key="index"&gt;
+        {{ feature }}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</details>
+&lt;script&gt;</code></pre>
+<pre><code class="language-javascript">export default {
+  name: 'Vocabulary',
+  data() {
+    return {
+      epic: {
+        name: 'Vocabulary',
+        description: `Vocabulary is a cohesive design system & Vue component \
+library to unite the web-facing Creative Commons.`,
+      },
+      project: {
+        name: 'Vocabulary',
+        repo: '<a class="hover:underline" href="https://github.com/creativecommons/vocabulary/">https://github.com/creativecommons/vocabulary/</a>',
+        docs: '<a class="hover:underline" href="https://cc-vocabulary.netlify.app/">https://cc-vocabulary.netlify.app/</a>',
+        techStack: [
+          { language: 'JavaScript', frameworks: ['Vue'] },
+        ],
+        features: [
+          'Planned the tech-stack & higher-order repository structure.',
+          'Developed Sass styles and corresponding Vue components.',
+          'Integrated the documentation with an interactive Storybook.',
+          'Set up automated CI/CD pipelines for docs and builds.',
+          'Continue to triage issues & review PRs as a maintainer.',
+        ],
+      },
+    }
+  },
+}
+</code></pre>
+<pre><code class="language-html">&lt;/script&gt;</code></pre>
