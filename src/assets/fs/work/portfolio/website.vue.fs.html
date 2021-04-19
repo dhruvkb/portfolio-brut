@@ -5,8 +5,11 @@
   &lt;/div&gt;
 
   &lt;div class="project"&gt;
-    &lt;a :href="project.live"&gt;&lt;h2&gt;{{ project.name }}&lt;/h2&gt;&lt;/a&gt;
-    &lt;a :href="project.repo"&gt;Source code&lt;/a&gt;
+    &lt;h2&gt;{{ project.name }}&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a :href="project.repo"&gt;Source code&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a :href="project.live"&gt;Live&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
     &lt;h3&gt;Tech stack&lt;/h3&gt;
     &lt;ul&gt;
       &lt;li v-for="(tech, index) in project.techStack" :key="index"&gt;
