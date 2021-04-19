@@ -1,0 +1,54 @@
+<pre><code class="language-html"><details open><summary>&lt;!--template--&gt;</summary>&lt;template&gt;
+  &lt;div class="epic"&gt;
+    &lt;h1&gt;{{ epic.name }}&lt;/h1&gt;
+    &lt;p&gt;{{ epic.description }}&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="project"&gt;
+    &lt;a :href="project.live"&gt;&lt;h2&gt;{{ project.name }}&lt;/h2&gt;&lt;/a&gt;
+    &lt;a :href="project.repo"&gt;Source code&lt;/a&gt;
+    &lt;h3&gt;Tech stack&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li v-for="(tech, index) in project.techStack" :key="index"&gt;
+        {{ tech.language }} ({{ tech.frameworks.join(', ') }})
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;Features&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li v-for="(feature, index) in project.features" :key="index"&gt;
+        {{ feature }}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</details>
+&lt;script&gt;</code></pre>
+<pre><code class="language-javascript">export default {
+  name: 'Website',
+  data() {
+    return {
+      epic: {
+        name: 'Portfolio',
+        description: `My portfolio is my small personal slice of the Internet. \
+The entire suite has automated CI/CD pipelines for deployment. The readable \
+codebase is fully documented & open‐source.`,
+      },
+      project: {
+        name: 'Website',
+        repo: '<a class="hover:underline" href="https://github.com/dhruvkb/portfolio/">https://github.com/dhruvkb/portfolio/</a>',
+        live: '<a class="hover:underline" href="https://dhruvkb.github.io/">https://dhruvkb.github.io/</a>',
+        techStack: [
+          { language: 'JavaScript', frameworks: ['Vue', 'Tailwind'] },
+          { language: 'TypeScript', frameworks: ['Lambda'] },
+        ],
+        features: [
+          'Rebuilt online portfolio on the principles of JAMStack.',
+          'Integrated a highly functional \'terminal emulator\'‑emulator.',
+          'Deployed as a static site & progressive web application.',
+          'Hosted a blog with GitHub APIs & TS serverless functions.',
+        ],
+      },
+    }
+  },
+}
+</code></pre>
+<pre><code class="language-html">&lt;/script&gt;</code></pre>
