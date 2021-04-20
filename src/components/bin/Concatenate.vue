@@ -1,9 +1,12 @@
 <template>
   <div class="concatenate">
-    <div
-      v-if="isValid"
-      v-html="content"
-      ref="code"/>
+    <template v-if="isValid">
+      <div
+        v-if="content"
+        v-html="content"
+        ref="code"/>
+      <Spinner v-else/>
+    </template>
     <template v-else>
       <strong>{{ args.filepath }}</strong> is not a valid file.
     </template>
@@ -15,10 +18,12 @@
 
   import hljs from 'highlight.js/lib/core'
 
-  import { nodeType } from '@/models/tree'
-
   import bin from '@/mixins/bin'
   import path from '@/mixins/path'
+
+  import Spinner from '@/components/detail/Spinner.vue'
+
+  import { nodeType } from '@/models/tree'
 
   export default {
     name: 'Concatenate',
@@ -38,6 +43,9 @@
       bin,
       path('filepath'),
     ],
+    components: {
+      Spinner,
+    },
     data() {
       return {
         content: '',
