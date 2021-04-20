@@ -1,3 +1,5 @@
+import { Project } from '@/models/project'
+
 /**
  * A class that represents an epic. Each epic can be associated with a number
  * of projects.
@@ -29,5 +31,18 @@ export class Epic {
    */
   addProject(project) {
     this.projects.push(project)
+  }
+
+  static parse(epicsPojo) {
+    const epics = []
+    epicsPojo.forEach((epicPojo) => {
+      const epic = new Epic(epicPojo)
+      epicPojo.projects.forEach((projectPojo) => {
+        const project = new Project(epic, projectPojo)
+        epic.addProject(project)
+      })
+      epics.push(epic)
+    })
+    return epics
   }
 }

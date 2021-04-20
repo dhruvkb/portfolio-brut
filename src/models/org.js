@@ -1,3 +1,5 @@
+import { Role } from '@/models/role'
+
 /**
  * A class that represents an organisation. Each organisation can be associated
  * with a number of roles.
@@ -31,5 +33,18 @@ export class Org {
    */
   addRole(role) {
     this.roles.push(role)
+  }
+
+  static parse(orgsPojo) {
+    const orgs = []
+    orgsPojo.forEach((orgPojo) => {
+      const org = new Org(orgPojo)
+      orgPojo.roles.forEach((rolePojo) => {
+        const role = new Role(org, rolePojo)
+        org.addRole(role)
+      })
+      orgs.push(org)
+    })
+    return orgs
   }
 }

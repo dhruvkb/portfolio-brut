@@ -1,5 +1,3 @@
-import { Org } from '@/models/org'
-
 const rangeIndicator = '\u2013'
 
 /**
@@ -78,17 +76,5 @@ export class Role {
    */
   get nodePath() {
     return ['/experience', this.org.node, this.node].join('/')
-  }
-
-  static parse(orgs) {
-    const roles = []
-    orgs.forEach((orgPojo) => {
-      const org = new Org(orgPojo)
-      orgPojo.roles.forEach((rolePojo) => {
-        const role = new Role(org, rolePojo)
-        roles.push(role)
-      })
-    })
-    return roles
   }
 }

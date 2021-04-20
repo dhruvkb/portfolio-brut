@@ -1,5 +1,3 @@
-import { Epic } from '@/models/epic'
-
 /**
  * Each project represents a quantum of work done under an epic.
  */
@@ -53,17 +51,5 @@ export class Project {
    */
   get nodePath() {
     return ['/work', this.epic.node, this.node].join('/')
-  }
-
-  static parse(epics) {
-    const projects = []
-    epics.forEach((epicPojo) => {
-      const epic = new Epic(epicPojo)
-      epicPojo.projects.forEach((projectPojo) => {
-        const project = new Project(epic, projectPojo)
-        projects.push(project)
-      })
-    })
-    return projects
   }
 }
