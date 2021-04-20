@@ -17,11 +17,14 @@ export class Org {
     const {
       name,
       url,
-      node,
+      slug,
+      aliases,
     } = org
     this.name = name
     this.url = url
-    this.node = node
+
+    this.slug = slug
+    this.aliases = aliases
 
     this.roles = []
   }

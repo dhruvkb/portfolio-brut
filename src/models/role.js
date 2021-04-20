@@ -20,12 +20,15 @@ export class Role {
       period,
       type,
       title,
-      node,
+      slug,
+      aliases,
     } = role
     this.period = period
     this.type = type
     this.title = title
-    this.node = node
+
+    this.slug = slug
+    this.aliases = aliases
   }
 
   /**
@@ -75,6 +78,6 @@ export class Role {
    * @returns {string} the path to the node from the experience/ directory
    */
   get nodePath() {
-    return ['/experience', this.org.node, this.node].join('/')
+    return ['/experience', this.org.slug, this.slug].join('/')
   }
 }

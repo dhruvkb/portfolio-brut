@@ -18,12 +18,15 @@ export class Project {
       title,
       url,
       technologies,
-      node,
+      slug,
+      aliases,
     } = project
     this.title = title
     this.url = url
     this.technologies = technologies
-    this.node = node
+
+    this.slug = slug
+    this.aliases = aliases
   }
 
   /**
@@ -50,6 +53,6 @@ export class Project {
    * @returns {string} the path to the node from the work/ directory
    */
   get nodePath() {
-    return ['/work', this.epic.node, this.node].join('/')
+    return ['/work', this.epic.slug, this.slug].join('/')
   }
 }

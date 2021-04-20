@@ -16,10 +16,13 @@ export class Epic {
   constructor(epic) {
     const {
       name,
-      node,
+      slug,
+      aliases,
     } = epic
     this.name = name
-    this.node = node
+
+    this.slug = slug
+    this.aliases = aliases
 
     this.projects = []
   }
