@@ -17,7 +17,6 @@ export class Role {
    */
   constructor(org, role) {
     this.org = org
-    org.addRole(this)
 
     const {
       period,
