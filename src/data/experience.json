@@ -2,7 +2,10 @@
   {
     "name": "Automattic",
     "url": "https://automattic.com",
-    "node": "automattic",
+    "slug": "automattic",
+    "aliases": [
+      "a8c"
+    ],
     "roles": [
       {
         "period": {
@@ -13,14 +16,17 @@
         },
         "type": "Full-timer",
         "title": "Code wrangler",
-        "node": "code_wrangler.js"
+        "slug": "code_wrangler.js"
       }
     ]
   },
   {
     "name": "BrowserStack",
     "url": "https://browserstack.com",
-    "node": "browserstack",
+    "slug": "browserstack",
+    "aliases": [
+      "bs"
+    ],
     "roles": [
       {
         "period": {
@@ -35,14 +41,17 @@
         },
         "type": "Full-timer",
         "title": "Software engineer",
-        "node": "software_engineer.rb"
+        "slug": "software_engineer.rb"
       }
     ]
   },
   {
     "name": "Creative Commons",
     "url": "https://opensource.creativecommons.org",
-    "node": "creative_commons",
+    "slug": "creative_commons",
+    "aliases": [
+      "cc"
+    ],
     "roles": [
       {
         "period": {
@@ -57,7 +66,7 @@
         },
         "type": "FOSS",
         "title": "Project maintainer",
-        "node": "project_maintainer.js"
+        "slug": "project_maintainer.js"
       },
       {
         "period": {
@@ -72,7 +81,7 @@
         },
         "type": "Contractor",
         "title": "FOSS community coordinator",
-        "node": "foss_community_coordinator.md"
+        "slug": "foss_community_coordinator.md"
       },
       {
         "period": {
@@ -87,7 +96,7 @@
         },
         "type": "FOSS",
         "title": "FOSS internship mentor",
-        "node": "foss_internship_mentor.md"
+        "slug": "foss_internship_mentor.md"
       },
       {
         "period": {
@@ -102,14 +111,14 @@
         },
         "type": "Intern",
         "title": "GSoC engineer",
-        "node": "gsoc_engineer.js"
+        "slug": "gsoc_engineer.js"
       }
     ]
   },
   {
     "name": "IMG, IIT Roorkee",
     "url": "https://img.channeli.in",
-    "node": "img",
+    "slug": "img",
     "roles": [
       {
         "period": {
@@ -124,14 +133,14 @@
         },
         "type": "Part-timer",
         "title": "Chief technology coordinator",
-        "node": "chief_technology_coordinator.md"
+        "slug": "chief_technology_coordinator.md"
       }
     ]
   },
   {
     "name": "FamPay",
     "url": "https://fampay.in",
-    "node": "fampay",
+    "slug": "fampay",
     "roles": [
       {
         "period": {
@@ -146,14 +155,17 @@
         },
         "type": "Part-timer",
         "title": "Software engineer",
-        "node": "software_engineer.py"
+        "slug": "software_engineer.py"
       }
     ]
   },
   {
     "name": "HackerEarth",
     "url": "https://hackerearth.com",
-    "node": "hackerearth",
+    "slug": "hackerearth",
+    "aliases": [
+      "he"
+    ],
     "roles": [
       {
         "period": {
@@ -168,7 +180,7 @@
         },
         "type": "Intern",
         "title": "Infrastructure engineer",
-        "node": "infrastructure_engineer.yml"
+        "slug": "infrastructure_engineer.yml"
       },
       {
         "period": {
@@ -183,7 +195,7 @@
         },
         "type": "Intern",
         "title": "Software engineer",
-        "node": "SoftwareEngineer.java"
+        "slug": "SoftwareEngineer.java"
       }
     ]
   }

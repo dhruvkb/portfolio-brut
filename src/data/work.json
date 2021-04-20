@@ -1,7 +1,7 @@
 [
   {
     "name": "Vocabulary",
-    "node": "vocabulary",
+    "slug": "vocabulary",
     "projects": [
       {
         "title": "",
@@ -9,13 +9,13 @@
         "technologies": [
           "JS (Vue)"
         ],
-        "node": "vocabulary.vue"
+        "slug": "vocabulary.vue"
       }
     ]
   },
   {
     "name": "Omniport",
-    "node": "omniport",
+    "slug": "omniport",
     "projects": [
       {
         "title": "Infrastructure",
@@ -24,7 +24,7 @@
           "Docker",
           "Bash"
         ],
-        "node": "infrastructure.yml"
+        "slug": "infrastructure.yml"
       },
       {
         "title": "Backend",
@@ -32,7 +32,7 @@
         "technologies": [
           "Python (Django, DRF)"
         ],
-        "node": "backend.py"
+        "slug": "backend.py"
       },
       {
         "title": "Documentation",
@@ -40,13 +40,13 @@
         "technologies": [
           "restructuredText (Sphinx)"
         ],
-        "node": "documentation.rst"
+        "slug": "documentation.rst"
       }
     ]
   },
   {
     "name": "Portfolio",
-    "node": "portfolio",
+    "slug": "portfolio",
     "projects": [
       {
         "title": "Website",
@@ -55,7 +55,7 @@
           "JS (Vue, Tailwind)",
           "TS (Lambda)"
         ],
-        "node": "website.vue"
+        "slug": "website.vue"
       },
       {
         "title": "Résumé",
@@ -63,7 +63,7 @@
         "technologies": [
           "LaTeX"
         ],
-        "node": "resume.tex"
+        "slug": "resume.tex"
       }
     ]
   }
