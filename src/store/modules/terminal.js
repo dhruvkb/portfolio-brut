@@ -1,4 +1,3 @@
-import { Tree } from '@/models/tree'
 import { Interaction } from '@/models/interaction'
 
 const moduleState = () => ({
@@ -57,9 +56,9 @@ const moduleGetters = {
 
 const moduleMutations = {
   setTree(state, payload) {
-    const rootNode = Tree.parse(payload.fs)
-    state.tree = rootNode
-    state.currentNode = rootNode
+    const { tree } = payload
+    state.tree = tree
+    state.currentNode = tree
   },
   setCurrentNode(state, payload) {
     state.currentNode = payload.currentNode

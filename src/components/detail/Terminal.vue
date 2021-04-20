@@ -13,7 +13,10 @@
 
   import terminalModule from '@/store/modules/terminal'
 
-  import fs from '@/data/fs.json'
+  import { Tree } from '@/models/tree'
+
+  import experience from '@/data/experience.json'
+  import work from '@/data/work.json'
 
   export default {
     name: 'Terminal',
@@ -27,6 +30,21 @@
       ]),
     },
     methods: {
+      makeTree() {
+        const rootNode = new Tree('folder', '~')
+        rootNode.makeRoot()
+
+        const experienceNode = Tree.parse(experience)
+        const workNode = Tree.parse(work)
+
+        const nodes = [experienceNode, workNode]
+        nodes.forEach((node) => {
+          node.setParent(rootNode)
+          rootNode.appendChild(node)
+        })
+
+        return rootNode
+      },
       ...mapMutations('terminal', [
         'setTree',
         'setIsFirstRun',
@@ -41,7 +59,7 @@
       }
     },
     async created() {
-      this.setTree({ fs })
+      this.setTree({ tree: this.makeTree() })
       if (this.isFirstRun) {
         // Run initial commands
         await this.exec({ rawInput: 'intro' })

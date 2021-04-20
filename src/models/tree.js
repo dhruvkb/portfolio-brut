@@ -167,20 +167,23 @@ export class Tree {
   }
 
   static parse(pojo) {
+    const type = (pojo.children && pojo.children instanceof Array)
+      ? nodeType.FOLDER
+      : nodeType.FILE
     const node = new Tree(
-      pojo.type,
-      pojo.name,
+      type,
+      pojo.slug,
       pojo.aliases,
     )
-    if (pojo.children && pojo.children instanceof Array) {
+    if (pojo.isRoot) {
+      node.makeRoot()
+    }
+    if (node.isFolder) {
       pojo.children.forEach((childPojo) => {
         const child = Tree.parse(childPojo)
         node.appendChild(child)
         child.setParent(node)
       })
-    }
-    if (pojo.isRoot) {
-      node.makeRoot()
     }
     return node
   }
