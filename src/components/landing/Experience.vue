@@ -98,7 +98,7 @@
       ]),
     },
     mounted() {
-      const allOrgs = Org.parse(orgs)
+      const allOrgs = Org.parse(orgs.children)
       this.setOrgs({
         orgs: allOrgs,
       })

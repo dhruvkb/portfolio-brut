@@ -40,7 +40,7 @@ export class Epic {
     const epics = []
     epicsPojo.forEach((epicPojo) => {
       const epic = new Epic(epicPojo)
-      epicPojo.projects.forEach((projectPojo) => {
+      epicPojo.children.forEach((projectPojo) => {
         const project = new Project(epic, projectPojo)
         epic.addProject(project)
       })

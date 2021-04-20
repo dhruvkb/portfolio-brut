@@ -1,202 +1,205 @@
-[
-  {
-    "name": "Automattic",
-    "url": "https://automattic.com",
-    "slug": "automattic",
-    "aliases": [
-      "a8c"
-    ],
-    "roles": [
-      {
-        "period": {
-          "start": [
-            "Apr",
-            "21"
-          ]
+{
+  "slug": "experience",
+  "children": [
+    {
+      "name": "Automattic",
+      "url": "https://automattic.com",
+      "slug": "automattic",
+      "aliases": [
+        "a8c"
+      ],
+      "children": [
+        {
+          "period": {
+            "start": [
+              "Apr",
+              "21"
+            ]
+          },
+          "type": "Full-timer",
+          "title": "Code wrangler",
+          "slug": "code_wrangler.js"
+        }
+      ]
+    },
+    {
+      "name": "BrowserStack",
+      "url": "https://browserstack.com",
+      "slug": "browserstack",
+      "aliases": [
+        "bs"
+      ],
+      "children": [
+        {
+          "period": {
+            "start": [
+              "Feb",
+              "20"
+            ],
+            "end": [
+              "Mar",
+              "21"
+            ]
+          },
+          "type": "Full-timer",
+          "title": "Software engineer",
+          "slug": "software_engineer.rb"
+        }
+      ]
+    },
+    {
+      "name": "Creative Commons",
+      "url": "https://opensource.creativecommons.org",
+      "slug": "creative_commons",
+      "aliases": [
+        "cc"
+      ],
+      "children": [
+        {
+          "period": {
+            "start": [
+              "Sep",
+              "19"
+            ],
+            "end": [
+              "Dec",
+              "20"
+            ]
+          },
+          "type": "FOSS",
+          "title": "Project maintainer",
+          "slug": "project_maintainer.js"
         },
-        "type": "Full-timer",
-        "title": "Code wrangler",
-        "slug": "code_wrangler.js"
-      }
-    ]
-  },
-  {
-    "name": "BrowserStack",
-    "url": "https://browserstack.com",
-    "slug": "browserstack",
-    "aliases": [
-      "bs"
-    ],
-    "roles": [
-      {
-        "period": {
-          "start": [
-            "Feb",
-            "20"
-          ],
-          "end": [
-            "Mar",
-            "21"
-          ]
+        {
+          "period": {
+            "start": [
+              "July",
+              "20"
+            ],
+            "end": [
+              "Dec",
+              "20"
+            ]
+          },
+          "type": "Contractor",
+          "title": "FOSS community coordinator",
+          "slug": "foss_community_coordinator.md"
         },
-        "type": "Full-timer",
-        "title": "Software engineer",
-        "slug": "software_engineer.rb"
-      }
-    ]
-  },
-  {
-    "name": "Creative Commons",
-    "url": "https://opensource.creativecommons.org",
-    "slug": "creative_commons",
-    "aliases": [
-      "cc"
-    ],
-    "roles": [
-      {
-        "period": {
-          "start": [
-            "Sep",
-            "19"
-          ],
-          "end": [
-            "Dec",
-            "20"
-          ]
+        {
+          "period": {
+            "start": [
+              "Dec",
+              "19"
+            ],
+            "end": [
+              "Dec",
+              "20"
+            ]
+          },
+          "type": "FOSS",
+          "title": "FOSS internship mentor",
+          "slug": "foss_internship_mentor.md"
         },
-        "type": "FOSS",
-        "title": "Project maintainer",
-        "slug": "project_maintainer.js"
-      },
-      {
-        "period": {
-          "start": [
-            "July",
-            "20"
-          ],
-          "end": [
-            "Dec",
-            "20"
-          ]
+        {
+          "period": {
+            "start": [
+              "May",
+              "19"
+            ],
+            "end": [
+              "Aug",
+              "19"
+            ]
+          },
+          "type": "Intern",
+          "title": "GSoC engineer",
+          "slug": "gsoc_engineer.js"
+        }
+      ]
+    },
+    {
+      "name": "IMG, IIT Roorkee",
+      "url": "https://img.channeli.in",
+      "slug": "img",
+      "children": [
+        {
+          "period": {
+            "start": [
+              "Jan",
+              "16"
+            ],
+            "end": [
+              "April",
+              "19"
+            ]
+          },
+          "type": "Part-timer",
+          "title": "Chief technology coordinator",
+          "slug": "chief_technology_coordinator.md"
+        }
+      ]
+    },
+    {
+      "name": "FamPay",
+      "url": "https://fampay.in",
+      "slug": "fampay",
+      "children": [
+        {
+          "period": {
+            "start": [
+              "Nov",
+              "19"
+            ],
+            "end": [
+              "Dec",
+              "19"
+            ]
+          },
+          "type": "Part-timer",
+          "title": "Software engineer",
+          "slug": "software_engineer.py"
+        }
+      ]
+    },
+    {
+      "name": "HackerEarth",
+      "url": "https://hackerearth.com",
+      "slug": "hackerearth",
+      "aliases": [
+        "he"
+      ],
+      "children": [
+        {
+          "period": {
+            "start": [
+              "May",
+              "18"
+            ],
+            "end": [
+              "July",
+              "18"
+            ]
+          },
+          "type": "Intern",
+          "title": "Infrastructure engineer",
+          "slug": "infrastructure_engineer.yml"
         },
-        "type": "Contractor",
-        "title": "FOSS community coordinator",
-        "slug": "foss_community_coordinator.md"
-      },
-      {
-        "period": {
-          "start": [
-            "Dec",
-            "19"
-          ],
-          "end": [
-            "Dec",
-            "20"
-          ]
-        },
-        "type": "FOSS",
-        "title": "FOSS internship mentor",
-        "slug": "foss_internship_mentor.md"
-      },
-      {
-        "period": {
-          "start": [
-            "May",
-            "19"
-          ],
-          "end": [
-            "Aug",
-            "19"
-          ]
-        },
-        "type": "Intern",
-        "title": "GSoC engineer",
-        "slug": "gsoc_engineer.js"
-      }
-    ]
-  },
-  {
-    "name": "IMG, IIT Roorkee",
-    "url": "https://img.channeli.in",
-    "slug": "img",
-    "roles": [
-      {
-        "period": {
-          "start": [
-            "Jan",
-            "16"
-          ],
-          "end": [
-            "April",
-            "19"
-          ]
-        },
-        "type": "Part-timer",
-        "title": "Chief technology coordinator",
-        "slug": "chief_technology_coordinator.md"
-      }
-    ]
-  },
-  {
-    "name": "FamPay",
-    "url": "https://fampay.in",
-    "slug": "fampay",
-    "roles": [
-      {
-        "period": {
-          "start": [
-            "Nov",
-            "19"
-          ],
-          "end": [
-            "Dec",
-            "19"
-          ]
-        },
-        "type": "Part-timer",
-        "title": "Software engineer",
-        "slug": "software_engineer.py"
-      }
-    ]
-  },
-  {
-    "name": "HackerEarth",
-    "url": "https://hackerearth.com",
-    "slug": "hackerearth",
-    "aliases": [
-      "he"
-    ],
-    "roles": [
-      {
-        "period": {
-          "start": [
-            "May",
-            "18"
-          ],
-          "end": [
-            "July",
-            "18"
-          ]
-        },
-        "type": "Intern",
-        "title": "Infrastructure engineer",
-        "slug": "infrastructure_engineer.yml"
-      },
-      {
-        "period": {
-          "start": [
-            "May",
-            "17"
-          ],
-          "end": [
-            "July",
-            "17"
-          ]
-        },
-        "type": "Intern",
-        "title": "Software engineer",
-        "slug": "SoftwareEngineer.java"
-      }
-    ]
-  }
-]
+        {
+          "period": {
+            "start": [
+              "May",
+              "17"
+            ],
+            "end": [
+              "July",
+              "17"
+            ]
+          },
+          "type": "Intern",
+          "title": "Software engineer",
+          "slug": "SoftwareEngineer.java"
+        }
+      ]
+    }
+  ]
+}

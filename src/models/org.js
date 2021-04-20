@@ -42,7 +42,7 @@ export class Org {
     const orgs = []
     orgsPojo.forEach((orgPojo) => {
       const org = new Org(orgPojo)
-      orgPojo.roles.forEach((rolePojo) => {
+      orgPojo.children.forEach((rolePojo) => {
         const role = new Role(org, rolePojo)
         org.addRole(role)
       })

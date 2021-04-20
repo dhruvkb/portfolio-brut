@@ -1,70 +1,73 @@
-[
-  {
-    "name": "Vocabulary",
-    "slug": "vocabulary",
-    "projects": [
-      {
-        "title": "",
-        "url": "",
-        "technologies": [
-          "JS (Vue)"
-        ],
-        "slug": "vocabulary.vue"
-      }
-    ]
-  },
-  {
-    "name": "Omniport",
-    "slug": "omniport",
-    "projects": [
-      {
-        "title": "Infrastructure",
-        "url": "",
-        "technologies": [
-          "Docker",
-          "Bash"
-        ],
-        "slug": "infrastructure.yml"
-      },
-      {
-        "title": "Backend",
-        "url": "",
-        "technologies": [
-          "Python (Django, DRF)"
-        ],
-        "slug": "backend.py"
-      },
-      {
-        "title": "Documentation",
-        "url": "",
-        "technologies": [
-          "restructuredText (Sphinx)"
-        ],
-        "slug": "documentation.rst"
-      }
-    ]
-  },
-  {
-    "name": "Portfolio",
-    "slug": "portfolio",
-    "projects": [
-      {
-        "title": "Website",
-        "url": "",
-        "technologies": [
-          "JS (Vue, Tailwind)",
-          "TS (Lambda)"
-        ],
-        "slug": "website.vue"
-      },
-      {
-        "title": "Résumé",
-        "url": "",
-        "technologies": [
-          "LaTeX"
-        ],
-        "slug": "resume.tex"
-      }
-    ]
-  }
-]
+{
+  "slug": "work",
+  "children": [
+    {
+      "name": "Vocabulary",
+      "slug": "vocabulary",
+      "children": [
+        {
+          "title": "",
+          "url": "",
+          "technologies": [
+            "JS (Vue)"
+          ],
+          "slug": "vocabulary.vue"
+        }
+      ]
+    },
+    {
+      "name": "Omniport",
+      "slug": "omniport",
+      "children": [
+        {
+          "title": "Infrastructure",
+          "url": "",
+          "technologies": [
+            "Docker",
+            "Bash"
+          ],
+          "slug": "infrastructure.yml"
+        },
+        {
+          "title": "Backend",
+          "url": "",
+          "technologies": [
+            "Python (Django, DRF)"
+          ],
+          "slug": "backend.py"
+        },
+        {
+          "title": "Documentation",
+          "url": "",
+          "technologies": [
+            "restructuredText (Sphinx)"
+          ],
+          "slug": "documentation.rst"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "slug": "portfolio",
+      "children": [
+        {
+          "title": "Website",
+          "url": "",
+          "technologies": [
+            "JS (Vue, Tailwind)",
+            "TS (Lambda)"
+          ],
+          "slug": "website.vue"
+        },
+        {
+          "title": "Résumé",
+          "url": "",
+          "technologies": [
+            "LaTeX"
+          ],
+          "slug": "resume.tex"
+        }
+      ]
+    }
+  ]
+}

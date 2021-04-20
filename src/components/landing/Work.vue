@@ -84,7 +84,7 @@
       ]),
     },
     mounted() {
-      const allEpics = Epic.parse(epics)
+      const allEpics = Epic.parse(epics.children)
       this.setEpics({
         epics: allEpics,
       })
