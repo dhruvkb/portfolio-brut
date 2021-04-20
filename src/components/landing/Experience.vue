@@ -35,9 +35,11 @@
 </template>
 
 <script>
+  import { mapGetters, mapMutations } from 'vuex'
+
   import { breakpoint } from '@/plugins/responsive'
 
-  import { Role } from '@/models/role'
+  import { Org } from '@/models/org'
 
   import orgs from '@/data/experience.json'
 
@@ -76,9 +78,9 @@
         }
         return columns
       },
-      roles() {
-        return Role.parse(orgs)
-      },
+      ...mapGetters('resume', [
+        'roles',
+      ]),
     },
     methods: {
       populateInput(role) {
@@ -91,6 +93,15 @@
       handleClick(role) {
         this.populateInput(role)
       },
+      ...mapMutations('resume', [
+        'setOrgs',
+      ]),
+    },
+    mounted() {
+      const allOrgs = Org.parse(orgs)
+      this.setOrgs({
+        orgs: allOrgs,
+      })
     },
   }
 </script>

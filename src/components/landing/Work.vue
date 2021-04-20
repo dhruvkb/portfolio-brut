@@ -29,9 +29,10 @@
 <script>
   import { breakpoint } from '@/plugins/responsive'
 
-  import { Project } from '@/models/project'
+  import { Epic } from '@/models/epic'
 
   import epics from '@/data/work.json'
+  import { mapGetters, mapMutations } from 'vuex'
 
   export default {
     name: 'Work',
@@ -63,9 +64,9 @@
         }
         return columns
       },
-      projects() {
-        return Project.parse(epics)
-      },
+      ...mapGetters('resume', [
+        'projects',
+      ]),
     },
     methods: {
       populateInput(project) {
@@ -78,6 +79,15 @@
       handleClick(project) {
         this.populateInput(project)
       },
+      ...mapMutations('resume', [
+        'setEpics',
+      ]),
+    },
+    mounted() {
+      const allEpics = Epic.parse(epics)
+      this.setEpics({
+        epics: allEpics,
+      })
     },
   }
 </script>
