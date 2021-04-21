@@ -1,5 +1,5 @@
 <template>
-  <div class="terminal font-mono text-mono my-ln mx-ch">
+  <div class="terminal font-mono text-mono py-ln px-ch">
     <Past/>
     <Present/>
   </div>
