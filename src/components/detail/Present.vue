@@ -8,6 +8,9 @@
         v-model="rawInput"
         class="flex-grow bg-tx h-ln border-none outline-none"
         type="text"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
 
         @keydown.enter.exact="executeCommand"
         @keydown.tab.exact.prevent="autocompleteCommand"
