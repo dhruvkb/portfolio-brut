@@ -17,9 +17,7 @@
 
 <style scoped lang="css">
   .detail {
-    @screen sx {
-      padding-right: env(safe-area-inset-right);
-    }
+    padding-right: env(safe-area-inset-right);
 
     & ::selection {
       @apply text-sol-1 bg-sol-02;
