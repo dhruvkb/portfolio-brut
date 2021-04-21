@@ -166,6 +166,19 @@ export class Tree {
     return this.type === type
   }
 
+  /**
+   * Bind two nodes in a parent-child relationship. This is a convenience method
+   * that invokes {@link Tree#appendChild} on the parent and
+   * {@link Tree#setParent} on the child.
+   *
+   * @param {Tree} parent - the node that should be set as the parent
+   * @param {Tree} child - the node that should be appended as a child
+   */
+  static makeParentChild(parent, child) {
+    parent.appendChild(child)
+    child.setParent(parent)
+  }
+
   static parse(pojo) {
     const type = (pojo.children && pojo.children instanceof Array)
       ? nodeType.FOLDER
@@ -181,8 +194,7 @@ export class Tree {
     if (node.isFolder) {
       pojo.children.forEach((childPojo) => {
         const child = Tree.parse(childPojo)
-        node.appendChild(child)
-        child.setParent(node)
+        Tree.makeParentChild(node, child)
       })
     }
     return node

@@ -35,13 +35,9 @@
         rootNode.makeRoot()
 
         const experienceNode = Tree.parse(experience)
+        Tree.makeParentChild(rootNode, experienceNode)
         const workNode = Tree.parse(work)
-
-        const nodes = [experienceNode, workNode]
-        nodes.forEach((node) => {
-          node.setParent(rootNode)
-          rootNode.appendChild(node)
-        })
+        Tree.makeParentChild(rootNode, workNode)
 
         return rootNode
       },
