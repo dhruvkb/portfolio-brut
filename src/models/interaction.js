@@ -60,7 +60,10 @@ export class Interaction {
    */
   processOutput() {
     const output = {}
-    if (Object.prototype.hasOwnProperty.call(bins, this.input.bin)) {
+    if (!this.input.bin && !this.input.argv.length) {
+      output.component = 'Nop'
+      output.argv = []
+    } else if (Object.prototype.hasOwnProperty.call(bins, this.input.bin)) {
       output.component = bins[this.input.bin].name
       output.argv = this.input.argv
     } else {
