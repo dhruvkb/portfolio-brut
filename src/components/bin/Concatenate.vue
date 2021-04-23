@@ -96,12 +96,14 @@
       },
     },
     async mounted() {
-      const fileModule = await import(
-        /* webpackChunkName: "fs-[request]" */
-        `@/assets/fs/${this.path}.fs.html`
-        )
-      await this.fetchContent(fileModule.default)
-      this.highlightContent()
+      if (this.isValid) {
+        const fileModule = await import(
+          /* webpackChunkName: "fs-[request]" */
+          `@/assets/fs/${this.path}.fs.html`
+          )
+        await this.fetchContent(fileModule.default)
+        this.highlightContent()
+      }
       this.setIsReady({
         isReady: true,
       })
