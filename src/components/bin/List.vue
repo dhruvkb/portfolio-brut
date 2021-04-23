@@ -22,8 +22,6 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
-
   import Navigable from '@/components/detail/Navigable.vue'
 
   import { nodeType } from '@/models/tree'
@@ -59,11 +57,6 @@
     ],
     components: {
       Navigable,
-    },
-    computed: {
-      ...mapGetters('terminal', [
-        'nodeLocatedAt',
-      ]),
     },
   }
 </script>

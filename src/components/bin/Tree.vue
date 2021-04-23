@@ -102,7 +102,6 @@
         return [this.pipe, this.space].join('')
       },
       ...mapGetters('terminal', [
-        'nodeLocatedAt',
         'absolutePathTo',
       ]),
     },

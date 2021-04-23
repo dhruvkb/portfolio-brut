@@ -14,8 +14,6 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
-
   import hljs from 'highlight.js/lib/core'
 
   import bin from '@/mixins/bin'
@@ -70,9 +68,6 @@
         }
         return filePath.join('/')
       },
-      ...mapGetters('terminal', [
-        'nodeLocatedAt',
-      ]),
     },
     methods: {
       async fetchContent(filePath) {

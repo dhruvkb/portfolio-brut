@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import { mapGetters, mapMutations } from 'vuex'
+  import { mapMutations } from 'vuex'
 
   import { nodeType } from '@/models/tree'
 
@@ -32,11 +32,6 @@
       bin,
       path('dirpath'),
     ],
-    computed: {
-      ...mapGetters('terminal', [
-        'nodeLocatedAt',
-      ]),
-    },
     methods: {
       ...mapMutations('terminal', [
         'setCurrentNode',
