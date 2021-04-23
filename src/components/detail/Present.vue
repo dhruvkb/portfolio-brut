@@ -84,11 +84,11 @@
         }
 
         if (this.traversal.index === 0) {
-          this.traversal.backup = this.command
+          this.traversal.backup = this.rawInput
         }
         this.traversal.index += 1
         const index = this.interactionHistory.length - this.traversal.index
-        this.command = this.interactionHistory[index].rawInput
+        this.rawInput = this.interactionHistory[index].rawInput
       },
       traverseHistoryDown() {
         if (this.traversal.index === 0) {
@@ -97,10 +97,10 @@
 
         this.traversal.index -= 1
         if (this.traversal.index === 0) {
-          this.command = this.traversal.backup
+          this.rawInput = this.traversal.backup
         } else {
           const index = this.interactionHistory.length - this.traversal.index
-          this.command = this.interactionHistory[index].rawInput
+          this.rawInput = this.interactionHistory[index].rawInput
         }
       },
       autocompleteCommand() {
