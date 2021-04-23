@@ -52,6 +52,9 @@
           this.setCommandInput({ commandInput: value })
         },
       },
+      nonEmptyHistory() {
+        return this.interactionHistory.filter(item => item.rawInput !== '')
+      },
       ...mapState('terminal', [
         'interactionHistory',
         'isReady',
@@ -79,7 +82,7 @@
         this.rawInput = '' // Clear field
       },
       traverseHistoryUp() {
-        if (this.traversal.index === this.interactionHistory.length) {
+        if (this.traversal.index === this.nonEmptyHistory.length) {
           return
         }
 
@@ -87,8 +90,8 @@
           this.traversal.backup = this.rawInput
         }
         this.traversal.index += 1
-        const index = this.interactionHistory.length - this.traversal.index
-        this.rawInput = this.interactionHistory[index].rawInput
+        const index = this.nonEmptyHistory.length - this.traversal.index
+        this.rawInput = this.nonEmptyHistory[index].rawInput
       },
       traverseHistoryDown() {
         if (this.traversal.index === 0) {
@@ -99,8 +102,8 @@
         if (this.traversal.index === 0) {
           this.rawInput = this.traversal.backup
         } else {
-          const index = this.interactionHistory.length - this.traversal.index
-          this.rawInput = this.interactionHistory[index].rawInput
+          const index = this.nonEmptyHistory.length - this.traversal.index
+          this.rawInput = this.nonEmptyHistory[index].rawInput
         }
       },
       autocompleteCommand() {
