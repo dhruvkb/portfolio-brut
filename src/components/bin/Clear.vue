@@ -1,3 +1,7 @@
+<template>
+  <div class="clear"/>
+</template>
+
 <script>
   import { mapMutations } from 'vuex'
 
