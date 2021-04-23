@@ -15,6 +15,15 @@ export const extensionLang = Object.freeze({
   yml: 'yaml',
 })
 
+const nameAndExtension = (fullName) => {
+  const [extension] = fullName
+    .split('.')
+    .slice(1)
+  const regex = new RegExp(`.${extension}$`)
+  const name = fullName.replace(regex, '')
+  return [name, extension]
+}
+
 /**
  * A class that implements one node in a file-system tree. Each node may either
  * be a file or a folder and may have children if it is a folder.
@@ -68,6 +77,22 @@ export class Tree {
   }
 
   /**
+   * Get all forms of the name for this node. This includes the primary name
+   * and all aliases, with and without the extension.
+   *
+   * @returns {Array} the list of all valid names for the node
+   */
+  get allNames() {
+    const names = [this.name, ...this.aliases]
+    const allNames = []
+    names.forEach((name) => {
+      const [nameMinusExtension] = nameAndExtension(name)
+      allNames.push(name, nameMinusExtension)
+    })
+    return allNames
+  }
+
+  /**
    * Get the language of the file based on the extension.
    *
    * @return {Array} the language of the file based on the extension
@@ -77,9 +102,7 @@ export class Tree {
       return []
     }
 
-    const [extension] = this.name
-      .split('.')
-      .slice(1)
+    const [, extension] = nameAndExtension(this.name)
     const language = extensionLang[extension]
     if (Array.isArray(language)) {
       return language
@@ -95,11 +118,9 @@ export class Tree {
    * @returns {boolean} whether the given name is one of the node's valid names
    */
   hasName(givenName) {
-    const name = givenName.toLowerCase()
-    return this.name.toLowerCase() === name
-      || this.aliases
-        .map(x => x.toLowerCase())
-        .includes(name)
+    return this.allNames
+      .map(name => name.toLowerCase())
+      .includes(givenName.toLowerCase())
   }
 
   /**
