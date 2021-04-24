@@ -10,26 +10,12 @@
     </p>
     <p class="text-xl leading-snug mb-4">
       He does a lot of things &mdash;
-      <span class="hover:text-tx bg-gradient-to-r from-sol-v to-sol-b bg-clip-text transition-colors">
-        writing beautiful code;
-      </span>
-      <span class="hover:text-tx bg-gradient-to-r from-sol-b to-sol-c bg-clip-text transition-colors">
-        designing accessible interfaces;
-      </span>
-      <span class="hover:text-tx bg-gradient-to-r from-sol-c to-sol-g bg-clip-text transition-colors">
-        deploying scalable apps;
-      </span>
-      <span class="hover:text-tx bg-gradient-to-r from-sol-g to-sol-y bg-clip-text transition-colors">
-        authoring helpful documentation;
-      </span>
-      <span class="hover:text-tx bg-gradient-to-r from-sol-y to-sol-o bg-clip-text transition-colors">
-        nurturing FOSS communities;
-      </span>
-      <span class="hover:text-tx bg-gradient-to-r from-sol-o to-sol-m bg-clip-text transition-colors">
-        hiding easter eggs;
-      </span>
-      <span class="hover:text-tx bg-gradient-to-r from-sol-m to-sol-v bg-clip-text transition-colors">
-        composing bad <span class="italic">haiku</span>.
+      <span
+        v-for="(works, index) in works"
+        :key="index"
+        class="thing hover:text-tx bg-gradient-to-r bg-clip-text transition-colors"
+        :class="[colors.from[index], colors.to[index]]">
+        {{ works }}
       </span>
     </p>
     <a class="text-xs font-bold uppercase">
@@ -41,5 +27,44 @@
 <script>
   export default {
     name: 'Intro',
+    data() {
+      return {
+        colors: {
+          from: [
+            'from-sol-v',
+            'from-sol-b',
+            'from-sol-c',
+            'from-sol-g',
+            'from-sol-y',
+            'from-sol-o',
+            'from-sol-m',
+          ],
+          to: [
+            'to-sol-b',
+            'to-sol-c',
+            'to-sol-g',
+            'to-sol-y',
+            'to-sol-o',
+            'to-sol-m',
+            'to-sol-v',
+          ],
+        },
+        works: [
+          'writing beautiful code; ',
+          'designing accessible interfaces; ',
+          'deploying scalable apps; ',
+          'authoring helpful documentation; ',
+          'nurturing FOSS communities; ',
+          'hiding easter eggs; ',
+          'composing bad haiku.',
+        ],
+      }
+    },
   }
 </script>
+
+<style scoped lang="css">
+  .thing {
+    -webkit-box-decoration-break: clone;
+  }
+</style>
