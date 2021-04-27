@@ -18,12 +18,14 @@ export class Project {
       title,
       url,
       technologies,
+      technologyIcon,
       slug,
       aliases,
     } = project
     this.title = title
     this.url = url
     this.technologies = technologies
+    this.technologyIcon = technologyIcon
 
     this.slug = slug
     this.aliases = aliases

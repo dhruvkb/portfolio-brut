@@ -72,6 +72,10 @@ export class Role {
     return this.org.name
   }
 
+  get orgIcon() {
+    return this.org.icon
+  }
+
   /**
    * Get the path to the node from the experience/ directory.
    *

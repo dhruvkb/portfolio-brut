@@ -17,11 +17,13 @@ export class Org {
     const {
       name,
       url,
+      icon,
       slug,
       aliases,
     } = org
     this.name = name
     this.url = url
+    this.icon = icon
 
     this.slug = slug
     this.aliases = aliases
