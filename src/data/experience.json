@@ -4,6 +4,7 @@
     {
       "name": "Automattic",
       "url": "https://automattic.com",
+      "icon": "automattic",
       "slug": "automattic",
       "aliases": [
         "a8c"
@@ -25,6 +26,7 @@
     {
       "name": "BrowserStack",
       "url": "https://browserstack.com",
+      "icon": "browserstack",
       "slug": "browserstack",
       "aliases": [
         "bs"
@@ -50,6 +52,7 @@
     {
       "name": "Creative Commons",
       "url": "https://opensource.creativecommons.org",
+      "icon": "creativecommons",
       "slug": "creative_commons",
       "aliases": [
         "cc"
@@ -120,6 +123,7 @@
     {
       "name": "IMG, IIT Roorkee",
       "url": "https://img.channeli.in",
+      "icon": "img",
       "slug": "img",
       "children": [
         {
@@ -142,6 +146,7 @@
     {
       "name": "FamPay",
       "url": "https://fampay.in",
+      "icon": "fampay",
       "slug": "fampay",
       "children": [
         {
@@ -164,6 +169,7 @@
     {
       "name": "HackerEarth",
       "url": "https://hackerearth.com",
+      "icon": "hackerearth",
       "slug": "hackerearth",
       "aliases": [
         "he"

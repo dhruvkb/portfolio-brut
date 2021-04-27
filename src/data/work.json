@@ -11,6 +11,7 @@
           "technologies": [
             "JS (Vue)"
           ],
+          "technologyIcon": "javascript",
           "slug": "vocabulary.vue"
         }
       ]
@@ -26,6 +27,7 @@
             "Docker",
             "Bash"
           ],
+          "technologyIcon": "docker",
           "slug": "infrastructure.yml"
         },
         {
@@ -34,6 +36,7 @@
           "technologies": [
             "Python (Django, DRF)"
           ],
+          "technologyIcon": "python",
           "slug": "backend.py"
         },
         {
@@ -42,6 +45,7 @@
           "technologies": [
             "restructuredText (Sphinx)"
           ],
+          "technologyIcon": "readTheDocs",
           "slug": "documentation.rst"
         }
       ]
@@ -57,6 +61,7 @@
             "JS (Vue, Tailwind)",
             "TS (Lambda)"
           ],
+          "technologyIcon": "javascript",
           "slug": "website.vue"
         },
         {
@@ -65,6 +70,7 @@
           "technologies": [
             "LaTeX"
           ],
+          "technologyIcon": "latex",
           "slug": "resume.tex"
         }
       ]
