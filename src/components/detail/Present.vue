@@ -67,7 +67,6 @@
           this.$nextTick(() => {
             this.$refs.inputField.focus()
             this.$refs.inputField.scrollIntoView({
-              behavior: 'smooth',
               block: 'start',
               inline: 'nearest',
             })
