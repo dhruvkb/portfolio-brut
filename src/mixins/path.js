@@ -10,7 +10,7 @@ export default nodeArg => ({
   computed: {
     nodeAtPath() {
       const argValue = this.args[nodeArg] ?? ''
-      return this.nodeLocatedAt(argValue.replace(/\/$/, ''))
+      return this.nodeLocatedAt(argValue)
     },
     isNodeFound() {
       const { argSpec } = this.$options

@@ -24,7 +24,7 @@ const moduleGetters = {
   },
   nodeLocatedAt: state => (path) => {
     let nodeInQuestion = state.currentNode
-    const pathEntities = path.split('/')
+    const pathEntities = path.replace(/\/$/, '').split('/')
 
     for (let i = 0; i < pathEntities.length; i += 1) {
       const entity = pathEntities[i]
