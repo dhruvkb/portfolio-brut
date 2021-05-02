@@ -3,7 +3,9 @@
     <template v-if="isNodeFound">
       <slot/>
       {{ shape }}
-      <Navigable :node="node"/>
+      <Navigable
+        :node="node"
+        :show-aliases="node.isFolder"/>
       <Tree
         v-for="(child, index) in node.children"
         :key="index"

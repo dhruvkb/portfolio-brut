@@ -8,6 +8,11 @@
       <!-- @slot Alternative name to display for the node goes here -->
       <slot>
         {{ node.name }}
+        <span
+          v-if="showAliases && node.aliases.length"
+          class="text-sol-01">
+          (~ {{ node.aliases.join(', ') }})
+        </span>
       </slot>
     </button>
   </span>
@@ -24,6 +29,9 @@
       node: {
         type: Tree,
         required: true,
+      },
+      showAliases: {
+        type: Boolean,
       },
     },
     computed: {
@@ -52,7 +60,3 @@
     },
   }
 </script>
-
-<style scoped>
-
-</style>
