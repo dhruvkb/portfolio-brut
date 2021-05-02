@@ -81,7 +81,7 @@ export class Tree {
 
   /**
    * Get all forms of the name for this node. This includes the primary name
-   * and all aliases, with and without the extension.
+   * and all aliases, with and without the extension. Duplicates are removed.
    *
    * @returns {Array} the list of all valid names for the node
    */
@@ -92,7 +92,7 @@ export class Tree {
       const [nameMinusExtension] = nameAndExtension(name)
       allNames.push(name, nameMinusExtension)
     })
-    return allNames
+    return Array.from(new Set(allNames))
   }
 
   /**
