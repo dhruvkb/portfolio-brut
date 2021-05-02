@@ -16,9 +16,12 @@ export const extensionLang = Object.freeze({
 })
 
 const nameAndExtension = (fullName) => {
+  if (!fullName.includes('.')) {
+    return [fullName, null]
+  }
   const [extension] = fullName
     .split('.')
-    .slice(1)
+    .slice(-1)
   const regex = new RegExp(`.${extension}$`)
   const name = fullName.replace(regex, '')
   return [name, extension]
