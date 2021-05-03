@@ -131,6 +131,24 @@ export class Tree {
   }
 
   /**
+   * Get the name of the node to use for autocompletion.
+   *
+   * During autocompletion,
+   * - folders are completed with a trailing slash
+   *     Subsequent suggestions consider children of the folder.
+   * - files are completed with a trailing space
+   *     Indicates that the argument is completed.
+   *
+   * @returns {string} the name of the node to use for autocompletion
+   */
+  get autocompleteName() {
+    if (this.isFolder) {
+      return `${this.name}/`
+    }
+    return `${this.name} `
+  }
+
+  /**
    * Check if the given name is either the primary name of the current node or
    * one of its aliases.
    *
