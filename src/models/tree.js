@@ -81,17 +81,34 @@ export class Tree {
 
   /**
    * Get all forms of the name for this node. This includes the primary name
-   * and all aliases, with and without the extension. Duplicates are removed.
+   * and all aliases, with and without the extension.
+   *
+   * In addition to the name and all aliases, for
+   * - files, the name without the extension
+   * - folders, the name with the trailing slash
+   * - the root node, a single slash
+   * is also accepted.
+   *
+   * Duplicates names are removed.
    *
    * @returns {Array} the list of all valid names for the node
    */
   get allNames() {
-    const names = [this.name, ...this.aliases]
-    const allNames = []
-    names.forEach((name) => {
-      const [nameMinusExtension] = nameAndExtension(name)
-      allNames.push(name, nameMinusExtension)
-    })
+    const allNames = [this.name, ...this.aliases]
+    if (this.isFile) {
+      allNames.forEach((name) => {
+        const [nameMinusExtension] = nameAndExtension(name)
+        allNames.push(nameMinusExtension)
+      })
+    }
+    if (this.isFolder) {
+      allNames.forEach((name) => {
+        allNames.push(`${name}/`)
+      })
+    }
+    if (this.isRoot) {
+      allNames.push('/')
+    }
     return Array.from(new Set(allNames))
   }
 
