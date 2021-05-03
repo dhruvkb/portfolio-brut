@@ -47,8 +47,8 @@ const moduleGetters = {
     return nodeInQuestion
   },
   absolutePathTo: (state, g) => (node) => {
-    if (node.name === '~') {
-      return '~'
+    if (node.isRoot) {
+      return node.name
     }
     return `${g.absolutePathTo(node.parent)}/${node.name}`
   },
