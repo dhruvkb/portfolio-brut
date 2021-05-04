@@ -19,25 +19,49 @@
 
         ref="inputField">
     </label>
+    <ul class="suggestions" v-if="suggestions">
+      <li
+        v-for="([entityType, suggestionDisplay, suggestionCompletion], index) in suggestions"
+        :key="index"
+        class="w-full"
+        tabindex="0"
+        @click="populateSuggestion(suggestionCompletion)">
+        <Navigable
+          v-if="entityType === entityTypes.NODE"
+          :node="suggestionDisplay"/>
+        <Executable
+          v-else
+          :bin="suggestionDisplay"/>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
   import { mapActions, mapMutations, mapState } from 'vuex'
 
+  import Executable from '@/components/detail/Executable.vue'
+  import Navigable from '@/components/detail/Navigable.vue'
   import Prompt from '@/components/detail/Prompt.vue'
+
+  import { autocomplete } from '@/plugins/autocomplete'
+  import { entityTypes } from '@/models/terminal'
 
   export default {
     name: 'Present',
     components: {
+      Executable,
+      Navigable,
       Prompt,
     },
     data() {
       return {
+        entityTypes,
         traversal: {
           index: 0,
           backup: '',
         },
+        suggestions: [],
       }
     },
     computed: {
@@ -106,7 +130,18 @@
         }
       },
       autocompleteCommand() {
-        console.log(`Autocompleting ${this.command}`) // TODO
+        const possibilities = autocomplete(this.rawInput)
+        if (possibilities.length === 1) {
+          const [[, , suggestion]] = possibilities
+          this.populateSuggestion(suggestion)
+        } else {
+          this.suggestions = possibilities
+        }
+      },
+      populateSuggestion(suggestion) {
+        const args = this.rawInput.split(' ')
+        this.rawInput = [...args.slice(0, -1), suggestion].join(' ')
+        this.suggestions = []
       },
       ...mapMutations('terminal', [
         'setCommandInput',
@@ -117,3 +152,9 @@
     },
   }
 </script>
+
+<style>
+  .suggestions {
+    column-count: 2;
+  }
+</style>
