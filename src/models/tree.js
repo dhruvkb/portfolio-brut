@@ -157,13 +157,16 @@ export class Tree {
    * Check if the given name is either the primary name of the current node or
    * one of its aliases.
    *
-   * @param {string} givenName - the name which is to be checked for a match
+   * @param {string} givenName - the name to check for a complete match
+   * @param {boolean} isPartial - whether to accept a partial match in the name
    * @returns {boolean} whether the given name is one of the node's valid names
    */
-  hasName(givenName) {
-    return this.allNames
-      .map(name => name.toLowerCase())
-      .includes(givenName.toLowerCase())
+  hasName(givenName, isPartial = false) {
+    const names = this.allNames.map(name => name.toLowerCase())
+    if (isPartial) {
+      return names.some(name => name.includes(givenName))
+    }
+    return names.includes(givenName.toLowerCase())
   }
 
   /**
