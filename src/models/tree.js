@@ -3,6 +3,11 @@ export const nodeType = Object.freeze({
   FILE: 'file',
 })
 
+export const specialNames = Object.freeze({
+  CURRENT_DIR: ['.', './'],
+  PARENT_DIR: ['..', '../'],
+})
+
 export const extensionLang = Object.freeze({
   java: 'java',
   js: 'javascript',

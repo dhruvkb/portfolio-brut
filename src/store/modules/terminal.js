@@ -1,4 +1,5 @@
 import { Interaction } from '@/models/interaction'
+import { specialNames } from '@/models/tree'
 
 const moduleState = () => ({
   isFirstRun: true,
@@ -23,28 +24,29 @@ const moduleGetters = {
     return nodeInQuestion
   },
   nodeLocatedAt: state => (path) => {
-    let nodeInQuestion = state.currentNode
-    const pathEntities = path.replace(/\/$/, '').split('/')
+    let node = state.currentNode
+    const parts = path
+      .replace(/\/+/g, '/')
+      .split(/(?<=\/)/)
 
-    for (let i = 0; i < pathEntities.length; i += 1) {
-      const entity = pathEntities[i]
+    for (let i = 0; i < parts.length; i += 1) {
+      const part = parts[i]
 
-      if (entity === '~' || entity === '') {
-        nodeInQuestion = state.tree
-      } else if (entity === '.') {
+      if (i === 0 && state.tree.hasName(part)) {
+        node = state.tree
+      } else if (specialNames.CURRENT_DIR.includes(part)) {
         // Do nothing as . refers to current directory
-      } else if (entity === '..') {
-        nodeInQuestion = nodeInQuestion.parent
+      } else if (specialNames.PARENT_DIR.includes(part)) {
+        node = node.parent
       } else {
-        nodeInQuestion = nodeInQuestion.children
-          .find(child => child.hasName(entity))
-        if (!nodeInQuestion) {
-          return null
-        }
+        node = node.children.find(child => child.hasName(part))
+      }
+      if (!node) {
+        return null
       }
     }
 
-    return nodeInQuestion
+    return node
   },
   absolutePathTo: (state, g) => (node) => {
     if (node.isRoot) {
