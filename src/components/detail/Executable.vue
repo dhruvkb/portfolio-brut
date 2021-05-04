@@ -2,7 +2,7 @@
   <span
     class="executable"
     :title="title">
-    <button @click="handleClick">
+    <button v-on="on">
       <span class="text-sol-g">{{ bin }}</span>
       <!-- @slot Replacement for argument vector goes here -->
       <slot>
@@ -31,6 +31,9 @@
         type: Array,
         default: () => [],
       },
+      enableExec: {
+        type: Boolean,
+      },
     },
     computed: {
       command() {
@@ -38,6 +41,11 @@
       },
       title() {
         return `Execute '${this.command}'.`
+      },
+      on() {
+        return {
+          click: this.enableClick ? this.handleClick : null,
+        }
       },
     },
     methods: {

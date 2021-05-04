@@ -3,16 +3,26 @@
     <ul v-if="isNodeFound" class="children-list">
       <template v-if="args.all">
         <li>
-          <Navigable :node="node">.</Navigable>
+          <Navigable
+            :node="node"
+            enable-exec>
+            {{ specialNames.CURRENT_DIR[0] }}
+          </Navigable>
         </li>
         <li>
-          <Navigable :node="node.parent">..</Navigable>
+          <Navigable
+            :node="node.parent"
+            enable-exec>
+            {{ specialNames.PARENT_DIR[0] }}
+          </Navigable>
         </li>
       </template>
       <li
         v-for="(child, index) in node.children"
         :key="index">
-        <Navigable :node="child"/>
+        <Navigable
+          :node="child"
+          enable-exec/>
       </li>
     </ul>
     <template v-else>
@@ -24,7 +34,7 @@
 <script>
   import Navigable from '@/components/detail/Navigable.vue'
 
-  import { nodeType } from '@/models/tree'
+  import { nodeType, specialNames } from '@/models/tree'
 
   import bin from '@/mixins/bin'
   import path from '@/mixins/path'
@@ -57,6 +67,11 @@
     ],
     components: {
       Navigable,
+    },
+    data() {
+      return {
+        specialNames,
+      }
     },
   }
 </script>

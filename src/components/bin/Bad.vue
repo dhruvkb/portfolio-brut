@@ -1,7 +1,9 @@
 <template>
   <div class="bad">
     Command <strong>{{ args.bin }}</strong> does not exist in the CLI. Try
-    <Executable bin="help"/>.
+    <Executable
+      bin="help"
+      enable-exec/>.
   </div>
 </template>
 

@@ -4,7 +4,7 @@
     :title="title">
     <button
       :class="node.isFolder ? 'text-sol-v' : 'text-sol-m'"
-      @click="handleClick">
+      v-on="on">
       <!-- @slot Alternative name to display for the node goes here -->
       <slot>
         {{ node.name }}
@@ -33,6 +33,9 @@
       showAliases: {
         type: Boolean,
       },
+      enableExec: {
+        type: Boolean,
+      },
     },
     computed: {
       command() {
@@ -42,6 +45,11 @@
       },
       title() {
         return `Navigate to '${this.node.name}'.`
+      },
+      on() {
+        return {
+          click: this.enableClick ? this.handleClick : null,
+        }
       },
       ...mapGetters('terminal', [
         'absolutePathTo',

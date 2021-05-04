@@ -6,7 +6,10 @@
     </p>
     <p class="my-ln">
       <strong>SYNOPSIS:</strong><br/>
-      <Executable class="ml-indent" :bin="binary.command">
+      <Executable
+        class="ml-indent"
+        :bin="binary.command"
+        enable-exec>
         <span class="text-sol-b ml-ch">
           {{ argsRepr.join(' ') }}
         </span>

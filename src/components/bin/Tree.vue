@@ -5,7 +5,8 @@
       {{ shape }}
       <Navigable
         :node="node"
-        :show-aliases="node.isFolder"/>
+        :show-aliases="node.isFolder"
+        enable-exec/>
       <Tree
         v-for="(child, index) in node.children"
         :key="index"

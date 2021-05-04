@@ -7,7 +7,8 @@
         :key="index">
         <Executable
           :bin="command"
-          :title="binary.description">
+          :title="binary.description"
+          enable-exec>
           <span class="text-sol-b ml-ch">
             {{ argsRepr(binary).join(' ') }}
           </span>
