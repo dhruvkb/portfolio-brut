@@ -44,7 +44,7 @@
       },
       on() {
         return {
-          click: this.enableClick ? this.handleClick : null,
+          click: this.enableExec ? this.handleClick : null,
         }
       },
     },
