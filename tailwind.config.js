@@ -1,4 +1,3 @@
-const colours = require('tailwindcss/colors')
 const screenSizes = require('./src/constants/screen_sizes')
 const solarizedColours = require('./src/constants/colours')
 
@@ -38,8 +37,8 @@ module.exports = {
     colors: {
       tx: 'transparent',
       curr: 'currentColor',
-      white: colours.white,
-      black: colours.black,
+      white: '#ffffff',
+      black: '#000000',
       sol: {
         ...solarizedColours.colors.accent,
         ...solarizedColours.colors.base,
