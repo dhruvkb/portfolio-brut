@@ -27,6 +27,7 @@
   import latex from 'simple-icons/icons/latex'
   import python from 'simple-icons/icons/python'
   import readTheDocs from 'simple-icons/icons/readthedocs'
+  import typescript from 'simple-icons/icons/typescript'
 
   import Icon from '@/components/landing/Icon.vue'
 
@@ -52,6 +53,7 @@
           latex,
           python,
           readTheDocs,
+          typescript,
         },
       }
     },

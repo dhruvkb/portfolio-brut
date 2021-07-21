@@ -2,14 +2,29 @@
   "slug": "work",
   "children": [
     {
+      "name": "see·el·aye",
+      "slug": "seeelaye",
+      "children": [
+        {
+          "title": "CLI",
+          "url": "https://seeelaye.vercel.app",
+          "technologies": [
+            "TypeScript (Vue)"
+          ],
+          "technologyIcon": "typescript",
+          "slug": "seeelaye.ts"
+        }
+      ]
+    },
+    {
       "name": "Vocabulary",
       "slug": "vocabulary",
       "children": [
         {
-          "title": "",
+          "title": "UI components",
           "url": "",
           "technologies": [
-            "JS (Vue)"
+            "JavaScript (Vue)"
           ],
           "technologyIcon": "javascript",
           "slug": "vocabulary.vue"
