@@ -110,7 +110,7 @@
       paths() {
         const icon = this.icons[this.role.orgIcon]
         const paths = icon.paths ?? [{ d: icon.path }]
-        return paths.map(path => ({
+        return paths.map((path) => ({
           d: path.d,
           fill: path.hex ?? 'currentColor',
           'fill-rule': path.fillRule ?? 'nonzero',

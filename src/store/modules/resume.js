@@ -4,8 +4,8 @@ const moduleState = () => ({
 })
 
 const moduleGetters = {
-  roles: state => state.orgs.map(org => org.roles).flat(),
-  projects: state => state.epics.map(epic => epic.projects).flat(),
+  roles: (state) => state.orgs.map((org) => org.roles).flat(),
+  projects: (state) => state.epics.map((epic) => epic.projects).flat(),
 }
 
 const moduleMutations = {

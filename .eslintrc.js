@@ -46,7 +46,6 @@ module.exports = {
       files: ['*.vue', '*.js'],
       rules: {
         semi: ['warn', 'never'],
-        'arrow-parens': ['warn', 'as-needed', { requireForBlockBody: true }],
       },
     },
   ],
