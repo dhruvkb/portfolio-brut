@@ -40,8 +40,8 @@
     methods: {
       populateInput(role) {
         if (this.$store.hasModule('terminal')) {
-          this.$store.commit('terminal/setCommandInput', {
-            commandInput: `cat ~${role.nodePath}`,
+          this.$seeelaye.commit('setInput', {
+            input: `cat ~${role.nodePath}`,
           })
         }
       },

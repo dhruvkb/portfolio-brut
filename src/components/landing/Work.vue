@@ -39,8 +39,8 @@
     methods: {
       populateInput(project) {
         if (this.$store.hasModule('terminal')) {
-          this.$store.commit('terminal/setCommandInput', {
-            commandInput: `cat ~${project.nodePath}`,
+          this.$seeelaye.commit('setInput', {
+            input: `cat ~${project.nodePath}`,
           })
         }
       },
