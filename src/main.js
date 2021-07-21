@@ -6,11 +6,20 @@ import seeelaye from '@/terminal'
 
 import App from '@/App.vue'
 
+// Globally registered terminal binaries
+import Concatenate from '@/terminal/bin/Concatenate.vue'
+import Intro from '@/terminal/bin/Intro.vue'
+import Tip from '@/terminal/bin/Tip.vue'
+
 const app = createApp(App)
 
 app
   .use(store)
   .use(router)
   .use(seeelaye)
+
+app.component('Intro', Intro)
+app.component('Concatenate', Concatenate)
+app.component('Tip', Tip)
 
 app.mount('div#app__slot')
