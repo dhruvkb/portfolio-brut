@@ -5,7 +5,10 @@ import store from '@/store'
 
 import App from '@/App.vue'
 
-createApp(App)
+const app = createApp(App)
+
+app
   .use(store)
   .use(router)
-  .mount('div#app__slot')
+
+app.mount('div#app__slot')
