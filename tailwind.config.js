@@ -45,14 +45,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      'sans-variable': [
-        '"Inter var"', // Inter (variable)
-        'ui-sans-serif', // system
-        ...macSystemSansSerif, // macOS
-        'sans-serif', // generic fallback
-      ],
       sans: [
-        'Inter', // Inter (standard)
+        'Inter', // Inter
         'ui-sans-serif', // system
         ...macSystemSansSerif, // macOS
         'sans-serif', // generic fallback

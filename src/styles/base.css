@@ -7,9 +7,8 @@
     @apply font-sans;
   }
 
-  @supports (font-variation-settings: normal) {
+  @supports (font-feature-settings: normal) {
     html {
-      @apply font-sans-variable;
       font-feature-settings: "zero", "ss01", "ss02";
     }
   }
