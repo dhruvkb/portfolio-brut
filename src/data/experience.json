@@ -85,8 +85,8 @@
             ]
           },
           "type": "Contractor",
-          "title": "FOSS community coordinator",
-          "slug": "foss_community_coordinator.md"
+          "title": "OS community coordinator",
+          "slug": "os_community_coordinator.md"
         },
         {
           "period": {
@@ -138,8 +138,8 @@
             ]
           },
           "type": "Part-timer",
-          "title": "Chief technology coordinator",
-          "slug": "chief_technology_coordinator.md"
+          "title": "Chief coordinator (tech)",
+          "slug": "chief_coordinator_tech.md"
         }
       ]
     },
