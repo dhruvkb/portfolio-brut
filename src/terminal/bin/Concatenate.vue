@@ -102,7 +102,7 @@
         nextTick(async () => {
           const languageModules = await Promise.all(languages.value.map((lang) => import(
             /*
-             webpackInclude: /(java|javascript|latex|markdown|python|ruby|xml|yaml)/,
+             webpackInclude: /(java|javascript|latex|markdown|python|ruby|typescript|xml|yaml)/,
              webpackChunkName: "lang-[request]"
              */
             `highlight.js/lib/languages/${lang}.js`
