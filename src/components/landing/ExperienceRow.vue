@@ -85,16 +85,16 @@
           case 'mx':
             columns = [
               [...orgName, 33.33],
-              [...type, 16.67],
               [...title, 45],
+              [...type, 16.67],
               [...isActive, 5],
             ]
             break
           case 'l':
             columns = [
               [...orgName, 27.5],
-              [...type, 15],
               [...title, 35],
+              [...type, 15],
               [...periodText, 22.5],
             ]
             break
