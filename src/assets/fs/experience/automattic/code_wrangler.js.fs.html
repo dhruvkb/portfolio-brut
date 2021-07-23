@@ -26,7 +26,7 @@ class Role {
     console.log(`Achievements:\n${this.achievements}`);
   }
 }</details>
-org = new Org(
+const org = new Org(
   'Automattic',
   <a class="hover:underline" href="https://automattic.com/">'https://automattic.com/'</a>,
   'Remote',
@@ -34,7 +34,7 @@ org = new Org(
 Simplenote, Longreads, VaultPress, Akismet, Gravatar, Crowdsignal, Cloudup, \
 Tumblr, and more.`
 );
-role = new Role(
+const role = new Role(
   org,
   'Code wrangler',
   'April 2021 &ndash; Present',
