@@ -21,12 +21,14 @@
   </footer>
 </template>
 
-<script>
+<script lang="ts">
+  import { defineComponent } from 'vue'
+
   import Kaomoji from '@/components/landing/Kaomoji.vue'
 
   import { breakpoint } from '@/plugins/responsive'
 
-  export default {
+  export default defineComponent({
     name: 'Footer',
     components: {
       Kaomoji,
@@ -41,5 +43,5 @@
         return Math.random() >= 0.9
       },
     },
-  }
+  })
 </script>
