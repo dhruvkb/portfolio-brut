@@ -12,27 +12,17 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import { defineComponent } from 'vue'
+
   import Experience from '@/components/landing/Experience.vue'
   import Work from '@/components/landing/Work.vue'
 
-  import resumeModule from '@/store/modules/resume'
-
-  export default {
+  export default defineComponent({
     name: 'Resume',
     components: {
       Experience,
       Work,
     },
-    beforeCreate() {
-      if (!this.$store.hasModule('resume')) {
-        this.$store.registerModule('resume', resumeModule)
-      }
-    },
-    beforeUnmount() {
-      if (this.$store.hasModule('resume')) {
-        this.$store.unregisterModule('resume')
-      }
-    },
-  }
+  })
 </script>

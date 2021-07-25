@@ -10,27 +10,18 @@
   </div>
 </template>
 
-<script>
-  import { mapGetters, mapMutations } from 'vuex'
+<script lang="ts">
+  import type { Role } from '@/models/role'
+
+  import { defineComponent } from 'vue'
+  import { mapGetters } from 'vuex'
 
   import ExperienceRow from '@/components/landing/ExperienceRow.vue'
 
-  import { Org } from '@/models/org'
-
-  import orgs from '@/data/experience.json'
-
-  import { breakpoint } from '@/plugins/responsive'
-
-  export default {
+  export default defineComponent({
     name: 'Experience',
     components: {
       ExperienceRow,
-    },
-    data() {
-      return {
-        breakpoint,
-        rangeIndicator: '\u2013',
-      }
     },
     computed: {
       ...mapGetters('resume', [
@@ -38,25 +29,16 @@
       ]),
     },
     methods: {
-      populateInput(role) {
+      populateInput(role: Role): void {
         if (this.$store.hasModule('terminal')) {
           this.$seeelaye.commit('setInput', {
             input: `cat ~${role.nodePath}`,
           })
         }
       },
-      handleClick(role) {
+      handleClick(role: Role): void {
         this.populateInput(role)
       },
-      ...mapMutations('resume', [
-        'setOrgs',
-      ]),
     },
-    mounted() {
-      const allOrgs = Org.parse(orgs.children)
-      this.setOrgs({
-        orgs: allOrgs,
-      })
-    },
-  }
+  })
 </script>

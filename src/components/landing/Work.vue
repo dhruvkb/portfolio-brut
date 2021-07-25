@@ -10,26 +10,18 @@
   </div>
 </template>
 
-<script>
-  import { mapGetters, mapMutations } from 'vuex'
+<script lang="ts">
+  import type { Project } from '@/models/project'
+
+  import { defineComponent } from 'vue'
+  import { mapGetters } from 'vuex'
 
   import WorkRow from '@/components/landing/WorkRow.vue'
 
-  import { Epic } from '@/models/epic'
-
-  import epics from '@/data/work.json'
-
-  import { breakpoint } from '@/plugins/responsive'
-
-  export default {
+  export default defineComponent({
     name: 'Work',
     components: {
       WorkRow,
-    },
-    data() {
-      return {
-        breakpoint,
-      }
     },
     computed: {
       ...mapGetters('resume', [
@@ -37,25 +29,16 @@
       ]),
     },
     methods: {
-      populateInput(project) {
+      populateInput(project: Project): void {
         if (this.$store.hasModule('terminal')) {
           this.$seeelaye.commit('setInput', {
             input: `cat ~${project.nodePath}`,
           })
         }
       },
-      handleClick(project) {
+      handleClick(project: Project): void {
         this.populateInput(project)
       },
-      ...mapMutations('resume', [
-        'setEpics',
-      ]),
     },
-    mounted() {
-      const allEpics = Epic.parse(epics.children)
-      this.setEpics({
-        epics: allEpics,
-      })
-    },
-  }
+  })
 </script>
