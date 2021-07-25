@@ -5,7 +5,7 @@ const macSystemSansSerif = [
 ]
 
 module.exports = {
-  // mode: 'jit',
+  mode: 'jit',
   purge: [
     './public/index.html',
     './src/**/*.{vue,js,css}',
@@ -70,11 +70,6 @@ module.exports = {
         'ui-monospace', // system
         'monospace', // generic fallback
       ],
-    },
-  },
-  variants: {
-    extend: {
-      padding: ['first', 'last'],
     },
   },
 }
