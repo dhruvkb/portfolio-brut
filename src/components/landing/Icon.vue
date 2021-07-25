@@ -5,7 +5,8 @@
     <path
       v-for="(path, index) in paths"
       :key="index"
-      v-bind="path"/>
+      v-bind="path"
+      fill="currentColor"/>
   </svg>
 </template>
 
