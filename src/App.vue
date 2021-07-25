@@ -9,25 +9,44 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import { defineComponent } from 'vue'
+  import { useStore } from 'vuex'
+
   import Pane from '@/components/Pane.vue'
   import Landing from '@/components/Landing.vue'
   import Detail from '@/components/Detail.vue'
 
   import { setBreakpoint, addListener } from '@/plugins/responsive'
 
-  export default {
+  import { IOrg, Org } from '@/models/org'
+  import { IEpic, Epic } from '@/models/epic'
+
+  import orgs from '@/data/experience.json'
+  import epics from '@/data/work.json'
+
+  export default defineComponent({
     name: 'App',
     components: {
       Pane,
       Landing,
       Detail,
     },
-    created() {
+    setup() {
       setBreakpoint()
       addListener()
+
+      const store = useStore()
+      const allOrgs = (orgs.children as IOrg[]).map(Org.parse)
+      store.commit('resume/setOrgs', {
+        orgs: allOrgs,
+      })
+      const allEpics = (epics.children as IEpic[]).map(Epic.parse)
+      store.commit('resume/setEpics', {
+        epics: allEpics,
+      })
     },
-  }
+  })
 </script>
 
 <style lang="css" src="@/styles/base.css"/>
