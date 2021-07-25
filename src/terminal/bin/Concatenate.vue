@@ -15,9 +15,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import {
     computed,
+    defineComponent,
     onMounted,
     ref,
     nextTick,
@@ -43,9 +44,9 @@
     FsNodeType.FILE,
     'vanity',
   )
-  export const binaryFn = () => {
+  export const binaryFn = (): Binary<[string], []> => {
     const filepath = filepathFn()
-    return new Binary(
+    return new Binary<[string], []>(
       'Concatenate',
       'cat',
       'Display the contents of a file.',
@@ -54,7 +55,7 @@
     )
   }
 
-  export default {
+  export default defineComponent({
     name: 'Concatenate',
     components: {
       Spinner,
@@ -62,7 +63,7 @@
     props: binProps,
     setup(props) {
       const binary = binaryFn()
-      const filepath = binary.args[0]
+      const filepath = binary.args[0] as NodeArg
 
       const { setTerminalReady } = binComposition(false)
       binary.processArgs(props.argv)
@@ -74,12 +75,15 @@
 
       const { node } = filepath
       const isNodeOk = (filepathValue === 'vanity')
-        || (filepath.isNodeFound
-          && filepath.isNodeValidType)
+        || (filepath.isNodeFound && filepath.isNodeValidType)
 
       const path = computed(() => {
         if (filepathValue === 'vanity') {
           return 'vanity'
+        }
+
+        if (!node) {
+          throw new Error('Could not resolve node')
         }
 
         const { parent } = node
@@ -92,7 +96,7 @@
       const languages = computed(() => node?.language ?? ['markdown'])
 
       const content = ref('')
-      const fetchContent = async (filePath) => {
+      const fetchContent = async (filePath: string) => {
         // Artificial delay to enjoy the spinner
         await new Promise((resolve) => setTimeout(resolve, 1000))
         const res = await fetch(filePath)
@@ -105,7 +109,7 @@
              webpackInclude: /(java|javascript|latex|markdown|python|ruby|typescript|xml|yaml)/,
              webpackChunkName: "lang-[request]"
              */
-            `highlight.js/lib/languages/${lang}.js`
+            `@/../node_modules/highlight.js/lib/languages/${lang}` // TODO: Fix path
             )))
           for (let i = 0; i < languageModules.length; i += 1) {
             hljs.registerLanguage(languages.value[i], languageModules[i].default)
@@ -131,10 +135,10 @@
         filepath: filepathValue,
       }
     },
-  }
+  })
 </script>
 
-<style lang="css" src="highlight.js/styles/solarized-dark.css"/>
+<style lang="css" src="highlight.js/styles/base16/solarized-dark.css"/>
 <style scoped lang="css">
   .spinner {
     --spinner-edge-color: var(--color-accent-b);

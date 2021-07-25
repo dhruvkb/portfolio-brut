@@ -11,10 +11,11 @@
   </RouterLink>
 </template>
 
-<script>
+<script lang="ts">
+  import { defineComponent } from 'vue'
   import { Binary, binComposition } from 'seeelaye'
 
-  export const binaryFn = () => new Binary(
+  export const binaryFn = (): Binary<[], []> => new Binary<[], []>(
     'Intro',
     'intro',
     'Shows my handle as ASCII art.',
@@ -22,10 +23,10 @@
     [],
   )
 
-  export default {
+  export default defineComponent({
     name: 'Intro',
     setup() {
       binComposition()
     },
-  }
+  })
 </script>
