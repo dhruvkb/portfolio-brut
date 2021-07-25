@@ -7,7 +7,17 @@
       :style="{ flexGrow: columnGrow, flexBasis: 0 }">
       <template v-if="project">
         <template v-if="columnField === 'technologyIcon'">
-          <Icon :paths="paths"/>
+          <Technology :icon="project.technologyIcon"/>
+        </template>
+        <template v-else-if="columnField === 'technologies'">
+          <template
+            v-for="(technology, index) in project.technologies"
+            :key="index">
+            <Technology
+              :icon="technology.icon"
+              :name="technology.name"/>
+            <template v-if="index < project.technologies.length - 1">,</template>
+          </template>
         </template>
         <template v-else>
           {{ project[columnField] }}
@@ -25,51 +35,23 @@
 <script lang="ts">
   import type { PropType } from 'vue'
 
-  import { ISimpleIcon, IPath } from '@/models/icon'
   import type { Project } from '@/models/project'
 
   import { defineComponent } from 'vue'
 
-  import django from 'simple-icons/icons/django'
-  import docker from 'simple-icons/icons/docker'
-  import gnubash from 'simple-icons/icons/gnubash'
-  import javascript from 'simple-icons/icons/javascript'
-  import latex from 'simple-icons/icons/latex'
-  import python from 'simple-icons/icons/python'
-  import readthedocs from 'simple-icons/icons/readthedocs'
-  import tailwindcss from 'simple-icons/icons/tailwindcss'
-  import typescript from 'simple-icons/icons/typescript'
-  import vuedotjs from 'simple-icons/icons/vuedotjs'
-
-  import Icon from '@/components/landing/Icon.vue'
+  import Technology from '@/components/landing/Technology.vue'
 
   import { breakpoint } from '@/plugins/responsive'
 
   export default defineComponent({
     name: 'WorkRow',
     components: {
-      Icon,
+      Technology,
     },
     props: {
       project: {
         type: Object as PropType<Project>,
       },
-    },
-    data() {
-      return {
-        icons: {
-          django,
-          docker,
-          gnubash,
-          javascript,
-          latex,
-          python,
-          readthedocs,
-          tailwindcss,
-          typescript,
-          vuedotjs,
-        } as Record<string, ISimpleIcon>,
-      }
     },
     computed: {
       columns(): [string, string, number][] {
@@ -77,6 +59,7 @@
         const title: [string, string] = ['title', 'Project']
         const technologyIcon: [string, string] = ['technologyIcon', 'Tech']
         const technologiesText: [string, string] = ['technologiesText', 'Tech']
+        const technologies: [string, string] = ['technologies', 'Tech']
 
         let columns: [string, string, number][]
         switch (breakpoint.name) {
@@ -99,8 +82,7 @@
             columns = [
               [...epicName, 20],
               [...title, 30],
-              [...technologyIcon, 0],
-              [technologiesText[0], '', 50],
+              [...technologies, 50],
             ]
             break
           default: // z
@@ -112,17 +94,6 @@
             break
         }
         return columns
-      },
-      paths(): IPath[] {
-        if (!this.project) return []
-
-        const icon = this.icons[this.project.technologyIcon]
-        return [
-          {
-            d: icon.path,
-            'fill-rule': 'nonzero',
-          },
-        ]
       },
     },
   })
