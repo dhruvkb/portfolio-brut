@@ -8,7 +8,7 @@ module.exports = {
     '@vue/airbnb',
   ],
   parserOptions: {
-    parser: '@babel/eslint-parser',
+    ecmaVersion: 2020,
   },
   rules: {
     // TODO: Restore severity to 'error'
@@ -16,6 +16,16 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
   },
   overrides: [
+    {
+      files: ['*.vue', '*.ts'],
+      extends: [
+        '@vue/typescript/recommended',
+      ],
+      rules: {
+        'lines-between-class-members': ['warn', 'always', { exceptAfterSingleLine: true }],
+        'no-underscore-dangle': 'off',
+      },
+    },
     {
       files: ['*.html'],
       rules: {
@@ -25,27 +35,17 @@ module.exports = {
     {
       files: ['*.vue'],
       rules: {
-        'max-len': 'off',
         indent: 'off', // Replaced by vue/script-indent
       },
     },
     {
-      files: ['*.js'],
-      rules: {
-        'no-param-reassign': [
-          'error',
-          {
-            props: true,
-            ignorePropertyModificationsFor: ['state'],
-          },
-        ],
-        'import/prefer-default-export': 'off',
-      },
-    },
-    {
-      files: ['*.vue', '*.js'],
+      files: ['*.vue', '*.js', '*.ts'],
       rules: {
         semi: ['warn', 'never'],
+        'import/prefer-default-export': 'off',
+        'no-multi-spaces': ['warn', { ignoreEOLComments: true }],
+        'no-shadow': 'off', // Replaced typescript-eslint/no-shadow
+        '@typescript-eslint/no-shadow': ['warn'], // Fixes a problem with enums
       },
     },
   ],
