@@ -21,34 +21,41 @@
       </template>
 
       <template v-else>
+        <!-- Header row -->
         {{ columnName }}
       </template>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import type { PropType } from 'vue'
+
+  import type { ISimpleIcon, ICustomIcon, IPath } from '@/models/icon'
+  import type { Role } from '@/models/role'
+
+  import { defineComponent } from 'vue'
+
   import automattic from 'simple-icons/icons/automattic'
   import creativecommons from 'simple-icons/icons/creativecommons'
   import fampay from 'simple-icons/icons/fampay'
   import hackerearth from 'simple-icons/icons/hackerearth'
-  import img from '@/data/img.json'
-  import browserstack from '@/data/browserstack.json'
-
-  import Icon from '@/components/landing/Icon.vue'
-
-  import { Role } from '@/models/role'
 
   import { breakpoint } from '@/plugins/responsive'
 
-  export default {
+  import Icon from '@/components/landing/Icon.vue'
+
+  import img from '@/assets/icons/img.json'
+  import browserstack from '@/assets/icons/browserstack.json'
+
+  export default defineComponent({
     name: 'ExperienceRow',
     components: {
       Icon,
     },
     props: {
       role: {
-        type: Role,
+        type: Object as PropType<Role>,
       },
     },
     data() {
@@ -60,19 +67,19 @@
           hackerearth,
           img,
           browserstack,
-        },
+        } as Record<string, ISimpleIcon | ICustomIcon>,
       }
     },
     computed: {
-      columns() {
-        const orgName = ['orgName', 'Org']
-        const orgIcon = ['orgIcon', 'Org']
-        const type = ['type', 'Type']
-        const title = ['title', 'Role']
-        const isActive = ['isActive', '']
-        const periodText = ['periodText', 'Period']
+      columns(): [string, string, number][] {
+        const orgName: [string, string] = ['orgName', 'Org']
+        const orgIcon: [string, string] = ['orgIcon', 'Org']
+        const type: [string, string] = ['type', 'Type']
+        const title: [string, string] = ['title', 'Role']
+        const isActive: [string, string] = ['isActive', '']
+        const periodText: [string, string] = ['periodText', 'Period']
 
-        let columns
+        let columns: [string, string, number][]
         switch (breakpoint.name) {
           case 's':
           case 'sx':
@@ -107,15 +114,24 @@
         }
         return columns
       },
-      paths() {
+      paths(): IPath[] {
+        if (!this.role) return [] as IPath[]
+
         const icon = this.icons[this.role.orgIcon]
-        const paths = icon.paths ?? [{ d: icon.path }]
-        return paths.map((path) => ({
-          d: path.d,
-          fill: path.hex ?? 'currentColor',
-          'fill-rule': path.fillRule ?? 'nonzero',
-        }))
+        const paths: IPath[] = []
+        if ('paths' in icon) { // ICustomIcon
+          paths.push(...icon.paths.map((path) => ({
+            d: path.d,
+            'fill-rule': path['fill-rule'],
+          })))
+        } else { // ISimpleIcon
+          paths.push({
+            d: icon.path,
+            'fill-rule': 'nonzero',
+          })
+        }
+        return paths
       },
     },
-  }
+  })
 </script>
