@@ -82,6 +82,15 @@ export class Project extends ResumeNode implements IProject {
   }
 
   /**
+   * Get whether this project is the last child of the parent epic.
+   * @returns whether this project is the last child of the parent epic
+   */
+  get isLast(): boolean {
+    const siblings = this.epic.children
+    return siblings.indexOf(this) === siblings.length - 1
+  }
+
+  /**
    * Get the path to the node from the 'work/' directory.
    * @returns the path to the node from the 'work/' directory
    */

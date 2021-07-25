@@ -108,6 +108,15 @@ export class Role extends ResumeNode implements IRole {
   }
 
   /**
+   * Get whether this role is the last child of the parent organisation.
+   * @returns whether this role is the last child of the parent organisation
+   */
+  get isLast(): boolean {
+    const siblings = this.org.children
+    return siblings.indexOf(this) === siblings.length - 1
+  }
+
+  /**
    * Get the path to the node from the 'experience/' directory.
    * @returns the path to the node from the 'experience/' directory
    */
