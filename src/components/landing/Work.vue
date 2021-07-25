@@ -5,6 +5,7 @@
       v-for="(project, projectIndex) in projects"
       :key="projectIndex"
       class="text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors"
+      :class="[...project.isLast ? ['border-b', 'border-sol-2'] : []]"
       :project="project"
       @click="handleClick(project)"/>
   </div>

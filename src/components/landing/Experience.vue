@@ -5,6 +5,7 @@
       v-for="(role, roleIndex) in roles"
       :key="roleIndex"
       class="text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors"
+      :class="[...role.isLast ? ['border-b', 'border-sol-2'] : []]"
       :role="role"
       @click="handleClick(role)"/>
   </div>
