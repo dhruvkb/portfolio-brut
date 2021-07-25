@@ -24,6 +24,28 @@
       ]
     },
     {
+      "name": "Center of CI",
+      "url": "https://centerofci.org",
+      "icon": "centerOfCi",
+      "slug": "center_of_ci",
+      "aliases": [
+        "centerci"
+      ],
+      "children": [
+        {
+          "period": {
+            "start": [
+              "Jun",
+              "21"
+            ]
+          },
+          "type": "Part-timer",
+          "title": "Software engineer",
+          "slug": "software_engineer.py"
+        }
+      ]
+    },
+    {
       "name": "BrowserStack",
       "url": "https://browserstack.com",
       "icon": "browserstack",
@@ -63,10 +85,6 @@
             "start": [
               "Sep",
               "19"
-            ],
-            "end": [
-              "Dec",
-              "20"
             ]
           },
           "type": "FOSS",

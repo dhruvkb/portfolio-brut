@@ -47,6 +47,7 @@
 
   import img from '@/assets/icons/img.json'
   import browserstack from '@/assets/icons/browserstack.json'
+  import centerOfCi from '@/assets/icons/center_of_ci.json'
 
   export default defineComponent({
     name: 'ExperienceRow',
@@ -67,6 +68,7 @@
           hackerearth,
           img,
           browserstack,
+          centerOfCi,
         } as Record<string, ISimpleIcon | ICustomIcon>,
       }
     },
