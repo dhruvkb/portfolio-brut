@@ -3,13 +3,10 @@
     <div
       class="h-screen spb:grid spb:grid-cols-2 mb:mr-8"
       id="app-root">
-      <Pane>
-        <Landing/>
-      </Pane>
-      <Pane class="hidden spb:block">
-        <Detail/>
-      </Pane>
+      <Pane><Landing/></Pane>
+      <Pane class="hidden spb:block"><Detail/></Pane>
     </div>
+    <Slider><CLI/></Slider>
   </div>
 </template>
 
@@ -22,9 +19,12 @@
 
   import { setBreakpoint, addListener } from '@/plugins/responsive'
 
-  import Pane from '@/components/Pane.vue'
+  import Pane from '@/components/layouts/Pane.vue'
+  import Slider from '@/components/layouts/Slider.vue'
+
   import Landing from '@/components/Landing.vue'
   import Detail from '@/components/Detail.vue'
+  import CLI from '@/components/CLI.vue'
 
   import orgs from '@/data/experience.json'
   import epics from '@/data/work.json'
@@ -33,8 +33,11 @@
     name: 'App',
     components: {
       Pane,
+      Slider,
+
       Landing,
       Detail,
+      CLI,
     },
     setup() {
       setBreakpoint()
