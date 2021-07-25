@@ -1,10 +1,10 @@
 <template>
   <div class="work-row flex items-center">
     <div
-      v-for="([columnField, columnName, columnGrow], columnIndex) in columns"
+      v-for="([columnField, columnName, widthPercent], columnIndex) in columns"
       :key="columnIndex"
       class="resume-cell"
-      :style="{ flexGrow: columnGrow, flexBasis: 0 }">
+      :style="{ '--width-percent': widthPercent }">
       <template v-if="project">
         <template v-if="columnField === 'technologyIcon'">
           <Technology :icon="project.technologyIcon"/>
