@@ -6,19 +6,21 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import { defineComponent } from 'vue'
+
   import Intro from '@/components/landing/Intro.vue'
   import Resume from '@/components/landing/Resume.vue'
   import Footer from '@/components/landing/Footer.vue'
 
-  export default {
+  export default defineComponent({
     name: 'Landing',
     components: {
       Intro,
       Resume,
       Footer,
     },
-  }
+  })
 </script>
 
 <style scoped lang="css">
