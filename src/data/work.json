@@ -9,9 +9,15 @@
           "title": "CLI",
           "url": "https://seeelaye.vercel.app",
           "technologies": [
-            "TypeScript (Vue)"
+            {
+              "name": "TypeScript",
+              "icon": "typescript"
+            },
+            {
+              "name": "Vue",
+              "icon": "vuedotjs"
+            }
           ],
-          "technologyIcon": "typescript",
           "slug": "seeelaye.ts"
         }
       ]
@@ -24,9 +30,15 @@
           "title": "UI components",
           "url": "",
           "technologies": [
-            "JavaScript (Vue)"
+            {
+              "name": "JavaScript",
+              "icon": "javascript"
+            },
+            {
+              "name": "Vue",
+              "icon": "vuedotjs"
+            }
           ],
-          "technologyIcon": "javascript",
           "slug": "vocabulary.vue"
         }
       ]
@@ -39,28 +51,41 @@
           "title": "Infrastructure",
           "url": "",
           "technologies": [
-            "Docker",
-            "Bash"
+            {
+              "name": "Docker",
+              "icon": "docker"
+            },
+            {
+              "name": "Bash",
+              "icon": "gnubash"
+            }
           ],
-          "technologyIcon": "docker",
           "slug": "infrastructure.yml"
         },
         {
           "title": "Backend",
           "url": "",
           "technologies": [
-            "Python (Django, DRF)"
+            {
+              "name": "Python",
+              "icon": "python"
+            },
+            {
+              "name": "django",
+              "icon": "django"
+            }
           ],
-          "technologyIcon": "python",
           "slug": "backend.py"
         },
         {
           "title": "Documentation",
           "url": "",
           "technologies": [
-            "restructuredText (Sphinx)"
+            {
+              "name": "reST (Sphinx)",
+              "icon": "readthedocs"
+            }
           ],
-          "technologyIcon": "readTheDocs",
           "slug": "documentation.rst"
         }
       ]
@@ -73,19 +98,30 @@
           "title": "Website",
           "url": "",
           "technologies": [
-            "JS (Vue, Tailwind)",
-            "TS (Lambda)"
+            {
+              "name": "TypeScript",
+              "icon": "typescript"
+            },
+            {
+              "name": "Vue",
+              "icon": "vuedotjs"
+            },
+            {
+              "name": "Tailwind",
+              "icon": "tailwindcss"
+            }
           ],
-          "technologyIcon": "javascript",
           "slug": "website.vue"
         },
         {
           "title": "Résumé",
           "url": "",
           "technologies": [
-            "LaTeX"
+            {
+              "name": "LaTeX",
+              "icon": "latex"
+            }
           ],
-          "technologyIcon": "latex",
           "slug": "resume.tex"
         }
       ]
