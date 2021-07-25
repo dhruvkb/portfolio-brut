@@ -2,11 +2,13 @@
 
 @layer components {
   .pane-element {
-    @apply mx-2 m:mx-4 l:mx-8 sx:mx-2 mx:mx-4;
+    @apply mx-2 mb:mx-4 lb:mx-8 spb:mx-2 mpb:mx-4;
   }
 
   .resume-cell {
     flex-basis: 0;
     flex-grow: var(--width-percent, 1);
+
+    @apply py-1 px-2 s:first:pl-2 s:last:pr-2 mb:first:pl-4 mb:last:pr-2 lb:first:pl-8 lb:last:pr-8 spb:first:pl-2 spb:last:pr-2 mpb:first:pl-4 mpb:last:pr-4;
   }
 }

@@ -30,7 +30,7 @@
     @screen s {
       padding-right: env(safe-area-inset-right);
     }
-    @screen sx {
+    @screen spb {
       padding-right: 0;
     }
 

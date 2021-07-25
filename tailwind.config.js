@@ -26,11 +26,11 @@ module.exports = {
       },
     },
     screens: {
-      s: '480px', // shortened table
-      m: '640px', // regular table
-      l: '800px', // expanded table
-      sx: '1200px', // shortened table locked at 480px, with terminal
-      mx: '1360px', // regular table locked at 640px, with terminal
+      s: '480px', // shortened table,
+      mb: '672px', // regular table + more button,
+      lb: '832px', // expanded table + more button,
+      spb: '1232px', // shortened table + terminal pane + more button,
+      mpb: '1392px', // regular table + terminal pane + more button,
     },
     colors: {
       tx: 'transparent',

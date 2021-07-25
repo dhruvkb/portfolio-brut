@@ -84,14 +84,14 @@
         let columns: [string, string, number][]
         switch (breakpoint.name) {
           case 's':
-          case 'sx':
+          case 'spb':
             columns = [
               [...orgName, 40],
               [...title, 60],
             ]
             break
-          case 'm':
-          case 'mx':
+          case 'mb':
+          case 'mpb':
             columns = [
               [...orgName, 33.33],
               [...title, 45],
@@ -99,7 +99,7 @@
               [...isActive, 5],
             ]
             break
-          case 'l':
+          case 'lb':
             columns = [
               [...orgName, 27.5],
               [...title, 35],

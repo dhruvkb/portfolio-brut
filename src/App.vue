@@ -1,11 +1,15 @@
 <template>
-  <div id="app-root" class="h-screen sx:grid sx:grid-cols-2">
-    <Pane>
-      <Landing/>
-    </Pane>
-    <Pane class="hidden sx:block">
-      <Detail/>
-    </Pane>
+  <div class="overflow-x-hidden">
+    <div
+      class="h-screen spb:grid spb:grid-cols-2 mb:mr-8"
+      id="app-root">
+      <Pane>
+        <Landing/>
+      </Pane>
+      <Pane class="hidden spb:block">
+        <Detail/>
+      </Pane>
+    </div>
   </div>
 </template>
 
@@ -13,14 +17,14 @@
   import { defineComponent } from 'vue'
   import { useStore } from 'vuex'
 
-  import Pane from '@/components/Pane.vue'
-  import Landing from '@/components/Landing.vue'
-  import Detail from '@/components/Detail.vue'
+  import { IOrg, Org } from '@/models/org'
+  import { IEpic, Epic } from '@/models/epic'
 
   import { setBreakpoint, addListener } from '@/plugins/responsive'
 
-  import { IOrg, Org } from '@/models/org'
-  import { IEpic, Epic } from '@/models/epic'
+  import Pane from '@/components/Pane.vue'
+  import Landing from '@/components/Landing.vue'
+  import Detail from '@/components/Detail.vue'
 
   import orgs from '@/data/experience.json'
   import epics from '@/data/work.json'
@@ -54,10 +58,10 @@
 <style lang="css" src="@/styles/utilities.css"/>
 <style lang="css">
   #app-root {
-    @screen sx {
+    @screen spb {
       grid-template-columns: 480px 1fr;
     }
-    @screen mx {
+    @screen mpb {
       grid-template-columns: 640px 1fr;
     }
   }

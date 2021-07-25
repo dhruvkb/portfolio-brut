@@ -64,21 +64,21 @@
         let columns: [string, string, number][]
         switch (breakpoint.name) {
           case 's':
-          case 'sx':
+          case 'spb':
             columns = [
               [...epicName, 40],
               [...title, 60],
             ]
             break
-          case 'm':
-          case 'mx':
+          case 'mb':
+          case 'mpb':
             columns = [
               [...epicName, 20],
               [...title, 30],
               [...technologiesText, 50],
             ]
             break
-          case 'l':
+          case 'lb':
             columns = [
               [...epicName, 20],
               [...title, 30],
