@@ -6,8 +6,11 @@
   </div>
 </template>
 
-<script>
-  import { computed, onBeforeUnmount } from 'vue'
+<script lang="ts">
+  import type { Org } from '@/models/org'
+  import type { Epic } from '@/models/epic'
+
+  import { computed, defineComponent, onBeforeUnmount } from 'vue'
   import { useStore } from 'vuex'
   import {
     FsNode,
@@ -19,10 +22,7 @@
 
   import { breakpoint } from '@/plugins/responsive'
 
-  import experience from '@/data/experience.json'
-  import work from '@/data/work.json'
-
-  export default {
+  export default defineComponent({
     name: 'Detail',
     components: {
       Terminal,
@@ -60,25 +60,27 @@
         }
       })
 
-      // Generate and populate FS tree
-      const fsBridge = (jsonNode) => {
-        const fsNode = {
-          name: jsonNode.slug,
-          aliases: jsonNode.aliases ?? [],
-        }
-        if (jsonNode.children) {
-          fsNode.children = jsonNode.children.map((child) => fsBridge(child))
-        }
-        return fsNode
-      }
       const makeTree = () => {
         const rootNode = new FsNode(FsNodeType.FOLDER, '~')
-        const preBridgeNodes = [experience, work]
-        preBridgeNodes.forEach((preBridgeNode) => {
-          const node = FsNode.parse(fsBridge(preBridgeNode))
-          node.parent = rootNode
-          rootNode.children.push(node)
+
+        const experienceNode = new FsNode(FsNodeType.FOLDER, 'experience')
+        experienceNode.parent = rootNode
+        rootNode.children.push(experienceNode)
+        store.state.resume.orgs.forEach((org: Org) => {
+          const orgNode = org.asFsNode
+          orgNode.parent = experienceNode
+          experienceNode.children.push(orgNode)
         })
+
+        const workNode = new FsNode(FsNodeType.FOLDER, 'work')
+        workNode.parent = rootNode
+        rootNode.children.push(workNode)
+        store.state.resume.epics.forEach((epic: Epic) => {
+          const epicNode = epic.asFsNode
+          epicNode.parent = workNode
+          workNode.children.push(epicNode)
+        })
+
         return rootNode
       }
       const tree = makeTree()
@@ -91,7 +93,7 @@
         isTerminalVisible,
       }
     },
-  }
+  })
 </script>
 
 <style scoped lang="css" src="seeelaye/dist/themes/solarized.css"/>
