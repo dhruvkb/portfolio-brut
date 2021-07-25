@@ -2,9 +2,19 @@ import { reactive } from 'vue'
 import debounce from 'lodash/debounce'
 import { screenSizes } from '@/constants/screen_sizes'
 
-export const breakpoint = reactive({})
+export interface IBreakpoint {
+  w: number
+  h: number
+  name: string
+}
 
-const getBreakpoint = (w) => {
+export const breakpoint = reactive<IBreakpoint>({
+  w: 0,
+  h: 0,
+  name: '?',
+})
+
+const getBreakpoint = (w: number) => {
   const breakpointNames = ['mx', 'sx', 'l', 'm', 's']
   for (let i = 0; i < breakpointNames.length; i += 1) {
     const breakpointName = breakpointNames[i]
@@ -15,13 +25,13 @@ const getBreakpoint = (w) => {
   return 'z'
 }
 
-export const setBreakpoint = () => {
+export const setBreakpoint = (): void => {
   breakpoint.w = window.innerWidth
   breakpoint.h = window.innerHeight
   breakpoint.name = getBreakpoint(window.innerWidth)
 }
 
-export const addListener = () => {
+export const addListener = (): void => {
   window.addEventListener(
     'resize',
     debounce(setBreakpoint, 100),
