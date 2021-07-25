@@ -1,6 +1,3 @@
-const screenSizes = require('./src/constants/screen_sizes')
-const solarizedColours = require('./src/constants/colours')
-
 const macSystemSansSerif = [
   'system-ui',
   '-apple-system',
@@ -29,19 +26,36 @@ module.exports = {
       },
     },
     screens: {
-      ...Object.fromEntries(
-        Object.entries(screenSizes.screenSizes)
-          .map(([k, v]) => [k, v === 0 ? `${v}` : `${v}px`]),
-      ),
+      s: '480px', // shortened table
+      m: '640px', // regular table
+      l: '800px', // expanded table
+      sx: '1200px', // shortened table locked at 480px, with terminal
+      mx: '1360px', // regular table locked at 640px, with terminal
     },
     colors: {
       tx: 'transparent',
       curr: 'currentColor',
-      white: '#ffffff',
-      black: '#000000',
+      white: 'white',
+      black: 'black',
       sol: {
-        ...solarizedColours.colors.accent,
-        ...solarizedColours.colors.base,
+        // Base colors
+        '03': '#002b36', // L* 15
+        '02': '#073642', // L* 20
+        '01': '#586e75', // L* 45
+        '00': '#657b83', // L* 50
+        0: '#839496', // L* 60
+        1: '#93a1a1', // L* 65
+        2: '#eee8d5', // L* 92
+        3: '#fdf6e3', // L* 97
+        // Accent colors
+        y: '#b58900', // yellow; Split comp
+        o: '#cb4b16', // orange; Complement
+        r: '#dc322f', // red; Triad
+        m: '#d33682', // magenta; Tetrad
+        v: '#6c71c4', // violet; Analogous
+        b: '#268bd2', // blue; Monotone
+        c: '#2aa198', // cyan; Analogous
+        g: '#859900', // green; Tetrad
       },
     },
     fontFamily: {
