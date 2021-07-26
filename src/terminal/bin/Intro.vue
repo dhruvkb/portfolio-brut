@@ -18,7 +18,7 @@
   export const binaryFn = (): Binary<[], []> => new Binary<[], []>(
     'Intro',
     'intro',
-    'Shows my handle as ASCII art.',
+    'Show my handle as ASCII art.',
     [],
     [],
   )
