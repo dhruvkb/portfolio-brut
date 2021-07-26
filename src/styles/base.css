@@ -5,12 +5,7 @@
 @layer base {
   html {
     @apply font-sans;
-  }
-
-  @supports (font-feature-settings: normal) {
-    html {
-      font-feature-settings: "zero", "ss01", "ss02";
-    }
+    font-feature-settings: "zero", "ss01", "ss02", "cv08";
   }
 }
 
