@@ -1,9 +1,6 @@
 <template>
-  <div class="detail
-      flex flex-col
-      text-sol-00 bg-sol-3
-      min-h-full border-l border-sol-1">
-    <div class="pane-element my-8">Hello, World!</div>
+  <div class="detail flex flex-col text-sol-00 bg-sol-3 min-h-full border-l border-sol-1">
+    <RouterView class="flex-grow"/>
   </div>
 </template>
 
