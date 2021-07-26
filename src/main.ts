@@ -10,6 +10,7 @@ import App from '@/App.vue'
 import Concatenate from '@/terminal/bin/Concatenate.vue'
 import Intro from '@/terminal/bin/Intro.vue'
 import Tip from '@/terminal/bin/Tip.vue'
+import Exit from '@/terminal/bin/Exit.vue'
 
 const app = createApp(App)
 
@@ -21,5 +22,6 @@ app
 app.component('Intro', Intro)
 app.component('Concatenate', Concatenate)
 app.component('Tip', Tip)
+app.component('Exit', Exit)
 
 app.mount('div#app__slot')
