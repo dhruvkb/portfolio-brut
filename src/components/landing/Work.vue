@@ -7,15 +7,16 @@
       class="text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors"
       :class="[...project.isLast ? ['border-b', 'border-sol-2'] : []]"
       :project="project"
-      @click="handleClick(project)"/>
+      @click="populateInput(project)"/>
   </div>
 </template>
 
 <script lang="ts">
   import type { Project } from '@/models/project'
 
-  import { defineComponent } from 'vue'
-  import { mapGetters } from 'vuex'
+  import { computed, defineComponent } from 'vue'
+  import { useStore } from 'vuex'
+  import { useSeeelaye } from 'seeelaye'
 
   import WorkRow from '@/components/landing/WorkRow.vue'
 
@@ -24,22 +25,26 @@
     components: {
       WorkRow,
     },
-    computed: {
-      ...mapGetters('resume', [
-        'projects',
-      ]),
-    },
-    methods: {
-      populateInput(project: Project): void {
-        if (this.$store.hasModule('terminal')) {
-          this.$seeelaye.commit('setInput', {
+    setup() {
+      const store = useStore()
+      const seeelaye = useSeeelaye()
+
+      const projects = computed(() => store.getters['resume/projects'])
+
+      const populateInput = (project: Project) => {
+        if (store.state.ui.isProMode) {
+          seeelaye.commit('setInput', {
             input: `cat ~${project.nodePath}`,
           })
+        } else {
+          // TODO
         }
-      },
-      handleClick(project: Project): void {
-        this.populateInput(project)
-      },
+      }
+
+      return {
+        projects,
+        populateInput,
+      }
     },
   })
 </script>

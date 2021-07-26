@@ -7,15 +7,16 @@
       class="text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors"
       :class="[...role.isLast ? ['border-b', 'border-sol-2'] : []]"
       :role="role"
-      @click="handleClick(role)"/>
+      @click="populateInput(role)"/>
   </div>
 </template>
 
 <script lang="ts">
   import type { Role } from '@/models/role'
 
-  import { defineComponent } from 'vue'
-  import { mapGetters } from 'vuex'
+  import { computed, defineComponent } from 'vue'
+  import { useStore } from 'vuex'
+  import { useSeeelaye } from 'seeelaye'
 
   import ExperienceRow from '@/components/landing/ExperienceRow.vue'
 
@@ -24,22 +25,26 @@
     components: {
       ExperienceRow,
     },
-    computed: {
-      ...mapGetters('resume', [
-        'roles',
-      ]),
-    },
-    methods: {
-      populateInput(role: Role): void {
-        if (this.$store.hasModule('terminal')) {
-          this.$seeelaye.commit('setInput', {
+    setup() {
+      const store = useStore()
+      const seeelaye = useSeeelaye()
+
+      const roles = computed(() => store.getters['resume/roles'])
+
+      const populateInput = (role: Role) => {
+        if (store.state.ui.isProMode) {
+          seeelaye.commit('setInput', {
             input: `cat ~${role.nodePath}`,
           })
+        } else {
+          // TODO
         }
-      },
-      handleClick(role: Role): void {
-        this.populateInput(role)
-      },
+      }
+
+      return {
+        roles,
+        populateInput,
+      }
     },
   })
 </script>
