@@ -1,11 +1,16 @@
 <template>
-  <div class="landing flex flex-col text-sol-00 bg-sol-3 min-h-full">
+  <div
+    class="landing flex flex-col text-sol-00 bg-sol-3 min-h-full transition duration-300"
+    :class="[...isBlurred ? ['filter', 'blur-sm', 'pointer-events-none'] : []]">
     <Hello class="flex-grow"/>
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { computed, defineComponent } from 'vue'
+  import { useStore } from 'vuex'
+
+  import { breakpoint } from '@/plugins/responsive'
 
   import Hello from '@/components/landing/Hello.vue'
 
@@ -13,6 +18,18 @@
     name: 'Landing',
     components: {
       Hello,
+    },
+    setup() {
+      const store = useStore()
+      const isBlurred = computed(() => {
+        const { isSliderOpen } = store.state.ui
+        const { sliderContents } = breakpoint
+        return isSliderOpen && sliderContents === 'details'
+      })
+
+      return {
+        isBlurred,
+      }
     },
   })
 </script>
