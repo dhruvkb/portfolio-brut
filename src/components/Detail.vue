@@ -20,7 +20,7 @@
     padding-right: env(safe-area-inset-right);
 
     & ::selection {
-      @apply text-sol-1 bg-sol-02;
+      @apply text-sol-01 bg-sol-2;
     }
   }
 </style>
