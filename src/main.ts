@@ -4,6 +4,8 @@ import router from '@/router'
 import store from '@/store'
 import seeelaye from '@/terminal'
 
+import clickOutside from '@/directives/click_outside'
+
 import App from '@/App.vue'
 
 // Globally registered terminal binaries
@@ -23,5 +25,7 @@ app.component('Intro', Intro)
 app.component('Concatenate', Concatenate)
 app.component('Tip', Tip)
 app.component('Exit', Exit)
+
+app.directive('clickOutside', clickOutside)
 
 app.mount('div#app__slot')
