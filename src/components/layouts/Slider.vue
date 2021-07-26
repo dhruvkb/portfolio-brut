@@ -23,7 +23,7 @@
       </span>
     </button>
 
-    <div class="content">
+    <div class="content flex flex-col overflow-y-scroll">
       <slot/>
     </div>
   </div>
@@ -71,14 +71,6 @@
 
     .content {
       width: var(--pane-size, 0);
-
-      /* Terminal style variables */
-      ::v-deep(.terminal) {
-        --content-max-width: 80ch;
-        --content-border-width: 1px;
-
-        --folder-color: var(--color-accent-v);
-      }
     }
   }
 </style>

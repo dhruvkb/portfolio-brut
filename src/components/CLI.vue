@@ -1,5 +1,7 @@
 <template>
-  <Terminal class="flex-grow solarized dark"/>
+  <div class="cli flex-grow">
+    <Terminal class="terminal solarized dark"/>
+  </div>
 </template>
 
 <script lang="ts">
@@ -75,27 +77,13 @@
 
 <style scoped lang="css" src="seeelaye/dist/themes/solarized.css"/>
 <style scoped lang="css">
-  .more {
-    transform: translateX(var(--pane-size));
-
-    &.is-active {
-      transform: translateX(0);
-    }
-
-    .vertical {
-      writing-mode: vertical-lr;
-    }
-
-    .content {
-      width: var(--pane-size, 0);
-
+  .cli {
+    ::v-deep(.terminal) {
       /* Terminal style variables */
-      ::v-deep(.terminal) {
-        --content-max-width: 80ch;
-        --content-border-width: 1px;
+      --content-max-width: 80ch;
+      --content-border-width: 1px;
 
-        --folder-color: var(--color-accent-v);
-      }
+      --folder-color: var(--color-accent-v);
     }
   }
 </style>
