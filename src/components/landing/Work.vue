@@ -16,6 +16,7 @@
 
   import { computed, defineComponent } from 'vue'
   import { useStore } from 'vuex'
+  import { useRouter } from 'vue-router'
   import { useSeeelaye } from 'seeelaye'
 
   import WorkRow from '@/components/landing/WorkRow.vue'
@@ -27,6 +28,7 @@
     },
     setup() {
       const store = useStore()
+      const router = useRouter()
       const seeelaye = useSeeelaye()
 
       const projects = computed(() => store.getters['resume/projects'])
@@ -37,7 +39,7 @@
             input: `cat ~${project.nodePath}`,
           })
         } else {
-          // TODO
+          router.push({ path: project.nodePath })
         }
       }
 

@@ -16,6 +16,7 @@
 
   import { computed, defineComponent } from 'vue'
   import { useStore } from 'vuex'
+  import { useRouter } from 'vue-router'
   import { useSeeelaye } from 'seeelaye'
 
   import ExperienceRow from '@/components/landing/ExperienceRow.vue'
@@ -27,6 +28,7 @@
     },
     setup() {
       const store = useStore()
+      const router = useRouter()
       const seeelaye = useSeeelaye()
 
       const roles = computed(() => store.getters['resume/roles'])
@@ -37,7 +39,7 @@
             input: `cat ~${role.nodePath}`,
           })
         } else {
-          // TODO
+          router.push({ path: role.nodePath })
         }
       }
 
