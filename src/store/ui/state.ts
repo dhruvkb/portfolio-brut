@@ -1,7 +1,7 @@
 export interface UiState {
-  isProMode: boolean
+  isSliderOpen: boolean
 }
 
 export const state = (): UiState => ({
-  isProMode: false,
+  isSliderOpen: false,
 })

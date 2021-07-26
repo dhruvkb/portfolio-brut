@@ -31,14 +31,16 @@ export interface IBreakpoint {
   w: number
   h: number
   name: string
-  paneSize: number
+  sliderContents: string
+  sliderSize: number
 }
 
 export const breakpoint = reactive<IBreakpoint>({
   w: 0,
   h: 0,
   name: '?',
-  paneSize: 0,
+  sliderContents: '?',
+  sliderSize: 0,
 })
 
 /**
@@ -66,7 +68,7 @@ const getBreakpointName = (w: number) => {
  * @param w - the inner width of the viewport
  * @returns the calculated width of the panel
  */
-const getPaneSize = (w: number) => {
+const getSliderSize = (w: number) => {
   const breakpointName = breakpoint.name
   let paneSize
   switch (breakpointName) {
@@ -92,7 +94,8 @@ export const setBreakpoint = (): void => {
   breakpoint.w = window.innerWidth
   breakpoint.h = window.innerHeight
   breakpoint.name = getBreakpointName(window.innerWidth)
-  breakpoint.paneSize = getPaneSize(window.innerWidth)
+  breakpoint.sliderSize = getSliderSize(window.innerWidth)
+  breakpoint.sliderContents = breakpoint.name.includes('p') ? 'cli' : 'details'
 }
 
 export const addListener = (): void => {

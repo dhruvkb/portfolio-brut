@@ -5,20 +5,21 @@
       flex flex-row
       text-sol-00 bg-sol-2
       transition duration-300"
-    :class="[{ 'is-active': isProMode }]"
-    :style="{ '--pane-size': `${breakpoint.paneSize}px` }">
+    :class="[{ 'is-active': isSliderOpen }]"
+    :style="{ '--slider-size': `${breakpoint.sliderSize}px` }"
+    v-click-outside="toggleSliderIfCovering">
     <button
       class="hidden mb:block
         flex items-center justify-center
         text-xs font-bold uppercase
         w-8 h-full border-l border-r border-l-sol-1 border-r-sol-2"
-      @click="toggleMore">
+      @click="toggleSlider">
       <span class="vertical">
-        <template v-if="isProMode">
-          Close Pro mode <span class="text-sol-r">&times;</span>
+        <template v-if="isSliderOpen">
+          Close {{ contents }} <span class="text-sol-r">&times;</span>
         </template>
         <template v-else>
-          Open Pro mode <span class="text-sol-r">&darr;</span>
+          Open {{ contents }} <span class="text-sol-r">&darr;</span>
         </template>
       </span>
     </button>
@@ -37,20 +38,31 @@
 
   export default defineComponent({
     name: 'Slider',
+    props: {
+      contents: {
+        type: String,
+      },
+    },
     setup() {
       const store = useStore()
 
-      const isProMode = computed(() => store.state.ui.isProMode)
-      const toggleMore = () => {
-        store.commit('ui/setIsProMode', {
-          isProMode: !isProMode.value,
+      const isSliderOpen = computed(() => store.state.ui.isSliderOpen)
+      const toggleSlider = () => {
+        store.commit('ui/setIsSliderOpen', {
+          isSliderOpen: !isSliderOpen.value,
         })
+      }
+      const toggleSliderIfCovering = () => {
+        if (isSliderOpen.value && breakpoint.sliderContents === 'details') {
+          toggleSlider()
+        }
       }
 
       return {
-        isProMode,
+        isSliderOpen,
         breakpoint,
-        toggleMore,
+        toggleSlider,
+        toggleSliderIfCovering,
       }
     },
   })
@@ -59,7 +71,7 @@
 <style scoped lang="css" src="seeelaye/dist/themes/solarized.css"/>
 <style scoped lang="css">
   .slider {
-    transform: translateX(var(--pane-size));
+    transform: translateX(var(--slider-size));
 
     &.is-active {
       transform: translateX(0);
@@ -70,7 +82,7 @@
     }
 
     .content {
-      width: var(--pane-size, 0);
+      width: var(--slider-size, 0);
     }
   }
 </style>
