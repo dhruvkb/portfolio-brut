@@ -20,8 +20,8 @@
       binComposition()
 
       const seeelaye = useSeeelaye()
-      seeelaye.store.commit('ui/setIsProMode', {
-        isProMode: false,
+      seeelaye.store.commit('ui/setIsSliderOpen', {
+        isSliderOpen: false,
       })
     },
   })

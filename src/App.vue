@@ -4,9 +4,12 @@
       class="h-screen spb:grid spb:grid-cols-2 mb:mr-8"
       id="app-root">
       <Pane><Landing/></Pane>
-      <Pane class="hidden spb:block"><Detail/></Pane>
+      <Pane v-if="breakpoint.sliderContents === 'cli'"><Detail/></Pane>
     </div>
-    <Slider><CLI/></Slider>
+    <Slider :contents="breakpoint.sliderContents">
+      <CLI v-if="breakpoint.sliderContents === 'cli'"/>
+      <Detail v-else/>
+    </Slider>
   </div>
 </template>
 
@@ -17,7 +20,7 @@
   import { IOrg, Org } from '@/models/org'
   import { IEpic, Epic } from '@/models/epic'
 
-  import { setBreakpoint, addListener } from '@/plugins/responsive'
+  import { breakpoint, setBreakpoint, addListener } from '@/plugins/responsive'
 
   import Pane from '@/components/layouts/Pane.vue'
   import Slider from '@/components/layouts/Slider.vue'
@@ -52,6 +55,10 @@
       store.commit('resume/setEpics', {
         epics: allEpics,
       })
+
+      return {
+        breakpoint,
+      }
     },
   })
 </script>
