@@ -1,24 +1,18 @@
 <template>
   <div class="landing flex flex-col text-sol-00 bg-sol-3 min-h-full">
-    <Intro/>
-    <Resume class="flex-grow"/>
-    <Footer/>
+    <Hello class="flex-grow"/>
   </div>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
 
-  import Intro from '@/components/landing/Intro.vue'
-  import Resume from '@/components/landing/Resume.vue'
-  import Footer from '@/components/landing/Footer.vue'
+  import Hello from '@/components/landing/Hello.vue'
 
   export default defineComponent({
     name: 'Landing',
     components: {
-      Intro,
-      Resume,
-      Footer,
+      Hello,
     },
   })
 </script>
