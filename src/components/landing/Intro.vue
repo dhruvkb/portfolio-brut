@@ -2,13 +2,13 @@
   <div class="intro pane-element my-8">
     <p class="text-xl leading-snug mb-4">
       Hello! I am
-      <RouterLink to="/">
+      <RouterLink :to="{ name: 'home' }">
         <strong class="site-title">Dhruv Bhanushali</strong>
       </RouterLink>,
       a software engineer and open-source maintainer who also wears many other
       hats.
     </p>
-    <RouterLink to="/" class="text-xs font-bold uppercase">
+    <RouterLink :to="{ name: 'hello' }" class="text-xs font-bold uppercase">
       More about this guy <span class="text-sol-r">&rarr;</span>
     </RouterLink>
   </div>
