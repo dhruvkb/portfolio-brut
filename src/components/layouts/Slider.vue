@@ -6,7 +6,7 @@
       text-sol-00 bg-sol-2
       transition duration-300"
     :class="[{ 'is-active': isSliderOpen }]"
-    :style="{ '--slider-size': `${breakpoint.sliderSize}px` }"
+    :style="{ '--slider-size': `${sliderSize}px` }"
     v-click-outside="toggleSliderIfCovering">
     <button
       class="hidden mb:block
@@ -34,8 +34,6 @@
   import { computed, defineComponent } from 'vue'
   import { useStore } from 'vuex'
 
-  import { breakpoint } from '@/plugins/responsive'
-
   export default defineComponent({
     name: 'Slider',
     props: {
@@ -47,20 +45,21 @@
       const store = useStore()
 
       const isSliderOpen = computed(() => store.state.ui.isSliderOpen)
+      const sliderSize = computed(() => store.getters['ui/sliderSize'])
       const toggleSlider = () => {
         store.commit('ui/setIsSliderOpen', {
           isSliderOpen: !isSliderOpen.value,
         })
       }
       const toggleSliderIfCovering = () => {
-        if (isSliderOpen.value && breakpoint.sliderContents === 'details') {
+        if (isSliderOpen.value && store.getters['ui/sliderContents'] === 'details') {
           toggleSlider()
         }
       }
 
       return {
         isSliderOpen,
-        breakpoint,
+        sliderSize,
         toggleSlider,
         toggleSliderIfCovering,
       }

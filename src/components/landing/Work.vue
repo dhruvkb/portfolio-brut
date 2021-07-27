@@ -19,8 +19,6 @@
   import { useRouter } from 'vue-router'
   import { useSeeelaye } from 'seeelaye'
 
-  import { breakpoint } from '@/plugins/responsive'
-
   import WorkRow from '@/components/landing/WorkRow.vue'
 
   export default defineComponent({
@@ -36,7 +34,7 @@
       const projects = computed(() => store.getters['resume/projects'])
 
       const populateInput = (project: Project) => {
-        if (store.state.ui.isSliderOpen && breakpoint.sliderContents === 'cli') {
+        if (store.state.ui.isSliderOpen && store.getters['ui/sliderContents'] === 'cli') {
           seeelaye.commit('setInput', {
             input: `cat ~${project.nodePath}`,
           })

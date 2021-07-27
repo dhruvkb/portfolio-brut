@@ -41,8 +41,6 @@
 
   import Technology from '@/components/landing/Technology.vue'
 
-  import { breakpoint } from '@/plugins/responsive'
-
   export default defineComponent({
     name: 'WorkRow',
     components: {
@@ -62,7 +60,7 @@
         const technologies: [string, string] = ['technologies', 'Tech']
 
         let columns: [string, string, number][]
-        switch (breakpoint.name) {
+        switch (this.$store.getters['ui/breakpointName']) {
           case 's':
           case 'spb':
             columns = [

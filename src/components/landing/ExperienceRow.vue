@@ -41,8 +41,6 @@
   import fampay from 'simple-icons/icons/fampay'
   import hackerearth from 'simple-icons/icons/hackerearth'
 
-  import { breakpoint } from '@/plugins/responsive'
-
   import Icon from '@/components/landing/Icon.vue'
 
   import img from '@/assets/icons/img.json'
@@ -82,7 +80,7 @@
         const periodText: [string, string] = ['periodText', 'Period']
 
         let columns: [string, string, number][]
-        switch (breakpoint.name) {
+        switch (this.$store.getters['ui/breakpointName']) {
           case 's':
           case 'spb':
             columns = [

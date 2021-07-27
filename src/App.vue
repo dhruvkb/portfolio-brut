@@ -4,23 +4,21 @@
       class="h-screen spb:grid spb:grid-cols-2 mb:mr-8"
       id="app-root">
       <Pane><Landing/></Pane>
-      <Pane v-if="breakpoint.sliderContents === 'cli'"><Detail/></Pane>
+      <Pane v-if="sliderContents === 'cli'"><Detail/></Pane>
     </div>
-    <Slider :contents="breakpoint.sliderContents">
-      <CLI v-if="breakpoint.sliderContents === 'cli'"/>
+    <Slider :contents="sliderContents">
+      <CLI v-if="sliderContents === 'cli'"/>
       <Detail v-else/>
     </Slider>
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { computed, defineComponent } from 'vue'
   import { useStore } from 'vuex'
 
   import { IOrg, Org } from '@/models/org'
   import { IEpic, Epic } from '@/models/epic'
-
-  import { breakpoint, setBreakpoint, addListener } from '@/plugins/responsive'
 
   import Pane from '@/components/layouts/Pane.vue'
   import Slider from '@/components/layouts/Slider.vue'
@@ -31,6 +29,7 @@
 
   import orgs from '@/data/experience.json'
   import epics from '@/data/work.json'
+  import debounce from 'lodash/debounce'
 
   export default defineComponent({
     name: 'App',
@@ -43,9 +42,6 @@
       CLI,
     },
     setup() {
-      setBreakpoint()
-      addListener()
-
       const store = useStore()
       const allOrgs = (orgs.children as IOrg[]).map(Org.parse)
       store.commit('resume/setOrgs', {
@@ -56,8 +52,17 @@
         epics: allEpics,
       })
 
+      const setBreakpoint = () => store.commit('ui/setViewportWidth')
+      setBreakpoint()
+      window.addEventListener(
+        'resize',
+        debounce(setBreakpoint, 100),
+        false,
+      )
+      const sliderContents = computed(() => store.getters['ui/sliderContents'])
+
       return {
-        breakpoint,
+        sliderContents,
       }
     },
   })

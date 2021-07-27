@@ -19,8 +19,6 @@
   import { useRouter } from 'vue-router'
   import { useSeeelaye } from 'seeelaye'
 
-  import { breakpoint } from '@/plugins/responsive'
-
   import ExperienceRow from '@/components/landing/ExperienceRow.vue'
 
   export default defineComponent({
@@ -36,7 +34,7 @@
       const roles = computed(() => store.getters['resume/roles'])
 
       const populateInput = (role: Role) => {
-        if (store.state.ui.isSliderOpen && breakpoint.sliderContents === 'cli') {
+        if (store.state.ui.isSliderOpen && store.getters['ui/sliderContents'] === 'cli') {
           seeelaye.commit('setInput', {
             input: `cat ~${role.nodePath}`,
           })

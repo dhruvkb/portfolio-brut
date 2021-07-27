@@ -10,8 +10,6 @@
   import { computed, defineComponent } from 'vue'
   import { useStore } from 'vuex'
 
-  import { breakpoint } from '@/plugins/responsive'
-
   import Hello from '@/components/landing/Hello.vue'
 
   export default defineComponent({
@@ -23,7 +21,7 @@
       const store = useStore()
       const isBlurred = computed(() => {
         const { isSliderOpen } = store.state.ui
-        const { sliderContents } = breakpoint
+        const sliderContents = store.getters['ui/sliderContents']
         return isSliderOpen && sliderContents === 'details'
       })
 

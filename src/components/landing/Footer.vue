@@ -14,21 +14,21 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
-
-  import { breakpoint } from '@/plugins/responsive'
+  import { computed, defineComponent } from 'vue'
+  import { useStore } from 'vuex'
 
   export default defineComponent({
     name: 'Footer',
-    data() {
+    setup() {
+      const store = useStore()
+      const breakpointName = computed(() => store.getters['ui/breakpointName'])
+
+      const isLucky = computed(() => Math.random() >= 0.9)
+
       return {
-        breakpoint,
+        breakpointName,
+        isLucky,
       }
-    },
-    computed: {
-      isLucky() {
-        return Math.random() >= 0.9
-      },
     },
   })
 </script>
