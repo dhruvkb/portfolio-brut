@@ -1,5 +1,7 @@
 import type { GetterTree } from 'vuex'
 
+import { SliderContent } from '@/models/slider'
+
 import type { RootState } from '@/store/state'
 import type { UiState } from '@/store/ui/state'
 
@@ -19,7 +21,7 @@ type Getterify<GT> = {
 export interface UiGetterTree<S, RS> extends GetterTree<S, RS> {
   breakpointName(state: S): string
   sliderSize(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): number
-  sliderContents(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): string
+  sliderContents(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): SliderContent
 }
 
 export const getters: UiGetterTree<UiState, RootState> = {
@@ -53,7 +55,9 @@ export const getters: UiGetterTree<UiState, RootState> = {
   sliderContents(
     state: UiState,
     uiGetters: Getterify<UiGetterTree<UiState, RootState>>,
-  ): string {
-    return uiGetters.breakpointName.includes('p') ? 'cli' : 'details'
+  ): SliderContent {
+    return uiGetters.breakpointName.includes('p')
+      ? SliderContent.CLI
+      : SliderContent.DETAIL
   },
 }
