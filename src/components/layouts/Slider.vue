@@ -40,6 +40,7 @@
   import { computed, defineComponent } from 'vue'
   import { useStore } from 'vuex'
   import { useRouter } from 'vue-router'
+  import { useKeypress } from 'vue3-keypress'
 
   export default defineComponent({
     name: 'Slider',
@@ -63,6 +64,20 @@
       const goHome = () => {
         router.push({ name: 'home' })
       }
+
+      useKeypress({
+        keyEvent: 'keydown',
+        keyBinds: [
+          {
+            keyCode: 'esc',
+            success: () => {
+              if (isLandingInactive.value) {
+                goHome()
+              }
+            },
+          },
+        ],
+      })
 
       return {
         isSliderOpen,
