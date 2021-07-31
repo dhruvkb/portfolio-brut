@@ -33,6 +33,7 @@
 <script lang="ts">
   import { computed, defineComponent } from 'vue'
   import { useStore } from 'vuex'
+  import { useRouter } from 'vue-router'
 
   export default defineComponent({
     name: 'Slider',
@@ -43,6 +44,7 @@
     },
     setup() {
       const store = useStore()
+      const router = useRouter()
 
       const isSliderOpen = computed(() => store.state.ui.isSliderOpen)
       const sliderSize = computed(() => store.getters['ui/sliderSize'])
@@ -51,17 +53,15 @@
           isSliderOpen: !isSliderOpen.value,
         })
       }
-      const toggleSliderIfCovering = () => {
-        if (isSliderOpen.value && store.getters['ui/sliderContents'] === 'details') {
-          toggleSlider()
-        }
+      const goHome = () => {
+        router.push({ name: 'home' })
       }
 
       return {
         isSliderOpen,
         sliderSize,
         toggleSlider,
-        toggleSliderIfCovering,
+        goHome,
       }
     },
   })

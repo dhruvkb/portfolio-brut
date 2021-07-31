@@ -1,5 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+import store from '@/store'
+
+import { SliderContent } from '@/models/slider'
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -26,6 +30,25 @@ const router = createRouter({
       component: () => import(/* webpackChunkName: "work-item" */ '@/components/detail/WorkItem.vue'),
     },
   ],
+})
+
+const ensureIsSliderOpen = (isSliderOpen: boolean) => {
+  if (
+    store.getters['ui/sliderContents'] === SliderContent.DETAIL
+    && store.state.ui.isSliderOpen !== isSliderOpen
+  ) {
+    store.commit('ui/setIsSliderOpen', {
+      isSliderOpen,
+    })
+  }
+}
+
+router.afterEach((to) => {
+  if (['hello', 'experience', 'work'].includes(to.name?.toString() ?? '')) {
+    ensureIsSliderOpen(true)
+  } else {
+    ensureIsSliderOpen(false)
+  }
 })
 
 export default router
