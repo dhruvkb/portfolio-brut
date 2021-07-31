@@ -1,8 +1,8 @@
 <template>
-  <div class="hello flex flex-col">
+  <div class="hello flex flex-col gap-16 py-8">
     <Intro/>
-    <Resume class="flex-grow"/>
-    <Footer/>
+    <Resume/>
+    <Footer class="mt-auto"/>
   </div>
 </template>
 

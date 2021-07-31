@@ -1,5 +1,5 @@
 <template>
-  <div class="resume my-8">
+  <div class="resume">
     <Experience class="mb-6"/>
     <Work class="mb-6"/>
     <a

@@ -1,5 +1,5 @@
 <template>
-  <div class="home flex flex-col overflow-y-auto">
+  <div class="home flex flex-col gap-16 py-8 overflow-y-auto">
     <Intro/>
     <Bio/>
     <Contact class="mt-auto"/>

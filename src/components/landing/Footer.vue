@@ -1,5 +1,5 @@
 <template>
-  <footer class="pane-element flex justify-between items-center my-8">
+  <footer class="pane-element flex justify-between items-center">
     <p class="text-sm text-sol-1">
       <span v-if="isLucky"><em>You're</em> breathtaking!</span>
       <span v-else>Thanks for visiting!</span>

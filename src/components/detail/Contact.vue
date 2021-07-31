@@ -1,5 +1,5 @@
 <template>
-  <div class="contact my-8">
+  <div class="contact">
     <h2 class="font-semibold text-xs uppercase text-sol-1 border-b border-sol-1 mb-2">
       <span class="pane-element">Contact</span>
     </h2>

@@ -1,5 +1,5 @@
 <template>
-  <div class="intro pane-element text-xl leading-snug my-8">
+  <div class="intro pane-element text-xl leading-snug">
     <p class="mb-4">
       I do a bunch of different things &mdash;
       <template
