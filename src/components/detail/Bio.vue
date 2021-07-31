@@ -1,5 +1,5 @@
 <template>
-  <div class="bio my-8">
+  <div class="bio mt-8 mb-16">
     <h2 class="font-semibold text-xs uppercase text-sol-1 border-b border-sol-1 mb-2">
       <span class="pane-element">Bio</span>
     </h2>
