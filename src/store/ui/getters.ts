@@ -22,6 +22,7 @@ export interface UiGetterTree<S, RS> extends GetterTree<S, RS> {
   breakpointName(state: S): string
   sliderSize(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): number
   sliderContents(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): SliderContent
+  isLandingInactive(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): boolean
 }
 
 export const getters: UiGetterTree<UiState, RootState> = {
@@ -59,5 +60,13 @@ export const getters: UiGetterTree<UiState, RootState> = {
     return uiGetters.breakpointName.includes('p')
       ? SliderContent.CLI
       : SliderContent.DETAIL
+  },
+  isLandingInactive(
+    state: UiState,
+    uiGetters: Getterify<UiGetterTree<UiState, RootState>>,
+  ): boolean {
+    const { isSliderOpen } = state
+    const { sliderContents } = uiGetters
+    return isSliderOpen && sliderContents === SliderContent.DETAIL
   },
 }

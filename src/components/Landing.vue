@@ -1,7 +1,7 @@
 <template>
   <div
     class="landing flex flex-col text-sol-00 bg-sol-3 min-h-full transition duration-300"
-    :class="[...isBlurred ? ['filter', 'blur-sm', 'pointer-events-none'] : []]">
+    :class="[...isLandingInactive ? ['filter', 'blur-sm', 'pointer-events-none'] : []]">
     <Hello class="flex-grow"/>
   </div>
 </template>
@@ -19,14 +19,10 @@
     },
     setup() {
       const store = useStore()
-      const isBlurred = computed(() => {
-        const { isSliderOpen } = store.state.ui
-        const sliderContents = store.getters['ui/sliderContents']
-        return isSliderOpen && sliderContents === 'details'
-      })
+      const isLandingInactive = computed(() => store.getters['ui/isLandingInactive'])
 
       return {
-        isBlurred,
+        isLandingInactive,
       }
     },
   })
