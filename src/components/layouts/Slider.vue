@@ -1,13 +1,19 @@
 <template>
   <div
     class="slider
-      fixed inset-y-0 right-0
+      fixed inset-y-0 right-0 z-20
       flex flex-row
       text-sol-00 bg-sol-2
       transition duration-300"
     :class="[{ 'is-active': isSliderOpen }]"
-    :style="{ '--slider-size': `${sliderSize}px` }"
-    v-click-outside="toggleSliderIfCovering">
+    :style="{ '--slider-size': `${sliderSize}px` }">
+    <Teleport to="#app__slot">
+      <div
+        v-if="isLandingInactive"
+        class="absolute inset-0 z-10"
+        @click="goHome"/>
+    </Teleport>
+
     <button
       class="hidden mb:block
         flex items-center justify-center
@@ -47,6 +53,7 @@
       const router = useRouter()
 
       const isSliderOpen = computed(() => store.state.ui.isSliderOpen)
+      const isLandingInactive = computed(() => store.getters['ui/isLandingInactive'])
       const sliderSize = computed(() => store.getters['ui/sliderSize'])
       const toggleSlider = () => {
         store.commit('ui/setIsSliderOpen', {
@@ -59,6 +66,7 @@
 
       return {
         isSliderOpen,
+        isLandingInactive,
         sliderSize,
         toggleSlider,
         goHome,
