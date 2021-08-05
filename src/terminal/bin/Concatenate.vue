@@ -31,7 +31,6 @@
     binProps,
     FsNodeType,
     NodeArg,
-    pathComposition,
     Spinner,
   } from 'seeelaye'
 
@@ -44,9 +43,9 @@
     FsNodeType.FILE,
     'vanity',
   )
-  export const binaryFn = (): Binary<[string], []> => {
+  export const binaryFn = (): Binary<[NodeArg], []> => {
     const filepath = filepathFn()
-    return new Binary<[string], []>(
+    return new Binary<[NodeArg], []>(
       'Concatenate',
       'cat',
       'Display the contents of a file.',
@@ -68,12 +67,8 @@
       const { setTerminalReady } = binComposition(false)
       binary.processArgs(props.argv)
 
-      const filepathValue = filepath.value
-
-      const { processNode } = pathComposition(filepath)
-      processNode()
-
-      const { node } = filepath
+      const filepathValue = filepath.handlerValue
+      const node = filepath.value
       const isNodeOk = (filepathValue === 'vanity')
         || (filepath.isNodeFound && filepath.isNodeValidType)
 
