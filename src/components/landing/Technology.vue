@@ -5,12 +5,11 @@
 </template>
 
 <script lang="ts">
-  import type { ISimpleIcon } from '@/models/icon'
-
   import { computed, defineComponent } from 'vue'
 
   import Icon from '@/components/landing/Icon.vue'
 
+  import simpleIcons from 'simple-icons'
   import django from 'simple-icons/icons/django'
   import docker from 'simple-icons/icons/docker'
   import gnubash from 'simple-icons/icons/gnubash'
@@ -37,7 +36,7 @@
       },
     },
     setup(props) {
-      const icons: Record<string, ISimpleIcon> = {
+      const icons: Record<string, simpleIcons.SimpleIcon> = {
           django,
           docker,
           gnubash,

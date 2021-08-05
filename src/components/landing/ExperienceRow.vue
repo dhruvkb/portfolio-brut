@@ -31,11 +31,12 @@
 <script lang="ts">
   import type { PropType } from 'vue'
 
-  import type { ISimpleIcon, ICustomIcon, IPath } from '@/models/icon'
+  import type { ICustomIcon, IPath } from '@/models/icon'
   import type { Role } from '@/models/role'
 
   import { defineComponent } from 'vue'
 
+  import simpleIcons from 'simple-icons'
   import automattic from 'simple-icons/icons/automattic'
   import creativecommons from 'simple-icons/icons/creativecommons'
   import fampay from 'simple-icons/icons/fampay'
@@ -67,7 +68,7 @@
           img,
           browserstack,
           centerOfCi,
-        } as Record<string, ISimpleIcon | ICustomIcon>,
+        } as Record<string, simpleIcons.SimpleIcon | ICustomIcon>,
       }
     },
     computed: {
@@ -124,7 +125,7 @@
             d: path.d,
             'fill-rule': path['fill-rule'],
           })))
-        } else { // ISimpleIcon
+        } else { // simpleIcons.SimpleIcon
           paths.push({
             d: icon.path,
             'fill-rule': 'nonzero',
