@@ -114,14 +114,19 @@
       }
       onMounted(async () => {
         if (isNodeOk) {
-          const fileModule = await import(
-            /* webpackChunkName: "fs-[request]" */
-            `@/assets/fs/${path.value}.fs.html`
-            )
-          await fetchContent(fileModule.default)
-          highlightContent()
+          try {
+            const fileModule = await import(
+              /* webpackChunkName: "fs-[request]" */
+              `@/assets/fs/${path.value}.fs.html`
+              )
+            await fetchContent(fileModule.default)
+            highlightContent()
+            setTerminalReady(true)
+          } catch (ex) {
+            setTerminalReady(true)
+            throw ex
+          }
         }
-        setTerminalReady(true)
       })
 
       return {
