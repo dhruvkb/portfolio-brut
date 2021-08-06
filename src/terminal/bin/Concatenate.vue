@@ -61,6 +61,8 @@
     },
     props: binProps,
     setup(props) {
+      hljs.configure({ ignoreUnescapedHTML: true })
+
       const binary = binaryFn()
       const filepath = binary.args[0] as NodeArg
 
