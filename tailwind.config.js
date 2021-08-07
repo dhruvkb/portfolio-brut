@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const paddingSafe = require('tailwindcss-padding-safe')
+
 const macSystemSansSerif = [
   'system-ui',
   '-apple-system',
@@ -72,4 +75,7 @@ module.exports = {
       ],
     },
   },
+  plugins: [
+    paddingSafe(),
+  ],
 }
