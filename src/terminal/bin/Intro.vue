@@ -1,6 +1,6 @@
 <template>
   <RouterLink to="/">
-    <pre class="intro inline-block font-bold site-title">
+    <pre class="intro inline-block text-xs font-bold site-title">
   __   __                                __       __
  /\ \ /\ \                              /\ \     /\ \
  \_\ \\ \ \___    _ __   __  __   __  __\ \ \/'\ \ \ \____
