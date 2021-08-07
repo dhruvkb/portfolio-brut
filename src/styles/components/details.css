@@ -1,0 +1,11 @@
+/*! @import */
+
+@layer components {
+  .pane-element-right-safe {
+    @apply pl-2 pr-2-safe
+      mb:pl-4 mb:pr-4-safe
+      lb:pl-8 lb:pr-8-safe
+      spb:pl-2 spb:pr-2-safe
+      mpb:pl-4 mpb:pr-4-safe;
+  }
+}

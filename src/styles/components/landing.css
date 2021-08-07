@@ -1,14 +1,23 @@
 /*! @import */
 
 @layer components {
-  .pane-element {
-    @apply mx-2 mb:mx-4 lb:mx-8 spb:mx-2 mpb:mx-4;
+  .pane-element-left-safe {
+    @apply pl-2-safe pr-2
+      mb:pl-4-safe mb:pr-4
+      lb:pl-8-safe lb:pr-8
+      spb:pl-2-safe spb:pr-2
+      mpb:pl-4-safe mpb:pr-4;
   }
 
   .resume-cell {
     flex-basis: 0;
     flex-grow: var(--width-percent, 1);
 
-    @apply py-1 px-2 s:first:pl-2 s:last:pr-2 mb:first:pl-4 mb:last:pr-2 lb:first:pl-8 lb:last:pr-8 spb:first:pl-2 spb:last:pr-2 mpb:first:pl-4 mpb:last:pr-4;
+    @apply py-1 px-2
+      first:pl-2-safe last:pr-2
+      mb:first:pl-4-safe mb:last:pr-2
+      lb:first:pl-8-safe lb:last:pr-8
+      spb:first:pl-2-safe spb:last:pr-2
+      mpb:first:pl-4-safe mpb:last:pr-4;
   }
 }
