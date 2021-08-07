@@ -20,7 +20,7 @@ export interface IEpic extends IResumeItem {
  * A class that represents an epic. Each epic can be associated with a number
  * of projects.
  */
-export class Epic extends ResumeItem {
+export class Epic extends ResumeItem<Project> {
   name: string
 
   childMap: Record<string, Project>

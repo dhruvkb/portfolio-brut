@@ -29,7 +29,7 @@ export interface IProject extends IResumeItem {
 /**
  * Each project represents a quantum of work done under an epic.
  */
-export class Project extends ResumeItem implements IProject {
+export class Project extends ResumeItem<never> implements IProject {
   epic: Epic
 
   title: string

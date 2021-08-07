@@ -12,11 +12,13 @@ export interface IResumeItem {
  * the conversion of `Epic`, `Project`, `Org` and `Role` instances to the
  * appropriate `FsNode` instance.
  */
-export class ResumeItem implements IResumeItem {
+export class ResumeItem<
+  T extends ResumeItem = ResumeItem<any> // eslint-disable-line @typescript-eslint/no-explicit-any
+> implements IResumeItem {
   slug: string
   node: FsNode
 
-  childMap?: Record<string, ResumeItem>
+  childMap?: Record<string, T>
 
   /**
    * Create a new object of class `ResumeNode`.
@@ -36,7 +38,7 @@ export class ResumeItem implements IResumeItem {
     this.node = new FsNode(nodeType, nodeName, nodeAliases)
   }
 
-  get children(): ResumeItem[] {
+  get children(): T[] {
     if (!this.childMap) {
       return []
     }

@@ -32,7 +32,7 @@ export interface IRole extends IResumeItem {
 /**
  * Each role represents a quantum of experience gained from an organisation.
  */
-export class Role extends ResumeItem implements IRole {
+export class Role extends ResumeItem<never> implements IRole {
   org: Org
 
   period: IPeriod

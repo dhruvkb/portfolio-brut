@@ -22,7 +22,7 @@ export interface IOrg extends IResumeItem {
  * A class that represents an organisation. Each organisation can be associated
  * with a number of roles.
  */
-export class Org extends ResumeItem {
+export class Org extends ResumeItem<Role> {
   name: string
   url: string
   icon: string
