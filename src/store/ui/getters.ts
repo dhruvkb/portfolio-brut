@@ -20,6 +20,7 @@ type Getterify<GT> = {
 
 export interface UiGetterTree<S, RS> extends GetterTree<S, RS> {
   breakpointName(state: S): string
+  isTwoPane(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): boolean
   sliderSize(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): number
   sliderContents(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): SliderContent
   isLandingInactive(state: S, uiGetters: Getterify<UiGetterTree<S, RS>>): boolean
@@ -35,6 +36,12 @@ export const getters: UiGetterTree<UiState, RootState> = {
       }
     }
     return breakpointNames[breakpointNames.length - 1]
+  },
+  isTwoPane(
+    state: UiState,
+    uiGetters: Getterify<UiGetterTree<UiState, RootState>>,
+  ): boolean {
+    return uiGetters.breakpointName.includes('p')
   },
   sliderSize(
     state: UiState,
@@ -57,9 +64,7 @@ export const getters: UiGetterTree<UiState, RootState> = {
     state: UiState,
     uiGetters: Getterify<UiGetterTree<UiState, RootState>>,
   ): SliderContent {
-    return uiGetters.breakpointName.includes('p')
-      ? SliderContent.CLI
-      : SliderContent.DETAIL
+    return uiGetters.isTwoPane ? SliderContent.CLI : SliderContent.DETAIL
   },
   isLandingInactive(
     state: UiState,
