@@ -68,11 +68,17 @@
 <style lang="css" src="@/styles/utilities.css"/>
 <style lang="css">
   #app-root {
-    @screen spb {
-      grid-template-columns: 480px 1fr;
+    ::selection {
+      @apply text-sol-01 bg-sol-2;
     }
-    @screen mpb {
-      grid-template-columns: 640px 1fr;
+
+    .panes {
+      @screen spb {
+        grid-template-columns: 480px 1fr;
+      }
+      @screen mpb {
+        grid-template-columns: 640px 1fr;
+      }
     }
   }
 </style>

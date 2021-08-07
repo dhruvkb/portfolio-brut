@@ -1,6 +1,6 @@
 <template>
   <div
-    class="landing flex flex-col text-sol-00 bg-sol-3 min-h-full transition duration-300"
+    class="landing flex flex-col min-h-full transition duration-300"
     :class="[...isLandingInactive ? ['filter', 'blur-sm', 'pointer-events-none'] : []]">
     <Hello class="flex-grow"/>
   </div>
@@ -27,20 +27,3 @@
     },
   })
 </script>
-
-<style scoped lang="css">
-  .landing {
-    padding-left: env(safe-area-inset-left);
-
-    @screen s {
-      padding-right: env(safe-area-inset-right);
-    }
-    @screen spb {
-      padding-right: 0;
-    }
-
-    & ::selection {
-      @apply text-sol-01 bg-sol-2;
-    }
-  }
-</style>
