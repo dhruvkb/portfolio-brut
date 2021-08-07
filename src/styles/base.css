@@ -4,12 +4,10 @@
 
 @layer base {
   html {
-    @apply font-sans;
+    @apply font-sans text-sol-00 bg-sol-3;
     font-feature-settings: "zero", "ss01", "ss02", "cv08";
   }
-}
 
-@layer base {
   * {
     scrollbar-width: none;
     scrollbar-color: transparent transparent;
