@@ -1,14 +1,16 @@
 import type { IProject } from '@/models/project'
-import type { IResumeNode } from '@/models/resume'
+import type { IResumeItem } from '@/models/resume'
 
 import { Project } from '@/models/project'
-import { ResumeNode } from '@/models/resume'
+import { ResumeItem } from '@/models/resume'
+
+import { FsNodeType } from 'seeelaye'
 
 /**
  * The interface for the `Epic` class, used when representing POJO instances of
  * `Epic` that have been parsed from JSON.
  */
-export interface IEpic extends IResumeNode {
+export interface IEpic extends IResumeItem {
   name: string
 
   children: IProject[]
@@ -18,10 +20,10 @@ export interface IEpic extends IResumeNode {
  * A class that represents an epic. Each epic can be associated with a number
  * of projects.
  */
-export class Epic extends ResumeNode implements IEpic {
+export class Epic extends ResumeItem {
   name: string
 
-  children: Project[]
+  childMap: Record<string, Project>
 
   /**
    * Create a new object of class `Epic`.
@@ -30,13 +32,16 @@ export class Epic extends ResumeNode implements IEpic {
    */
   constructor(epic: IEpic) {
     const {
-      name,
       slug,
-      aliases,
+      name,
+      node: {
+        name: nodeName,
+        aliases: nodeAliases,
+      },
     } = epic
 
-    super(slug, aliases)
-    this.children = []
+    super(slug, FsNodeType.FOLDER, nodeName, nodeAliases)
+    this.childMap = {}
 
     this.name = name
   }
@@ -51,12 +56,10 @@ export class Epic extends ResumeNode implements IEpic {
    */
   static parse(epicPojo: IEpic): Epic {
     const epic = new Epic(epicPojo)
-
-    epicPojo.children?.forEach((projectPojo) => {
+    epicPojo.children.forEach((projectPojo) => {
       const project = new Project(epic, projectPojo)
-      epic.children.push(project)
+      epic.childMap[project.slug] = project
     })
-
     return epic
   }
 }

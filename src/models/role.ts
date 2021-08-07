@@ -1,7 +1,12 @@
-import type { Org } from '@/models/org'
-import type { IResumeNode } from '@/models/resume'
+import type { RouteLocation } from 'vue-router'
 
-import { ResumeNode } from '@/models/resume'
+import type { Org } from '@/models/org'
+import type { IResumeItem } from '@/models/resume'
+import { ResumeItem } from '@/models/resume'
+
+import { FsNodeType } from 'seeelaye'
+
+import router from '@/router'
 
 export const rangeIndicator = '\u2013'
 
@@ -10,15 +15,15 @@ export interface IPeriod {
    * the end date of the role, represented as a string pair with the month and
    * the year
    */
-  start: [string, string]
+  start: string[]
   /**
    * the end date of the role, represented as a string pair with the month and
    * the year; can be undefined if the role is still active
    */
-  end?: [string, string]
+  end?: string[]
 }
 
-export interface IRole extends IResumeNode {
+export interface IRole extends IResumeItem {
   period: IPeriod
   type: string
   title: string
@@ -27,7 +32,7 @@ export interface IRole extends IResumeNode {
 /**
  * Each role represents a quantum of experience gained from an organisation.
  */
-export class Role extends ResumeNode implements IRole {
+export class Role extends ResumeItem implements IRole {
   org: Org
 
   period: IPeriod
@@ -42,15 +47,17 @@ export class Role extends ResumeNode implements IRole {
    */
   constructor(org: Org, role: IRole) {
     const {
+      slug,
       period,
       type,
       title,
-      slug,
-      aliases,
+      node: {
+        name: nodeName,
+        aliases: nodeAliases,
+      },
     } = role
 
-    super(slug, aliases)
-    this.children = undefined
+    super(slug, FsNodeType.FILE, nodeName, nodeAliases)
 
     this.period = period
     this.type = type
@@ -117,10 +124,15 @@ export class Role extends ResumeNode implements IRole {
   }
 
   /**
-   * Get the path to the node from the 'experience/' directory.
-   * @returns the path to the node from the 'experience/' directory
+   * Get the router location for this item.
+   * @returns the URL route location for the role
    */
-  get nodePath(): string {
-    return ['/experience', this.org.slug, this.slug].join('/')
+  get itemUrl(): RouteLocation {
+    return router.resolve({
+      name: 'experience',
+      params: {
+        rolePath: [this.org.slug, this.slug].join('/'),
+      },
+    })
   }
 }

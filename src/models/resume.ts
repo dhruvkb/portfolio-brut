@@ -1,8 +1,10 @@
 import { FsNode, FsNodeType } from 'seeelaye'
 
-export interface IResumeNode {
+export type IResumeNode = Pick<FsNode, 'name' | 'aliases'>
+
+export interface IResumeItem {
   slug: string
-  aliases?: string[]
+  node: IResumeNode
 }
 
 /**
@@ -10,42 +12,34 @@ export interface IResumeNode {
  * the conversion of `Epic`, `Project`, `Org` and `Role` instances to the
  * appropriate `FsNode` instance.
  */
-export class ResumeNode implements IResumeNode {
+export class ResumeItem implements IResumeItem {
   slug: string
-  aliases: string[]
+  node: FsNode
 
-  children?: ResumeNode[]
+  childMap?: Record<string, ResumeItem>
 
   /**
    * Create a new object of class `ResumeNode`.
    *
-   * @param slug - the primary name of the FS node associated with this node
-   * @param aliases - a list of alternative names of this node
+   * @param slug - a part of the URL path that refers to this resume item
+   * @param nodeType - the type of the FS node associated with this resume item
+   * @param nodeName - the name of the FS node associated with this resume item
+   * @param nodeAliases - a list of alternative names of this node
    */
-  constructor(slug: string, aliases: string[] = []) {
+  constructor(
+    slug: string,
+    nodeType: FsNodeType,
+    nodeName: string,
+    nodeAliases: string[] = [],
+  ) {
     this.slug = slug
-    this.aliases = aliases
+    this.node = new FsNode(nodeType, nodeName, nodeAliases)
   }
 
-  /**
-   * Get this resume node as an `FsNode` instance. This instance will be used
-   * to build and populate see·el·aye's FS tree. Child nodes are automatically
-   * converted as well.
-   *
-   * @returns this resume node as an `FsNode` instance
-   */
-  get asFsNode(): FsNode {
-    const type = this.children ? FsNodeType.FOLDER : FsNodeType.FILE
-    const node = new FsNode(type, this.slug, this.aliases)
-
-    if (this.children) {
-      this.children.forEach((child) => {
-        const childNode = child.asFsNode
-        childNode.parent = node
-        node.children.push(childNode)
-      })
+  get children(): ResumeItem[] {
+    if (!this.childMap) {
+      return []
     }
-
-    return node
+    return Object.values(this.childMap)
   }
 }

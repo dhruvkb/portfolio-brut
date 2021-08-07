@@ -1,14 +1,16 @@
 import type { IRole } from '@/models/role'
-import type { IResumeNode } from '@/models/resume'
+import type { IResumeItem } from '@/models/resume'
 
 import { Role } from '@/models/role'
-import { ResumeNode } from '@/models/resume'
+import { ResumeItem } from '@/models/resume'
+
+import { FsNodeType } from 'seeelaye'
 
 /**
  * The interface of the `Org` class, used when representing POJO instances of
  * `Org` that have been parsed from JSON.
  */
-export interface IOrg extends IResumeNode {
+export interface IOrg extends IResumeItem {
   name: string
   url: string
   icon: string
@@ -20,12 +22,12 @@ export interface IOrg extends IResumeNode {
  * A class that represents an organisation. Each organisation can be associated
  * with a number of roles.
  */
-export class Org extends ResumeNode implements IOrg {
+export class Org extends ResumeItem {
   name: string
   url: string
   icon: string
 
-  children: Role[]
+  childMap: Record<string, Role>
 
   /**
    * Create a new object of class `Org`.
@@ -34,15 +36,18 @@ export class Org extends ResumeNode implements IOrg {
    */
   constructor(org: IOrg) {
     const {
+      slug,
       name,
       url,
       icon,
-      slug,
-      aliases,
+      node: {
+        name: nodeName,
+        aliases: nodeAliases,
+      },
     } = org
 
-    super(slug, aliases)
-    this.children = []
+    super(slug, FsNodeType.FOLDER, nodeName, nodeAliases)
+    this.childMap = {}
 
     this.name = name
     this.url = url
@@ -59,12 +64,10 @@ export class Org extends ResumeNode implements IOrg {
    */
   static parse(orgPojo: IOrg): Org {
     const org = new Org(orgPojo)
-
-    orgPojo.children?.forEach((rolePojo) => {
+    orgPojo.children.forEach((rolePojo) => {
       const role = new Role(org, rolePojo)
-      org.children.push(role)
+      org.childMap[role.slug] = role
     })
-
     return org
   }
 }

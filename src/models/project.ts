@@ -1,7 +1,13 @@
-import type { Epic } from '@/models/epic'
-import type { IResumeNode } from '@/models/resume'
+import type { RouteLocation } from 'vue-router'
 
-import { ResumeNode } from '@/models/resume'
+import type { Epic } from '@/models/epic'
+import type { IResumeItem } from '@/models/resume'
+
+import { FsNodeType } from 'seeelaye'
+
+import { ResumeItem } from '@/models/resume'
+
+import router from '@/router'
 
 export interface ITechnology {
   /**
@@ -14,7 +20,7 @@ export interface ITechnology {
   name: string
 }
 
-export interface IProject extends IResumeNode {
+export interface IProject extends IResumeItem {
   title: string
   url: string
   technologies: ITechnology[]
@@ -23,7 +29,7 @@ export interface IProject extends IResumeNode {
 /**
  * Each project represents a quantum of work done under an epic.
  */
-export class Project extends ResumeNode implements IProject {
+export class Project extends ResumeItem implements IProject {
   epic: Epic
 
   title: string
@@ -38,15 +44,18 @@ export class Project extends ResumeNode implements IProject {
    */
   constructor(epic: Epic, project: IProject) {
     const {
+      slug,
       title,
       url,
       technologies,
-      slug,
-      aliases,
+      node: {
+        name: nodeName,
+        aliases: nodeAliases,
+      },
     } = project
 
-    super(slug, aliases)
-    this.children = undefined
+    super(slug, FsNodeType.FILE, nodeName, nodeAliases)
+    this.childMap = undefined
 
     this.title = title
     this.url = url
@@ -91,10 +100,15 @@ export class Project extends ResumeNode implements IProject {
   }
 
   /**
-   * Get the path to the node from the 'work/' directory.
-   * @returns the path to the node from the 'work/' directory
+   * Get the router location for this item.
+   * @returns the URL route location for the work
    */
-  get nodePath(): string {
-    return ['/work', this.epic.slug, this.slug].join('/')
+  get itemUrl(): RouteLocation {
+    return router.resolve({
+      name: 'work',
+      params: {
+        projectPath: [this.epic.slug, this.slug].join('/'),
+      },
+    })
   }
 }
