@@ -1,229 +1,280 @@
-{
-  "slug": "experience",
-  "children": [
-    {
-      "name": "Automattic",
-      "url": "https://automattic.com",
-      "icon": "automattic",
-      "slug": "automattic",
+[
+  {
+    "slug": "automattic",
+    "name": "Automattic",
+    "url": "https://automattic.com",
+    "icon": "automattic",
+    "node": {
+      "name": "automattic",
       "aliases": [
         "a8c"
-      ],
-      "children": [
-        {
-          "period": {
-            "start": [
-              "Apr",
-              "21"
-            ]
-          },
-          "type": "Full-timer",
-          "title": "Code wrangler",
-          "slug": "code_wrangler.js"
-        }
       ]
     },
-    {
-      "name": "Center of CI",
-      "url": "https://centerofci.org",
-      "icon": "centerOfCi",
-      "slug": "center_of_ci",
+    "children": [
+      {
+        "slug": "code_wrangler",
+        "title": "Code wrangler",
+        "period": {
+          "start": [
+            "Apr",
+            "21"
+          ]
+        },
+        "type": "Full-timer",
+        "node": {
+          "name": "code_wrangler.js"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "center_of_ci",
+    "name": "Center of CI",
+    "url": "https://centerofci.org",
+    "icon": "centerOfCi",
+    "node": {
+      "name": "center_of_ci",
       "aliases": [
         "centerci"
-      ],
-      "children": [
-        {
-          "period": {
-            "start": [
-              "Jun",
-              "21"
-            ]
-          },
-          "type": "Part-timer",
-          "title": "Software engineer",
-          "slug": "software_engineer.py"
-        }
       ]
     },
-    {
-      "name": "BrowserStack",
-      "url": "https://browserstack.com",
-      "icon": "browserstack",
-      "slug": "browserstack",
+    "children": [
+      {
+        "slug": "software_engineer",
+        "title": "Software engineer",
+        "period": {
+          "start": [
+            "Jun",
+            "21"
+          ]
+        },
+        "type": "Part-timer",
+        "node": {
+          "name": "software_engineer.py"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "browserstack",
+    "name": "BrowserStack",
+    "url": "https://browserstack.com",
+    "icon": "browserstack",
+    "node": {
+      "name": "browserstack",
       "aliases": [
         "bs"
-      ],
-      "children": [
-        {
-          "period": {
-            "start": [
-              "Feb",
-              "20"
-            ],
-            "end": [
-              "Mar",
-              "21"
-            ]
-          },
-          "type": "Full-timer",
-          "title": "Software engineer",
-          "slug": "software_engineer.rb"
-        }
       ]
     },
-    {
-      "name": "Creative Commons",
-      "url": "https://opensource.creativecommons.org",
-      "icon": "creativecommons",
-      "slug": "creative_commons",
+    "children": [
+      {
+        "slug": "software_engineer",
+        "title": "Software engineer",
+        "period": {
+          "start": [
+            "Feb",
+            "20"
+          ],
+          "end": [
+            "Mar",
+            "21"
+          ]
+        },
+        "type": "Full-timer",
+        "node": {
+          "name": "software_engineer.rb"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "creative_commons",
+    "name": "Creative Commons",
+    "url": "https://opensource.creativecommons.org",
+    "icon": "creativecommons",
+    "node": {
+      "name": "creative_commons",
       "aliases": [
         "cc"
-      ],
-      "children": [
-        {
-          "period": {
-            "start": [
-              "Sep",
-              "19"
-            ]
-          },
-          "type": "FOSS",
-          "title": "Project maintainer",
-          "slug": "project_maintainer.js"
-        },
-        {
-          "period": {
-            "start": [
-              "Jul",
-              "20"
-            ],
-            "end": [
-              "Dec",
-              "20"
-            ]
-          },
-          "type": "Contractor",
-          "title": "OS community coordinator",
-          "slug": "os_community_coordinator.md"
-        },
-        {
-          "period": {
-            "start": [
-              "Dec",
-              "19"
-            ],
-            "end": [
-              "Dec",
-              "20"
-            ]
-          },
-          "type": "FOSS",
-          "title": "FOSS internship mentor",
-          "slug": "foss_internship_mentor.md"
-        },
-        {
-          "period": {
-            "start": [
-              "May",
-              "19"
-            ],
-            "end": [
-              "Aug",
-              "19"
-            ]
-          },
-          "type": "Intern",
-          "title": "GSoC engineer",
-          "slug": "gsoc_engineer.js"
-        }
       ]
     },
-    {
-      "name": "IMG, IIT Roorkee",
-      "url": "https://img.channeli.in",
-      "icon": "img",
-      "slug": "img",
-      "children": [
-        {
-          "period": {
-            "start": [
-              "Jan",
-              "16"
-            ],
-            "end": [
-              "Apr",
-              "19"
-            ]
-          },
-          "type": "Part-timer",
-          "title": "Chief coordinator (tech)",
-          "slug": "chief_coordinator_tech.md"
+    "children": [
+      {
+        "slug": "project_maintainer",
+        "title": "Project maintainer",
+        "period": {
+          "start": [
+            "Sep",
+            "19"
+          ]
+        },
+        "type": "FOSS",
+        "node": {
+          "name": "project_maintainer.js"
         }
-      ]
-    },
-    {
-      "name": "FamPay",
-      "url": "https://fampay.in",
-      "icon": "fampay",
-      "slug": "fampay",
-      "children": [
-        {
-          "period": {
-            "start": [
-              "Nov",
-              "19"
-            ],
-            "end": [
-              "Dec",
-              "19"
-            ]
-          },
-          "type": "Part-timer",
-          "title": "Software engineer",
-          "slug": "software_engineer.py"
+      },
+      {
+        "slug": "os_community_coordinator",
+        "title": "OS community coordinator",
+        "period": {
+          "start": [
+            "Jul",
+            "20"
+          ],
+          "end": [
+            "Dec",
+            "20"
+          ]
+        },
+        "type": "Contractor",
+        "node": {
+          "name": "os_community_coordinator.md"
         }
-      ]
+      },
+      {
+        "slug": "foss_internship_mentor",
+        "title": "FOSS internship mentor",
+        "period": {
+          "start": [
+            "Dec",
+            "19"
+          ],
+          "end": [
+            "Dec",
+            "20"
+          ]
+        },
+        "type": "FOSS",
+        "node": {
+          "name": "foss_internship_mentor.md"
+        }
+      },
+      {
+        "slug": "gsoc_engineer",
+        "title": "GSoC engineer",
+        "period": {
+          "start": [
+            "May",
+            "19"
+          ],
+          "end": [
+            "Aug",
+            "19"
+          ]
+        },
+        "type": "Intern",
+        "node": {
+          "name": "gsoc_engineer.js"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "img",
+    "name": "IMG, IIT Roorkee",
+    "url": "https://img.channeli.in",
+    "icon": "img",
+    "node": {
+      "name": "img"
     },
-    {
-      "name": "HackerEarth",
-      "url": "https://hackerearth.com",
-      "icon": "hackerearth",
-      "slug": "hackerearth",
+    "children": [
+      {
+        "slug": "chief_coordinator_tech",
+        "title": "Chief coordinator (tech)",
+        "period": {
+          "start": [
+            "Jan",
+            "16"
+          ],
+          "end": [
+            "Apr",
+            "19"
+          ]
+        },
+        "type": "Part-timer",
+        "node": {
+          "name": "chief_coordinator_tech.md"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "fampay",
+    "name": "FamPay",
+    "url": "https://fampay.in",
+    "icon": "fampay",
+    "node": {
+      "name": "fampay"
+    },
+    "children": [
+      {
+        "slug": "software_engineer",
+        "title": "Software engineer",
+        "period": {
+          "start": [
+            "Nov",
+            "19"
+          ],
+          "end": [
+            "Dec",
+            "19"
+          ]
+        },
+        "type": "Part-timer",
+        "node": {
+          "name": "software_engineer.py"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "hackerearth",
+    "name": "HackerEarth",
+    "url": "https://hackerearth.com",
+    "icon": "hackerearth",
+    "node": {
+      "name": "hackerearth",
       "aliases": [
         "he"
-      ],
-      "children": [
-        {
-          "period": {
-            "start": [
-              "May",
-              "18"
-            ],
-            "end": [
-              "Jul",
-              "18"
-            ]
-          },
-          "type": "Intern",
-          "title": "Infrastructure engineer",
-          "slug": "infrastructure_engineer.yml"
-        },
-        {
-          "period": {
-            "start": [
-              "May",
-              "17"
-            ],
-            "end": [
-              "Jul",
-              "17"
-            ]
-          },
-          "type": "Intern",
-          "title": "Software engineer",
-          "slug": "SoftwareEngineer.java"
-        }
       ]
-    }
-  ]
-}
+    },
+    "children": [
+      {
+        "slug": "infrastructure_engineer",
+        "title": "Infrastructure engineer",
+        "period": {
+          "start": [
+            "May",
+            "18"
+          ],
+          "end": [
+            "Jul",
+            "18"
+          ]
+        },
+        "type": "Intern",
+        "node": {
+          "name": "infrastructure_engineer.yml"
+        }
+      },
+      {
+        "slug": "software_engineer",
+        "title": "Software engineer",
+        "period": {
+          "start": [
+            "May",
+            "17"
+          ],
+          "end": [
+            "Jul",
+            "17"
+          ]
+        },
+        "type": "Intern",
+        "node": {
+          "name": "SoftwareEngineer.java"
+        }
+      }
+    ]
+  }
+]

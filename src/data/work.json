@@ -1,130 +1,160 @@
-{
-  "slug": "work",
-  "children": [
-    {
-      "name": "see·el·aye",
-      "slug": "seeelaye",
-      "children": [
-        {
-          "title": "CLI",
-          "url": "https://seeelaye.vercel.app",
-          "technologies": [
-            {
-              "name": "TypeScript",
-              "icon": "typescript"
-            },
-            {
-              "name": "Vue",
-              "icon": "vuedotjs"
-            }
-          ],
-          "slug": "seeelaye.ts"
-        }
-      ]
+[
+  {
+    "slug": "seeelaye",
+    "name": "see·el·aye",
+    "node": {
+      "name": "seeelaye"
     },
-    {
-      "name": "Vocabulary",
-      "slug": "vocabulary",
-      "children": [
-        {
-          "title": "UI components",
-          "url": "",
-          "technologies": [
-            {
-              "name": "JavaScript",
-              "icon": "javascript"
-            },
-            {
-              "name": "Vue",
-              "icon": "vuedotjs"
-            }
-          ],
-          "slug": "vocabulary.vue"
+    "children": [
+      {
+        "slug": "seeelaye",
+        "title": "CLI",
+        "url": "https://seeelaye.vercel.app",
+        "technologies": [
+          {
+            "name": "TypeScript",
+            "icon": "typescript"
+          },
+          {
+            "name": "Vue",
+            "icon": "vuedotjs"
+          }
+        ],
+        "node": {
+          "name": "seeelaye.ts"
         }
-      ]
+      }
+    ]
+  },
+  {
+    "slug": "vocabulary",
+    "name": "Vocabulary",
+    "node": {
+      "name": "vocabulary"
     },
-    {
-      "name": "Omniport",
-      "slug": "omniport",
-      "children": [
-        {
-          "title": "Infrastructure",
-          "url": "",
-          "technologies": [
-            {
-              "name": "Docker",
-              "icon": "docker"
-            },
-            {
-              "name": "Bash",
-              "icon": "gnubash"
-            }
-          ],
-          "slug": "infrastructure.yml"
-        },
-        {
-          "title": "Backend",
-          "url": "",
-          "technologies": [
-            {
-              "name": "Python",
-              "icon": "python"
-            },
-            {
-              "name": "django",
-              "icon": "django"
-            }
-          ],
-          "slug": "backend.py"
-        },
-        {
-          "title": "Documentation",
-          "url": "",
-          "technologies": [
-            {
-              "name": "reST (Sphinx)",
-              "icon": "readthedocs"
-            }
-          ],
-          "slug": "documentation.rst"
+    "children": [
+      {
+        "slug": "vocabulary",
+        "title": "UI components",
+        "url": "",
+        "technologies": [
+          {
+            "name": "JavaScript",
+            "icon": "javascript"
+          },
+          {
+            "name": "Vue",
+            "icon": "vuedotjs"
+          }
+        ],
+        "node": {
+          "name": "vocabulary.vue"
         }
-      ]
+      }
+    ]
+  },
+  {
+    "slug": "omniport",
+    "name": "Omniport",
+    "node": {
+      "name": "omniport"
     },
-    {
-      "name": "Portfolio",
-      "slug": "portfolio",
-      "children": [
-        {
-          "title": "Website",
-          "url": "",
-          "technologies": [
-            {
-              "name": "TypeScript",
-              "icon": "typescript"
-            },
-            {
-              "name": "Vue",
-              "icon": "vuedotjs"
-            },
-            {
-              "name": "Tailwind",
-              "icon": "tailwindcss"
-            }
-          ],
-          "slug": "website.vue"
-        },
-        {
-          "title": "Résumé",
-          "url": "",
-          "technologies": [
-            {
-              "name": "LaTeX",
-              "icon": "latex"
-            }
-          ],
-          "slug": "resume.tex"
+    "children": [
+      {
+        "slug": "infrastructure",
+        "title": "Infrastructure",
+        "url": "",
+        "technologies": [
+          {
+            "name": "Docker",
+            "icon": "docker"
+          },
+          {
+            "name": "Bash",
+            "icon": "gnubash"
+          }
+        ],
+        "node": {
+          "name": "infrastructure.yml"
         }
-      ]
-    }
-  ]
-}
+      },
+      {
+        "slug": "backend",
+        "title": "Backend",
+        "url": "",
+        "technologies": [
+          {
+            "name": "Python",
+            "icon": "python"
+          },
+          {
+            "name": "django",
+            "icon": "django"
+          }
+        ],
+        "node": {
+          "name": "backend.py"
+        }
+      },
+      {
+        "slug": "documentation",
+        "title": "Documentation",
+        "url": "",
+        "technologies": [
+          {
+            "name": "reST (Sphinx)",
+            "icon": "readthedocs"
+          }
+        ],
+        "node": {
+          "name": "documentation.rst"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "portfolio",
+    "name": "Portfolio",
+    "node": {
+      "name": "portfolio"
+    },
+    "children": [
+      {
+        "slug": "website",
+        "title": "Website",
+        "url": "",
+        "technologies": [
+          {
+            "name": "TypeScript",
+            "icon": "typescript"
+          },
+          {
+            "name": "Vue",
+            "icon": "vuedotjs"
+          },
+          {
+            "name": "Tailwind",
+            "icon": "tailwindcss"
+          }
+        ],
+        "node": {
+          "name": "website.vue"
+        }
+      },
+      {
+        "slug": "resume",
+        "title": "Résumé",
+        "url": "",
+        "technologies": [
+          {
+            "name": "LaTeX",
+            "icon": "latex"
+          }
+        ],
+        "node": {
+          "name": "resume.tex"
+        }
+      }
+    ]
+  }
+]
