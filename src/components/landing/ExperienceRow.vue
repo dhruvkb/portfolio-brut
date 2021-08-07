@@ -15,6 +15,13 @@
         <template v-else-if="columnField === 'orgIcon'">
           <Icon :paths="paths"/>
         </template>
+        <span
+          v-else-if="columnField === 'periodText'"
+          class="font-mono tracking-tighter">
+          <span>{{ role.periodStart }}</span>
+          <span class="mx-1">&ndash;</span>
+          <span>{{ role.periodEnd }}</span>
+        </span>
         <template v-else>
           {{ role[columnField] }}
         </template>

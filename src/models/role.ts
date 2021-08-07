@@ -75,25 +75,24 @@ export class Role extends ResumeItem<never> implements IRole {
   }
 
   /**
-   * Get the text representing the period when the role was active.
-   * @returns the text representing the period when the role was active
+   * Get the text representing the period when the role began.
+   * @returns the text representing the period when the role began
    */
-  get periodText(): string {
-    const parts = []
-    if (this.period.end) {
-      const [startMonth, startYear] = this.period.start
-      const [endMonth, endYear] = this.period.end
-      if (startYear === endYear) {
-        parts.push(startMonth)
-      } else {
-        parts.push(startMonth, startYear)
-      }
-      parts.push(rangeIndicator, endMonth, endYear)
-    } else {
-      parts.push(...this.period.start, rangeIndicator)
-    }
+  get periodStart(): string {
+    return this.period.start.join(' ')
+  }
 
-    return parts.join(' ')
+  /**
+   * Get the text representing the period when the role ended. Returns a blank
+   * string if the role is active.
+   *
+   * @returns the text representing the period when the role ended
+   */
+  get periodEnd(): string {
+    if (!this.period.end) {
+      return ''
+    }
+    return this.period.end.join(' ')
   }
 
   /**
