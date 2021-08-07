@@ -35,11 +35,11 @@
 
       const populateInput = (role: Role) => {
         if (store.state.ui.isSliderOpen && store.getters['ui/sliderContents'] === 'cli') {
-          seeelaye.commit('setInput', {
-            input: `cat ~${role.nodePath}`,
+          seeelaye.dispatch('executeCmd', {
+            rawInput: `cat ${role.node.absolutePath}`,
           })
         } else {
-          router.push({ path: role.nodePath })
+          router.push(role.itemUrl)
         }
       }
 
