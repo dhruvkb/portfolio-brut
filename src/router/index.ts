@@ -1,11 +1,11 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import store from '@/store'
 
 import { SliderContent } from '@/models/slider'
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       name: 'home',
@@ -28,6 +28,11 @@ const router = createRouter({
       path: '/work/:projectPath(.*)',
       props: true,
       component: () => import(/* webpackChunkName: "work-item" */ '@/components/detail/WorkItem.vue'),
+    },
+    {
+      name: '404',
+      path: '/:pathMatch(.*)',
+      component: () => import(/* webpackChunkName: "fof" */ '@/components/detail/404.vue'),
     },
   ],
 })
