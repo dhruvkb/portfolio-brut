@@ -6,16 +6,10 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import { useStore } from 'vuex'
   import {
-    FsNode,
-    FsNodeType,
     Terminal,
     useSeeelaye,
   } from 'seeelaye'
-
-  import { Org } from '@/models/org'
-  import { Epic } from '@/models/epic'
 
   export default defineComponent({
     name: 'Pro',
@@ -23,7 +17,6 @@
       Terminal,
     },
     setup() {
-      const store = useStore()
       const seeelaye = useSeeelaye()
 
       // Run startup commands when terminal is ready
@@ -42,34 +35,9 @@
         }
       })
 
-      // Make FS tree from experience and work data
-      const makeTree = () => {
-        const rootNode = new FsNode(FsNodeType.FOLDER, '~')
-
-        const experienceNode = new FsNode(FsNodeType.FOLDER, 'experience')
-        experienceNode.parent = rootNode
-        rootNode.children.push(experienceNode)
-        store.state.resume.orgs.forEach((org: Org) => {
-          const orgNode = org.asFsNode
-          orgNode.parent = experienceNode
-          experienceNode.children.push(orgNode)
-        })
-
-        const workNode = new FsNode(FsNodeType.FOLDER, 'work')
-        workNode.parent = rootNode
-        rootNode.children.push(workNode)
-        store.state.resume.epics.forEach((epic: Epic) => {
-          const epicNode = epic.asFsNode
-          epicNode.parent = workNode
-          workNode.children.push(epicNode)
-        })
-
-        return rootNode
-      }
-      const tree = makeTree()
-      seeelaye.commit('setTree', { tree })
-      seeelaye.commit('setCurrentNode', { currentNode: tree })
-
+      seeelaye.commit('setCurrentNode', {
+        currentNode: seeelaye.state.tree,
+      })
       seeelaye.commit('setIsReady', { isReady: true })
     },
   })

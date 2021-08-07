@@ -16,9 +16,9 @@
 <script lang="ts">
   import { computed, defineComponent } from 'vue'
   import { useStore } from 'vuex'
+  import { useSeeelaye } from 'seeelaye'
 
-  import { IOrg, Org } from '@/models/org'
-  import { IEpic, Epic } from '@/models/epic'
+  import { tree, epics, orgs } from '@/data/resume'
 
   import Pane from '@/components/layouts/Pane.vue'
   import Slider from '@/components/layouts/Slider.vue'
@@ -27,8 +27,6 @@
   import Detail from '@/components/Detail.vue'
   import CLI from '@/components/CLI.vue'
 
-  import orgs from '@/data/experience.json'
-  import epics from '@/data/work.json'
   import debounce from 'lodash/debounce'
 
   export default defineComponent({
@@ -43,14 +41,11 @@
     },
     setup() {
       const store = useStore()
-      const allOrgs = (orgs.children as IOrg[]).map(Org.parse)
-      store.commit('resume/setOrgs', {
-        orgs: allOrgs,
-      })
-      const allEpics = (epics.children as IEpic[]).map(Epic.parse)
-      store.commit('resume/setEpics', {
-        epics: allEpics,
-      })
+      store.commit('resume/setOrgs', { orgs })
+      store.commit('resume/setEpics', { epics })
+
+      const seeelaye = useSeeelaye()
+      seeelaye.commit('setTree', { tree })
 
       const setBreakpoint = () => store.commit('ui/setViewportWidth')
       setBreakpoint()
