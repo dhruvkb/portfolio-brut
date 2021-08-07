@@ -1,7 +1,9 @@
 <template>
   <div class="help flex flex-col items-center justify-center text-sol-1">
-    <Kaomoji class="text-2xl mb-2"/>
-    <p>Welcome to my slice of the Internet.</p>
+    <Kaomoji
+      mood="happy"
+      class="text-2xl mb-2"/>
+    <p>Hey surfer! Welcome to my slice of the Internet.</p>
   </div>
 </template>
 
