@@ -45,8 +45,8 @@ module.exports = {
         '00': '#657b83', // L* 50
         0: '#839496', // L* 60
         1: '#93a1a1', // L* 65
-        2: '#eee8d5', // L* 92
-        3: '#fdf6e3', // L* 97
+        2: '#eee8d5', // L* 92 ~90
+        3: '#fdf6e3', // L* 97 ~95
         // Accent colors
         y: '#b58900', // yellow; Split comp
         o: '#cb4b16', // orange; Complement
