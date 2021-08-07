@@ -1,37 +1,39 @@
 <template>
   <div class="contact">
     <h2 class="font-semibold text-xs uppercase text-sol-1 border-b border-sol-1 mb-2">
-      <span class="pane-element">Contact</span>
+      <span class="pane-element-right-safe">Contact</span>
     </h2>
-    <table class="pane-element">
-      <thead class="hidden">
-        <tr>
-          <th>Site</th>
-          <th>Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="(site, index) in sites"
-          :key="index">
-          <td class="contact-cell header">{{ site.name }}</td>
-          <td class="contact-cell text-lg">
-            <a
-              :href="site.url"
-              target="_blank">
-              {{ site.text }}
-              <span class="text-xs font-bold text-sol-r">&UpperRightArrow;</span>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td class="contact-cell header">Email</td>
-          <td class="contact-cell text-lg">
-            <span class="secret" data-a="ih" data-b="bkvurhd" data-c="ved"></span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="pane-element-right-safe">
+      <table>
+        <thead class="hidden">
+          <tr>
+            <th>Site</th>
+            <th>Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(site, index) in sites"
+            :key="index">
+            <td class="contact-cell header">{{ site.name }}</td>
+            <td class="contact-cell text-lg">
+              <a
+                :href="site.url"
+                target="_blank">
+                {{ site.text }}
+                <span class="text-xs font-bold text-sol-r">&UpperRightArrow;</span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="contact-cell header">Email</td>
+            <td class="contact-cell text-lg">
+              <span class="secret" data-a="ih" data-b="bkvurhd" data-c="ved"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 

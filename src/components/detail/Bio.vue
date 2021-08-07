@@ -1,9 +1,9 @@
 <template>
   <div class="bio">
     <h2 class="font-semibold text-xs uppercase text-sol-1 border-b border-sol-1 mb-2">
-      <span class="pane-element">Bio</span>
+      <span class="pane-element-right-safe">Bio</span>
     </h2>
-    <div class="pane-element leading-snug text-lg mb-4">
+    <div class="pane-element-right-safe leading-snug text-lg mb-4">
       <p class="mb-4">
         I grew up in
         <a

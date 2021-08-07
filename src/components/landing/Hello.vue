@@ -1,5 +1,5 @@
 <template>
-  <div class="hello flex flex-col gap-16 py-8">
+  <div class="hello flex flex-col gap-16 py-8-safe">
     <Intro/>
     <Resume/>
     <Footer class="mt-auto"/>

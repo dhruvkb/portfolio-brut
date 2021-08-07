@@ -1,5 +1,5 @@
 <template>
-  <div class="intro pane-element">
+  <div class="intro pane-element-left-safe">
     <p class="text-xl leading-snug mb-4">
       Hello! I am
       <RouterLink :to="{ name: 'home' }">
