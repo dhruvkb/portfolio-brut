@@ -12,7 +12,7 @@
     "core-js": "^3.8.3",
     "highlight.js": "^11.1.0",
     "lodash": "^4.17.21",
-    "seeelaye": "^0.0.1-alpha.9",
+    "seeelaye": "^0.0.2-alpha.0",
     "simple-icons": "^5.7.0",
     "vue": "^3.0.4",
     "vue-router": "^4.0.3",
