@@ -43,7 +43,8 @@
   })
 </script>
 
-<style scoped lang="css" src="seeelaye/dist/themes/solarized.css"/>
+<style lang="css" src="seeelaye/style/style.css"/>
+<style scoped lang="css" src="seeelaye/themes/solarized.css"/>
 <style scoped lang="css">
   .cli {
     ::v-deep(.terminal) {
