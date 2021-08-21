@@ -47,38 +47,5 @@
 
   export default defineComponent({
     name: 'Bio',
-    setup() {
-      return {
-        colors: {
-          from: [
-            'from-sol-v',
-            'from-sol-b',
-            'from-sol-c',
-            'from-sol-g',
-            'from-sol-y',
-            'from-sol-o',
-            'from-sol-m',
-          ],
-          to: [
-            'to-sol-b',
-            'to-sol-c',
-            'to-sol-g',
-            'to-sol-y',
-            'to-sol-o',
-            'to-sol-m',
-            'to-sol-v',
-          ],
-        },
-        works: [
-          'writing elegant code',
-          'designing accessible interfaces',
-          'deploying scalable apps',
-          'authoring helpful documentation',
-          'nurturing FOSS communities',
-          'hiding easter eggs',
-          'composing extempore haiku',
-        ],
-      }
-    },
   })
 </script>
