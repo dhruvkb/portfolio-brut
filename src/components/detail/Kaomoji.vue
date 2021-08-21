@@ -18,6 +18,7 @@
     setup(props) {
       const edgePairs: [string, string][] = [
         ['(', ')'],
+        ['[', ']'],
       ]
       let eyePairs: [string, string][]
       let mouths: string[]
@@ -32,7 +33,7 @@
             ['´•', '•`'],
             ['◕', '◕'],
           ]
-          mouths = ['◡', 'ᴗ', 'ᵕ', '▽', 'ヮ', '*']
+          mouths = ['◡', 'ᴗ', '▽', 'ヮ']
           hands = ['ﾉ', 'ノ', 'ﾉﾟ', '◞*']
           break
         case 'confused':
