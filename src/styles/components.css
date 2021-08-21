@@ -1,5 +1,6 @@
 /*! @import */
 @import "tailwind/components.css";
 @import "components/site_title.css";
+@import "components/links.css";
 @import "components/landing.css";
 @import "components/details.css";

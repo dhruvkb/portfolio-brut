@@ -1,0 +1,40 @@
+/*! @import */
+
+@layer components {
+  .link {
+    @apply hover:underline focus:underline focus:outline-none;
+
+    &::after {
+      @apply inline-block text-xs text-sol-r font-bold transform transition-transform duration-100;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      @apply translate-x-0.5;
+    }
+
+    /* Less prominent links */
+    &.small {
+      @apply text-xs font-semibold uppercase;
+    }
+
+    /* Internal links */
+    &:not(.external) {
+      &::after {
+        content: "→";
+      }
+    }
+
+    /* External links */
+    &.external {
+      &::after {
+        content: "↗";
+      }
+
+      &:hover::after,
+      &:focus::after {
+        @apply -translate-y-0.5;
+      }
+    }
+  }
+}
