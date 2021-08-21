@@ -2,7 +2,9 @@
   <div class="intro pane-element-left-safe">
     <p class="text-xl leading-snug mb-4">
       Hello! I am
-      <RouterLink :to="{ name: 'home' }">
+      <RouterLink
+        class="hover:underline focus:underline focus:outline-none"
+        :to="{ name: 'home' }">
         <strong class="site-title font-mono tracking-tight">Dhruv Bhanushali</strong>
       </RouterLink>,
       a software engineer and open-source maintainer who also wears many other
