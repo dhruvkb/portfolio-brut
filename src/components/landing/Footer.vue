@@ -5,11 +5,10 @@
       <span v-else>Thanks for visiting!</span>
     </p>
     <a
-      class="font-semibold text-xs uppercase hover:underline"
+      class="external small link"
       href="https://github.com/dhruvkb/portfolio-brut"
       target="_blank">
-      source code <span class="text-sol-r">&UpperRightArrow;</span>
-    </a>
+      Source code</a>
   </footer>
 </template>
 

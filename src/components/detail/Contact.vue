@@ -18,10 +18,10 @@
             <td class="contact-cell header">{{ site.name }}</td>
             <td class="contact-cell text-lg">
               <a
+                class="external link"
                 :href="site.url"
                 target="_blank">
                 {{ site.text }}
-                <span class="text-xs font-bold text-sol-r">&UpperRightArrow;</span>
               </a>
             </td>
           </tr>

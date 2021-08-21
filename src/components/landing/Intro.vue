@@ -8,9 +8,10 @@
       a software engineer and open-source maintainer who also wears many other
       hats.
     </p>
-    <RouterLink :to="{ name: 'hello' }" class="text-xs font-bold uppercase">
-      More about this guy <span class="text-sol-r">&rarr;</span>
-    </RouterLink>
+    <RouterLink
+      class="link small"
+      :to="{ name: 'hello' }">
+      More about this guy</RouterLink>
   </div>
 </template>
 

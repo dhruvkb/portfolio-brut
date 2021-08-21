@@ -3,12 +3,10 @@
     <Experience class="mb-6"/>
     <Work class="mb-6"/>
     <a
-      class="pane-element-left-safe font-semibold text-sol-00 text-xs uppercase hover:underline"
+      class="pane-element-left-safe external small link"
       href="https://dhruvkb.github.io/resume/"
       target="_blank">
-      Resume
-      <span class="text-sol-r">&UpperRightArrow;</span>
-    </a>
+      Resume</a>
   </div>
 </template>
 
