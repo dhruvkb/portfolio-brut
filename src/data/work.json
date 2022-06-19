@@ -1,5 +1,54 @@
 [
   {
+    "slug": "openverse",
+    "name": "Openverse",
+    "node": {
+      "name": "openverse"
+    },
+    "children": [
+      {
+        "slug": "frontend",
+        "title": "Search engine",
+        "url": "https://github.com/WordPress/openverse-frontend/",
+        "technologies": [
+          {
+            "name": "JavaScript",
+            "icon": "javascript"
+          },
+          {
+            "name": "Nuxt",
+            "icon": "nuxtdotjs"
+          },
+          {
+            "name": "Tailwind",
+            "icon": "tailwindcss"
+          }
+        ],
+        "node": {
+          "name": "openverse-frontend.vue"
+        }
+      },
+      {
+        "slug": "backend",
+        "title": "API",
+        "url": "https://github.com/WordPress/openverse-api/",
+        "technologies": [
+          {
+            "name": "Python",
+            "icon": "python"
+          },
+          {
+            "name": "Django",
+            "icon": "django"
+          }
+        ],
+        "node": {
+          "name": "openverse_api.py"
+        }
+      }
+    ]
+  },
+  {
     "slug": "seeelaye",
     "name": "see·el·aye",
     "node": {
@@ -8,7 +57,7 @@
     "children": [
       {
         "slug": "seeelaye",
-        "title": "CLI",
+        "title": "CLI emulator",
         "url": "https://seeelaye.vercel.app",
         "technologies": [
           {

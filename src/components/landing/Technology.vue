@@ -15,6 +15,7 @@
   import gnubash from 'simple-icons/icons/gnubash'
   import javascript from 'simple-icons/icons/javascript'
   import latex from 'simple-icons/icons/latex'
+  import nuxtdotjs from 'simple-icons/icons/nuxtdotjs'
   import python from 'simple-icons/icons/python'
   import readthedocs from 'simple-icons/icons/readthedocs'
   import tailwindcss from 'simple-icons/icons/tailwindcss'
@@ -42,6 +43,7 @@
           gnubash,
           javascript,
           latex,
+          nuxtdotjs,
           python,
           readthedocs,
           tailwindcss,
