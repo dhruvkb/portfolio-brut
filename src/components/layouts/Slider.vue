@@ -1,9 +1,8 @@
 <template>
   <div
     class="slider
-      fixed inset-y-0 right-0 z-20
+      fixed inset-y-0 -right-px z-20
       flex flex-row
-      text-sol-00 bg-sol-2
       transition duration-300"
     :class="[{ 'is-active': isSliderOpen }]"
     :style="{ '--slider-size': `${sliderSize}px` }">
@@ -18,7 +17,10 @@
       class="hidden mb:block
         flex items-center justify-center
         text-xs font-bold uppercase
-        w-8 h-full border-l border-r border-l-sol-1 border-r-sol-2"
+        text-sol-00 bg-sol-2
+        box-content w-8 h-full
+        border-l border-r border-l-sol-1 border-r-sol-1"
+      :class="[{ 'pr-0-safe': !isSliderOpen }]"
       @click="toggleSlider">
       <span class="vertical">
         <template v-if="isSliderOpen">
@@ -30,7 +32,16 @@
       </span>
     </button>
 
-    <div class="content flex flex-col overflow-y-scroll">
+    <div class="content flex flex-col relative text-sol-00 bg-sol-3">
+      <div
+        v-if="isFullScreen"
+        class="absolute top-2 right-2 text-right">
+        <button
+          class="text-sol-r text-xl bg-sol-2 h-8 w-8 rounded-full"
+          @click="toggleSlider">
+          &times;
+        </button>
+      </div>
       <slot/>
     </div>
   </div>
@@ -56,6 +67,7 @@
       const isSliderOpen = computed(() => store.state.ui.isSliderOpen)
       const isLandingInactive = computed(() => store.getters['ui/isLandingInactive'])
       const sliderSize = computed(() => store.getters['ui/sliderSize'])
+      const isFullScreen = computed(() => ['s', 'z'].includes(store.getters['ui/breakpointName']))
       const toggleSlider = () => {
         store.commit('ui/setIsSliderOpen', {
           isSliderOpen: !isSliderOpen.value,
@@ -83,6 +95,7 @@
         isSliderOpen,
         isLandingInactive,
         sliderSize,
+        isFullScreen,
         toggleSlider,
         goHome,
       }
@@ -90,7 +103,6 @@
   })
 </script>
 
-<style scoped lang="css" src="seeelaye/dist/themes/solarized.css"/>
 <style scoped lang="css">
   .slider {
     transform: translateX(var(--slider-size));

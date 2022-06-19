@@ -1,10 +1,16 @@
 <template>
-  <div class="overflow-x-hidden">
-    <div
-      class="h-screen spb:grid spb:grid-cols-2 mb:mr-8"
-      id="app-root">
-      <Pane><Landing/></Pane>
-      <Pane v-if="sliderContents === 'cli'"><Detail/></Pane>
+  <div
+    class="overflow-x-hidden"
+    id="app-root">
+    <div class="panes h-full min-h-screen spb:grid spb:grid-cols-2 pr-0-safe mb:mr-8">
+      <Pane>
+        <Landing/>
+      </Pane>
+      <Pane
+        v-if="isTwoPane"
+        class="right border-l border-sol-1">
+        <Detail/>
+      </Pane>
     </div>
     <Slider :contents="sliderContents">
       <CLI v-if="sliderContents === 'cli'"/>
@@ -54,9 +60,11 @@
         debounce(setBreakpoint, 100),
         false,
       )
+      const isTwoPane = computed(() => store.getters['ui/isTwoPane'])
       const sliderContents = computed(() => store.getters['ui/sliderContents'])
 
       return {
+        isTwoPane,
         sliderContents,
       }
     },

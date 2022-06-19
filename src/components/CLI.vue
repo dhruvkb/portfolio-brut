@@ -1,6 +1,6 @@
 <template>
-  <div class="cli flex-grow">
-    <Terminal class="terminal solarized dark"/>
+  <div class="cli flex flex-col min-h-full">
+    <Terminal class="terminal solarized dark flex-grow overflow-y-auto"/>
   </div>
 </template>
 
