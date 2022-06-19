@@ -12,7 +12,7 @@ export const rangeIndicator = '\u2013'
 
 export interface IPeriod {
   /**
-   * the end date of the role, represented as a string pair with the month and
+   * the start date of the role, represented as a string pair with the month and
    * the year
    */
   start: string[]
