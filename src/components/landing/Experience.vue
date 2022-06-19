@@ -1,13 +1,16 @@
 <template>
   <div class="experience text-sol-00 hover:text-sol-1 border-b border-sol-1">
     <ExperienceRow class="font-semibold text-xs uppercase text-sol-1 border-b border-sol-1"/>
-    <ExperienceRow
+    <div
       v-for="(role, roleIndex) in roles"
       :key="roleIndex"
-      class="text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors"
-      :class="[...role.isLast ? ['border-b', 'border-sol-2'] : []]"
-      :role="role"
-      @click="populateInput(role)"/>
+      class="text-lg hover:text-sol-01 hover:bg-sol-2 transition-colors">
+      <ExperienceRow
+        class="transform transition-transform hover:translate-x-1"
+        :class="[...role.isLast ? ['border-b', 'border-sol-2'] : []]"
+        :role="role"
+        @click="populateInput(role)"/>
+    </div>
   </div>
 </template>
 
